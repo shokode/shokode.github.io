@@ -1,0 +1,88 @@
+nav a {
+  transition: color 0.3s, font-weight 0.3s;
+  color: var(--color-teal);
+}
+nav a.active {
+  color: var(--color-cream);
+  font-weight: 600;
+}
+nav a:hover {
+  color: var(--color-teal);
+}
+
+h2 {
+  color: var(--color-blush);
+}
+
+p {
+  color: var(--color-blush);
+  opacity: 0.7;
+}
+
+.shoko-s {
+  color: transparent;
+  animation: shoko-s-appear 0.5s ease forwards;
+}
+
+.shoko-rest {
+  color: transparent;
+  background: linear-gradient(to right, #FFEDED 50%, transparent 50%);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shoko-fill 2s ease forwards;
+  animation-delay: 0.6s;
+}
+
+@keyframes shoko-s-appear {
+  to {
+    color: #FFEDED;
+  }
+}
+@keyframes shoko-fill {
+  to {
+    background-position: 0% 0;
+  }
+}
+.btn-lang {
+  padding: 4px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 237, 237, 0.4);
+  color: rgba(255, 237, 237, 0.5);
+  background: transparent;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-lang:hover {
+  border-color: rgba(255, 237, 237, 0.7);
+  color: rgba(255, 237, 237, 0.9);
+}
+.btn-lang.active {
+  background: #FFEDED;
+  color: #111B18;
+  border-color: #FFEDED;
+}
+
+.skill-chip {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: #FFEDED;
+  border: 1px solid #633D26;
+  border-radius: 999px;
+  padding: 4px 14px;
+  opacity: 0.8;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 237, 237, 0.5);
+  display: inline-block;
+}
+.dot.filled {
+  background: #FFEDED;
+  border-color: #FFEDED;
+}
