@@ -40,7 +40,9 @@ function isActive(path: string): boolean {
     >
 
     <!-- About: 経歴・自己紹介 -->
-    <a href="/cv" class:list={["nav-link", { active: isActive("/cv") }]}>About</a>
+    <a href="/cv" class:list={["nav-link", { active: isActive("/cv") }]}
+      >About</a
+    >
 
     <!-- ダークモード切り替えボタン
          クリック時の処理は Layout.astro の <script> に書いています
@@ -99,13 +101,13 @@ function isActive(path: string): boolean {
 
   /* スライドインするアンダーライン */
   .nav-link::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -2px;
     left: 0;
     width: 100%;
     height: 1px;
-    background: #F4A8AD;
+    background: #f4a8ad;
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
