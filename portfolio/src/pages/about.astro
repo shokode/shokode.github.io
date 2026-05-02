@@ -47,7 +47,9 @@ import '../styles/about.scss';
 
       <!-- --- ヒーロー --- -->
       <section class="px-8 py-24">
-        <h1 class="text-8xl font-black uppercase tracking-tight shoko-title">SHOKO</h1>
+        <h1 class="text-8xl font-black uppercase tracking-tight">
+          <span class="shoko-s">S</span><span class="shoko-rest">HOKO</span>
+        </h1>
         <hr class="border-salmon my-8" />
         <p class="text-blush italic text-lg"
            data-en="Designer / Student. Oslo-based. Detail-obsessed."
@@ -407,42 +409,6 @@ import '../styles/about.scss';
           </li>
         </ul>
 
-        <!-- UI/UX レーダーチャート -->
-        <h3 class="text-xl font-bold mb-2 text-blush"
-            data-en="UI/UX Developer Traits"
-            data-ja="UI/UX開発者の特性"
-            data-no="Egenskaper for UI/UX-utvikler">
-          UI/UX Developer Traits
-        </h3>
-        <p class="text-blush opacity-50 text-sm mb-6"
-           data-en="Strength map for design and development balance"
-           data-ja="デザインと開発のバランスを示す強みマップ"
-           data-no="Styrkekart for balanse mellom design og utvikling">
-          Strength map for design and development balance
-        </p>
-
-        <!-- SVG は JavaScript が描画します（触らなくてOKです） -->
-        <svg id="uix-svg" viewBox="0 0 340 340" class="radar-svg">
-          <g stroke="#FFEDED" stroke-opacity=".12" fill="none" transform="translate(170,170)">
-            <polygon id="uix-ring-100"></polygon>
-            <polygon id="uix-ring-80"></polygon>
-            <polygon id="uix-ring-60"></polygon>
-            <polygon id="uix-ring-40"></polygon>
-            <polygon id="uix-ring-20"></polygon>
-            <g id="uix-axes"></g>
-          </g>
-          <g transform="translate(170,170)">
-            <polygon id="uix-poly"
-              fill="#FFEDED" fill-opacity=".08"
-              stroke="#FFEDED" stroke-width="2" stroke-opacity=".4">
-            </polygon>
-            <g id="uix-dots"></g>
-          </g>
-          <g id="uix-labels" font-size="10" fill="#FFEDED" fill-opacity=".7" text-anchor="middle"></g>
-        </svg>
-
-        <!-- 各軸のスコア一覧（JavaScript が生成します） -->
-        <div id="uix-legend" class="radar-legend"></div>
 
       </section>
 
@@ -508,9 +474,6 @@ import '../styles/about.scss';
       btn.classList.toggle('active', btn.dataset.lang === lang);
     });
 
-    // レーダーの言語も合わせる
-    radarLang = lang;
-    renderRadar();
   }
 
   document.querySelectorAll<HTMLButtonElement>('.btn-lang').forEach((btn) => {
@@ -518,123 +481,6 @@ import '../styles/about.scss';
   });
 
 
-  /* ----------------------------------------------------------
-     ③ UI/UX レーダーチャート
-
-     ★ スコアを変えたい場合は UIX_AXES の val を変更してください（0〜100）
-  ---------------------------------------------------------- */
-
-  const UIX_AXES = [
-    { en: 'Curiosity',           ja: '好奇心',       no: 'Nysgjerrighet',     val: 80  },
-    { en: 'Empathy',             ja: '共感力',       no: 'Empati',            val: 100 },
-    { en: 'Attention to Detail', ja: '細部への注意', no: 'Detaljfokus',       val: 100 },
-    { en: 'System Thinking',     ja: '構造的思考',   no: 'Systemtenkning',    val: 100 },
-    { en: 'Communication',       ja: '共有力',       no: 'Kommunikasjon',     val: 60  },
-    { en: 'Perseverance',        ja: '粘り強さ',     no: 'Utholdenhet',       val: 100 },
-    { en: 'Adaptability',        ja: '柔軟性',       no: 'Fleksibilitet',     val: 80  },
-    { en: 'Purpose Awareness',   ja: '目的意識',     no: 'Formålsbevissthet', val: 80  },
-  ] as const;
-
-  const RADAR_R = 130;
-  let radarLang = 'en';
-
-  /** 角度と半径から SVG 座標を計算（0度 = 上） */
-  function polar(deg: number, r: number): [number, number] {
-    const a = (deg - 90) * (Math.PI / 180);
-    return [Math.cos(a) * r, Math.sin(a) * r];
-  }
-
-  /** グリッドリングの points 文字列を生成 */
-  function ringPoints(n: number, r: number, ratio = 1): string {
-    const step = 360 / n;
-    return Array.from({ length: n }, (_, i) => polar(i * step, r * ratio).join(',')).join(' ');
-  }
-
-  /** データポリゴンの points 文字列を生成 */
-  function dataPoints(vals: readonly number[], r: number): string {
-    const step = 360 / vals.length;
-    return vals.map((v, i) => polar(i * step, (v / 100) * r).join(',')).join(' ');
-  }
-
-  /** レーダーチャートを描画する */
-  function renderRadar() {
-    const n = UIX_AXES.length;
-    const step = 360 / n;
-    const NS = 'http://www.w3.org/2000/svg';
-
-    // グリッドリングを描画
-    [100, 80, 60, 40, 20].forEach((pct) => {
-      document.getElementById(`uix-ring-${pct}`)!
-        .setAttribute('points', ringPoints(n, RADAR_R, pct / 100));
-    });
-
-    // 軸の線を描画
-    const axesGroup = document.getElementById('uix-axes')!;
-    axesGroup.innerHTML = '';
-    for (let i = 0; i < n; i++) {
-      const [x, y] = polar(i * step, RADAR_R);
-      const line = document.createElementNS(NS, 'line');
-      line.setAttribute('x1', '0');
-      line.setAttribute('y1', '0');
-      line.setAttribute('x2', String(x));
-      line.setAttribute('y2', String(y));
-      axesGroup.appendChild(line);
-    }
-
-    // データポリゴンを描画
-    const vals = UIX_AXES.map((a) => a.val);
-    document.getElementById('uix-poly')!.setAttribute('points', dataPoints(vals, RADAR_R));
-
-    // 各軸のドットを描画
-    const dotsGroup = document.getElementById('uix-dots')!;
-    dotsGroup.innerHTML = '';
-    for (let i = 0; i < n; i++) {
-      const [x, y] = polar(i * step, (vals[i] / 100) * RADAR_R);
-      const circle = document.createElementNS(NS, 'circle');
-      circle.setAttribute('cx', String(x));
-      circle.setAttribute('cy', String(y));
-      circle.setAttribute('r', '3.2');
-      circle.setAttribute('fill', '#FFEDED');
-      circle.setAttribute('fill-opacity', '.6');
-      dotsGroup.appendChild(circle);
-    }
-
-    // ラベルを描画
-    const labelsGroup = document.getElementById('uix-labels')!;
-    labelsGroup.innerHTML = '';
-    for (let i = 0; i < n; i++) {
-      const [x, y] = polar(i * step, RADAR_R + 18);
-      const text = document.createElementNS(NS, 'text');
-      text.setAttribute('x', String(170 + x));
-      text.setAttribute('y', String(170 + y + 4));
-      const axis = UIX_AXES[i] as Record<string, unknown>;
-      text.textContent = String(axis[radarLang] ?? axis['en']);
-      labelsGroup.appendChild(text);
-    }
-
-    // 凡例を描画
-    const legend = document.getElementById('uix-legend')!;
-    legend.innerHTML = '';
-    UIX_AXES.forEach((axis) => {
-      const item = document.createElement('div');
-      item.className = 'legend-item';
-
-      const axisAny = axis as Record<string, unknown>;
-      const label = document.createElement('span');
-      label.textContent = String(axisAny[radarLang] ?? axisAny['en']);
-
-      const score = document.createElement('span');
-      score.className = 'legend-score';
-      score.textContent = String(axis.val);
-
-      item.appendChild(label);
-      item.appendChild(score);
-      legend.appendChild(item);
-    });
-  }
-
-  // 初期描画
-  renderRadar();
   switchLang('en');
 
 </script>

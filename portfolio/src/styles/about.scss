@@ -30,9 +30,15 @@ p {
   opacity: 0.7;
 }
 
-// --- SHOKO タイトル：輪郭だけの状態から左→右に色が塗られるアニメーション ---
-.shoko-title {
-  -webkit-text-stroke: 2px rgba(255, 237, 237, 0.8);
+// --- S：先に0.6秒後にふわっと出現 ---
+.shoko-s {
+  color: transparent;
+  animation: shoko-s-appear 0.5s ease forwards;
+  // animation-delay: 0.6s;
+}
+
+// --- HOKO：Sの1秒後から左→右に色が塗られる ---
+.shoko-rest {
   color: transparent;
   background: linear-gradient(to right, #FFEDED 50%, transparent 50%);
   background-size: 200% 100%;
@@ -40,7 +46,13 @@ p {
   -webkit-background-clip: text;
   background-clip: text;
   animation: shoko-fill 2s ease forwards;
-  animation-delay: 0.2s;
+  animation-delay: 0.6s;
+}
+
+@keyframes shoko-s-appear {
+  to {
+    color: #FFEDED;
+  }
 }
 
 @keyframes shoko-fill {
@@ -94,38 +106,5 @@ p {
   &.filled {
     background: #FFEDED;
     border-color: #FFEDED;
-  }
-}
-
-// --- UI/UX レーダーチャート ---
-.radar-svg {
-  display: block;
-  width: 100%;
-  max-width: 380px;
-  height: auto;
-  margin-bottom: 1.5rem;
-}
-
-.radar-legend {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  max-width: 380px;
-}
-
-// --- 凡例アイテム（JavaScript が動的に生成） ---
-.legend-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 12px;
-  border: 1px solid rgba(255, 237, 237, 0.15);
-  border-radius: 8px;
-  font-size: 0.78rem;
-  color: rgba(255, 237, 237, 0.7);
-
-  .legend-score {
-    color: rgba(255, 237, 237, 0.4);
-    font-size: 0.72rem;
   }
 }
