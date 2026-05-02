@@ -47,7 +47,7 @@ import '../styles/about.scss';
 
       <!-- --- ヒーロー --- -->
       <section class="px-8 py-24">
-        <h1 class="text-8xl font-black text-blush uppercase tracking-tight">SHOKO</h1>
+        <h1 class="text-8xl font-black uppercase tracking-tight shoko-title">SHOKO</h1>
         <hr class="border-salmon my-8" />
         <p class="text-blush italic text-lg"
            data-en="Designer / Student. Oslo-based. Detail-obsessed."
@@ -456,94 +456,6 @@ import '../styles/about.scss';
      スタイル（CV ページ専用）
      about.scss が nav a / h2 / p の基本色を担っています。
 ============================================================ -->
-<style>
-  /* 言語切り替えボタン */
-  .btn-lang {
-    padding: 4px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 237, 237, 0.4);
-    color: rgba(255, 237, 237, 0.5);
-    background: transparent;
-    font-size: 0.75rem;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
-  .btn-lang:hover {
-    border-color: rgba(255, 237, 237, 0.7);
-    color: rgba(255, 237, 237, 0.9);
-  }
-
-  /* アクティブな言語ボタン */
-  .btn-lang.active {
-    background: #FFEDED;
-    color: #111B18;
-    border-color: #FFEDED;
-  }
-
-  /* スキルチップ */
-  .skill-chip {
-    display: inline-block;
-    font-size: 0.8rem;
-    color: #FFEDED;
-    border: 1px solid #633D26;
-    border-radius: 999px;
-    padding: 4px 14px;
-    opacity: 0.8;
-  }
-
-  /* 言語習熟度ドット（空丸） */
-  .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 1.5px solid rgba(255, 237, 237, 0.5);
-    display: inline-block;
-  }
-
-  /* 塗りつぶしドット */
-  .dot.filled {
-    background: #FFEDED;
-    border-color: #FFEDED;
-  }
-
-  /* UI/UX レーダー SVG */
-  .radar-svg {
-    display: block;
-    width: 100%;
-    max-width: 380px;
-    height: auto;
-    margin-bottom: 1.5rem;
-  }
-
-  /* レーダー凡例グリッド（JavaScript が中身を生成します） */
-  .radar-legend {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.5rem;
-    max-width: 380px;
-  }
-
-  /* 凡例の各アイテム（JavaScript が生成します） */
-  :global(.legend-item) {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 6px 12px;
-    border: 1px solid rgba(255, 237, 237, 0.15);
-    border-radius: 8px;
-    font-size: 0.78rem;
-    color: rgba(255, 237, 237, 0.7);
-  }
-
-  :global(.legend-item .legend-score) {
-    color: rgba(255, 237, 237, 0.4);
-    font-size: 0.72rem;
-  }
-
-  /* about.scss の p { opacity: 0.7 } をリセットしたいときは opacity-100 クラスを使ってください */
-</style>
-
 
 <!-- ============================================================
      JavaScript
