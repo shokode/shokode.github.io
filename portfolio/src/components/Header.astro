@@ -1,0 +1,156 @@
+---
+/**
+ * サイトヘッダー (Header.astro)
+ * ==============================
+ * 全ページの上部に表示される共通ナビゲーションです。
+ * Layout.astro から読み込まれます。
+ *
+ * ナビリンクを追加・変更したい場合は
+ * 下の <nav> 内の <a> タグを編集してください。
+ *
+ * ダークモードの切り替えボタン (#themeToggle) もここにあります。
+ * ボタンの JavaScript は Layout.astro の <script> に書いています。
+ */
+
+// 現在のページパスを取得（アクティブなリンクに active クラスを付けるため）
+const currentPath = Astro.url.pathname;
+
+/**
+ * 指定したパスが現在のページかどうか判定する関数
+ * '/' はトップページだけを対象にする（他のパスと被らないように）
+ */
+function isActive(path: string): boolean {
+  if (path === "/") return currentPath === "/";
+  return currentPath.startsWith(path);
+}
+---
+
+<header class="site-header">
+  <!-- サイトロゴ（クリックでトップに戻る） -->
+  <a class="site-logo" href="/">Shoko</a>
+
+  <!-- ナビゲーション -->
+  <nav class="site-nav">
+    <!-- Works: トップページ（制作物一覧） -->
+    <a href="/" class:list={["nav-link", { active: isActive("/") }]}>Works</a>
+
+    <!-- Blog: 制作記録 -->
+    <a href="/blog" class:list={["nav-link", { active: isActive("/blog") }]}
+      >Blog</a
+    >
+
+    <!-- About: 経歴・自己紹介 -->
+    <a href="/cv" class:list={["nav-link", { active: isActive("/cv") }]}>About</a>
+
+    <!-- ダークモード切り替えボタン
+         クリック時の処理は Layout.astro の <script> に書いています
+         &#9689; は半円の Unicode 文字（☉ のような記号）-->
+    <button id="themeToggle" type="button" aria-label="ダークモード切り替え">
+      &#9689;
+    </button>
+  </nav>
+</header>
+
+<style>
+  /* ヘッダー全体（画面上部に固定） */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: #162235;
+    border-bottom: 1px var(--color-cream);
+  }
+
+  /* サイトロゴ */
+  .site-logo {
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: #ffeded;
+    text-decoration: none;
+  }
+
+  /* ナビゲーション（リンクとボタンを横並びに） */
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  /* ナビリンク */
+  .nav-link {
+    position: relative;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #ffeded;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  /* ホバー・アクティブで不透明に */
+  .nav-link:hover,
+  .nav-link.active {
+    opacity: 1;
+  }
+
+  /* スライドインするアンダーライン */
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #F4A8AD;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    transform: scaleX(1);
+  }
+
+  /* ダークモード切り替えボタン */
+  #themeToggle {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #ffeded;
+    background: transparent;
+    cursor: pointer;
+    color: #ffeded;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding: 0;
+    flex-shrink: 0;
+    transition: background-color 0.2s;
+  }
+
+  #themeToggle:hover {
+    background: rgba(255, 237, 237, 0.15);
+  }
+
+  /* スマホ用レイアウト調整 */
+  @media (max-width: 640px) {
+    .site-header {
+      padding: 0.75rem 1rem;
+    }
+
+    .site-nav {
+      gap: 0.75rem;
+    }
+
+    .nav-link {
+      font-size: 0.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,262 @@
+---
+/**
+ * Works ページ — /
+ * ==================
+ * ポートフォリオの制作物一覧ページです。
+ *
+ * 作品を追加・編集したいときは src/data/works.js を触ってください。
+ * カードのデザインを変えたいときは src/styles/works.css を触ってください。
+ *
+ * 仕組み:
+ *  - Astro がビルド時に works.js のデータを読んでカード HTML を生成します
+ *  - フィルターボタンは JavaScript でカードの表示/非表示を切り替えます
+ *  - PDF リンクは画面内のモーダルで開きます
+ */
+
+import Layout from '../layouts/Layout.astro';
+import { works } from '../data/works.js';
+import '../styles/works.css';
+
+// 日付の新しい順に並べ替え（works.js の date フィールドを使います）
+const sorted = [...works].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+);
+---
+
+
+<Layout title="Works — Shoko's Portfolio">
+
+  <div class="container">
+
+    <!-- ============================================================
+         フィルターバー
+         data-filter の値がカードの data-tags と照合されます。
+         ボタンを追加する場合は works.js の tags も合わせてください。
+    ============================================================ -->
+    <div class="filters">
+      <button class="filters-button is-active" data-filter="All">All</button>
+      <button class="filters-button" data-filter="Web">Web</button>
+      <button class="filters-button" data-filter="UI/UX">UI/UX</button>
+      <button class="filters-button" data-filter="Graphic">Graphic</button>
+      <button class="filters-button" data-filter="Video">Video</button>
+    </div>
+
+
+    <!-- ============================================================
+         カードグリッド
+         works.js のデータをループして 1 件ずつカードを生成します。
+         カードのスタイルは works.css で管理しています。
+    ============================================================ -->
+    <div class="card__container" id="workGrid">
+
+      {sorted.map((w) => {
+        const tagList = w.tags ?? [];
+
+        // type が "pdf"  → モーダルで開く
+        // type がそれ以外 → 外部リンクで開く (_blank)
+        const isPdf   = w.type === 'pdf';
+
+        // type が "video" かつ youtubeId がある → iframe 埋め込み
+        // それ以外 → サムネイル画像を表示
+        const isVideo = w.type === 'video' && w.youtubeId;
+
+        // カード下部の CTA テキスト（type と used の組み合わせで自動決定）
+        const cta =
+            w.type === 'web'   && w.used?.includes('Figma') ? 'View prototype →'
+          : w.type === 'web'                                 ? 'Visit site →'
+          : w.type === 'video'                               ? 'Watch video →'
+          : w.type === 'slides'                              ? 'View slides →'
+          : '';
+
+        return (
+          <article
+            class="card__article"
+            data-tags={tagList.join(',')}
+            data-type={w.type}
+          >
+
+            {/* --- リンク（PDF はモーダル / それ以外は外部タブ） --- */}
+            <a
+              class="card__link"
+              href={isPdf ? '#' : w.href}
+              data-pdf={isPdf ? w.href : undefined}
+              target={isPdf ? undefined : '_blank'}
+              rel={isPdf ? undefined : 'noopener'}
+            >
+
+              {/* --- メディア（動画 or 画像） --- */}
+              {isVideo ? (
+                <div class="card__media">
+                  <iframe
+                    src={`https://www.youtube.com/embed/${w.youtubeId}`}
+                    title={w.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                </div>
+              ) : (
+                <img class="card__img" src={w.thumb} alt={w.title} />
+              )}
+
+              {/* --- タグバッジ（カード左上に表示） --- */}
+              <div class="card__tags">
+                {tagList.map((t) => <span class="card__tag">{t}</span>)}
+              </div>
+
+              {/* --- ホバーで浮き上がる情報パネル --- */}
+              <div class="card__data">
+                <span class="card__description">{w.subtitle ?? ''}</span>
+                <h2 class="card__title">{w.title}</h2>
+
+                {/* 使用ツール一覧（タグっぽいチップで表示） */}
+                {w.used?.length ? (
+                  <ul class="card__tools">
+                    {w.used.map((u) => <li class="card__tool">{u}</li>)}
+                  </ul>
+                ) : null}
+
+                <span class="card__date">{w.date ?? ''}</span>
+                {cta ? <span class="card__cta">{cta}</span> : null}
+              </div>
+
+            </a>
+          </article>
+        );
+      })}
+
+    </div>
+  </div>
+
+
+  <!-- ============================================================
+       PDF モーダル
+       PDF リンクをクリックすると表示されます。
+       閉じ方: × ボタン / オーバーレイをクリック / Esc キー
+  ============================================================ -->
+  <div id="pdf-modal" class="pdf-modal">
+    <button id="pdf-modal-close" class="pdf-modal__close" aria-label="閉じる">
+      &#x2715;
+    </button>
+    <iframe id="pdf-frame" class="pdf-modal__frame" title="PDF viewer"></iframe>
+  </div>
+
+</Layout>
+
+
+<!-- ============================================================
+     スタイル（PDF モーダル専用）
+     カードや全体レイアウトは src/styles/works.css で管理しています。
+============================================================ -->
+<style>
+  /* モーダル背景オーバーレイ
+     デフォルトは非表示。JavaScript が display: block に切り替えます */
+  .pdf-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    z-index: 9999;
+    padding: 2rem;
+  }
+
+  /* × 閉じるボタン */
+  .pdf-modal__close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .pdf-modal__close:hover {
+    opacity: 0.7;
+  }
+
+  /* PDF を表示する iframe（モーダル内の全体を埋める） */
+  .pdf-modal__frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>
+
+
+<!-- ============================================================
+     JavaScript
+     ① PDF モーダルの開閉
+     ② フィルターボタンでカードを絞り込む
+============================================================ -->
+<script>
+
+  /* ----------------------------------------------------------
+     ① PDF モーダル
+  ---------------------------------------------------------- */
+
+  const modal    = document.getElementById('pdf-modal')     as HTMLElement;
+  const pdfFrame = document.getElementById('pdf-frame')     as HTMLIFrameElement;
+  const closeBtn = document.getElementById('pdf-modal-close') as HTMLButtonElement;
+  const workGrid = document.getElementById('workGrid')      as HTMLElement;
+
+  /** モーダルを閉じて iframe の PDF も止める */
+  function closePdfModal() {
+    modal.style.display = 'none';
+    pdfFrame.src = ''; // src をリセットすると PDF の再生が止まります
+  }
+
+  // PDF リンクをクリック → モーダルを開いて PDF を読み込む
+  workGrid.addEventListener('click', (e) => {
+    const link = (e.target as Element)?.closest('a[data-pdf]') as HTMLAnchorElement | null;
+    if (!link) return;
+
+    e.preventDefault();
+    pdfFrame.src = link.dataset.pdf!;
+    modal.style.display = 'block';
+  });
+
+  // × ボタンで閉じる
+  closeBtn.addEventListener('click', closePdfModal);
+
+  // オーバーレイ部分（iframe 以外）をクリックしても閉じる
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closePdfModal();
+  });
+
+  // Esc キーで閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closePdfModal();
+  });
+
+
+  /* ----------------------------------------------------------
+     ② フィルターボタン
+     カードの data-tags 属性と照合して表示/非表示を切り替えます
+  ---------------------------------------------------------- */
+
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filters-button');
+  const cards         = document.querySelectorAll<HTMLElement>('.card__article');
+
+  filterButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+
+      // クリックされたボタンをアクティブ状態にする
+      filterButtons.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      const activeFilter = btn.dataset.filter ?? 'All';
+
+      // 各カードのタグとフィルターを照合
+      cards.forEach((card) => {
+        const tags      = card.dataset.tags ? card.dataset.tags.split(',') : [];
+        const isVisible = activeFilter === 'All' || tags.includes(activeFilter);
+        card.style.display = isVisible ? '' : 'none';
+      });
+    });
+  });
+
+</script>

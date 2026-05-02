@@ -1,0 +1,138 @@
+---
+/**
+ * Blog 一覧ページ — /blog
+ * ========================
+ * src/content/blog/ にある Markdown ファイルを読み込んで一覧表示します。
+ *
+ * ブログ記事を追加したいときは src/content/blog/ に
+ * ファイル名.md を作成してください（ファイル名が URL になります）。
+ * 例: my-first-post.md → /blog/my-first-post/
+ *
+ * 各ファイルの先頭に以下のフロントマターが必要です:
+ *   title: "記事タイトル"
+ *   description: "記事の説明"
+ *   pubDate: "2026-05-02"
+ */
+
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+// ブログ記事を全件取得して、日付の新しい順に並べ替える
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+
+<Layout title="Blog — Shoko's Portfolio">
+
+  <div class="blog-wrap">
+
+    <h1 class="blog-heading">Blog</h1>
+
+    <!-- 記事が 0 件のときのメッセージ -->
+    {posts.length === 0 && (
+      <p class="blog-empty">まだ記事がありません。</p>
+    )}
+
+    <!-- 記事一覧 -->
+    {posts.length > 0 && (
+      <ul class="blog-list">
+        {posts.map((post) => (
+          <li class="blog-item">
+            <a href={`/blog/${post.id}/`} class="blog-link">
+
+              <!-- 公開日 -->
+              <time class="blog-date" datetime={post.data.pubDate.toISOString()}>
+                {post.data.pubDate.toLocaleDateString('ja-JP')}
+              </time>
+
+              <!-- タイトル -->
+              <h2 class="blog-title">{post.data.title}</h2>
+
+              <!-- 説明文 -->
+              <p class="blog-desc">{post.data.description}</p>
+
+            </a>
+          </li>
+        ))}
+      </ul>
+    )}
+
+  </div>
+
+</Layout>
+
+
+<style>
+  /* ページ全体のラッパー */
+  .blog-wrap {
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ページタイトル */
+  .blog-heading {
+    font-size: 2rem;
+    color: #394A65;
+    margin-bottom: 2rem;
+  }
+
+  /* 記事が 0 件のときのテキスト */
+  .blog-empty {
+    color: #6b7280;
+  }
+
+  /* 記事一覧（縦に並ぶグリッド） */
+  .blog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  /* 個別の記事カード */
+  .blog-item {
+    border: 1px solid rgba(57, 74, 101, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .blog-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  /* カード全体をクリッカブルにするリンク */
+  .blog-link {
+    display: block;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* 公開日 */
+  .blog-date {
+    display: block;
+    font-size: 0.85rem;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+  }
+
+  /* 記事タイトル */
+  .blog-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #394A65;
+    margin: 0 0 0.5rem;
+  }
+
+  /* 記事の説明文 */
+  .blog-desc {
+    font-size: 0.9rem;
+    color: #6b7280;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+    --color-salmon: #F4A8AD;
+    /* ピンクサーモン */
+    --color-cream: #FFF9B0;
+    /* クリーム */
+    --color-lemon: #FEDA15;
+    /* レモンイエロー */
+    --color-teal: #00A0B8;
+    /* ティール */
+    --color-sage: #88C998;
+    /* セージグリーン */
+    --color-orange: #EE7700;
+    /* オレンジ */
+    --color-brown: #633D26;
+    /* ブラウン */
+    --color-blush: #FFEDED;
+    /* ブラッシュ（超薄ピンク） */
+    --color-dark: #162235;
+    /* ダーク（ほぼ黒） */
+    --color-peach: #F6B796;
+    /* ピーチ */
+}

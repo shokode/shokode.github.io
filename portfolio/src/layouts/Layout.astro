@@ -1,0 +1,78 @@
+---
+/**
+ * 共通レイアウト (Layout.astro)
+ * ==============================
+ * 全ページで共有する HTML のベース構造です。
+ * ヘッダーはここで読み込んでいます。
+ *
+ * 使い方（各ページの .astro ファイル内）:
+ *   <Layout title="ページタイトル">
+ *     ここにページ固有のコンテンツ
+ *   </Layout>
+ *
+ * title を省略すると "Shoko's Portfolio" が使われます。
+ */
+
+import Header from "../components/Header.astro";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title = "Shoko's Portfolio" } = Astro.props;
+---
+
+
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+
+    <!-- 各ページが追加の <link> や <meta> を差し込む場所 -->
+    <slot name="head" />
+  </head>
+
+  <body class="dark">
+
+    <!-- サイト共通のナビゲーションヘッダー -->
+    <Header />
+
+    <!-- 各ページのコンテンツが入る場所 -->
+    <main>
+      <slot />
+    </main>
+
+  </body>
+</html>
+
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+  }
+</style>
+
+
+<script>
+  /**
+   * ダークモード切り替え
+   * Header の #themeToggle ボタンをクリックすると
+   * <body> に "dark" クラスが付いたり外れたりします。
+   * works.css の body.dark セレクタがテーマを切り替えます。
+   */
+  const toggle = document.getElementById('themeToggle');
+
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+    });
+  }
+</script>

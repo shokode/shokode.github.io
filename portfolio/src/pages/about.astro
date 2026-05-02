@@ -1,0 +1,168 @@
+---
+import Layout from "../layouts/Layout.astro";
+import "../styles/about.scss";
+---
+
+<Layout>
+    <div class="flex bg-dark">
+        <!-- 左：ナビ -->
+        <nav
+            class="sticky top-0 h-screen w-48 shrink-0 flex flex-col justify-center gap-6 px-8"
+        >
+            <a href="#history" class="text-sm text-gray-400">History</a>
+            <a href="#skills" class="text-sm text-gray-400">Skills</a>
+            <a href="#tools" class="text-sm text-gray-400">Tools</a>
+            <a href="#hobbies" class="text-sm text-gray-400">Hobbies</a>
+            <a href="#vision" class="text-sm text-gray-400">Vision</a>
+        </nav>
+
+        <!-- 右：コンテンツ（あとで追加） -->
+
+        <main class="flex-1 max-w-3xl py-8">
+            <!-- ヒーロー -->
+            <section class="px-8 py-24">
+                <h1
+                    class="text-8xl font-black text-blush uppercase tracking-tight"
+                >
+                    SHOKO
+                </h1>
+                <hr class="border-salmon my-8" />
+                <p class="text-blush italic text-lg">
+                    Developer in training.<br />Oslo-based. Detail-obsessed.
+                </p>
+            </section>
+
+            <section id="story" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-8">Story</h2>
+                <p>
+                    I'm Shoko — a Japanese developer who moved to Oslo, Norway
+                    in 2018 and never stopped falling in love with this cold,
+                    quiet, beautiful place. I came to static site development
+                    out of pure curiosity. No bootcamp, no CS degree — just a
+                    laptop, a browser, and a compulsive need to understand how
+                    things work. I learn by building. Before code, I was a
+                    freelance video editor with a habit of obsessing over
+                    kerning and colour palettes. That hasn't changed.
+                </p>
+            </section>
+            <section id="history" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-16">History</h2>
+
+                <div class="flex flex-col gap-0">
+                    <div
+                        class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
+                    >
+                        <span class="text-sm text-salmon pt-1">2018 — Now</span>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="w-2 h-2 rounded-full border border-blush mt-1"
+                            >
+                            </div>
+                            <div class="w-px flex-1 bg-brown mt-2"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-blush font-bold mb-2">
+                                Oslo, Norway
+                            </h3>
+                            <p class="text-blush opacity-60 text-sm">
+                                Relocated from Japan. Started a new chapter in
+                                Scandinavia — new language, new culture, new way
+                                of seeing the world.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
+                    >
+                        <span class="text-sm text-salmon pt-1">2022 — 2024</span
+                        >
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="w-2 h-2 rounded-full border border-blush mt-1"
+                            >
+                            </div>
+                            <div class="w-px flex-1 bg-brown mt-2"></div>
+                        </div>
+                        <div>
+                            <h3 class="text-blush font-bold mb-2">
+                                Freelance Video Editor
+                            </h3>
+                            <p class="text-blush opacity-60 text-sm">
+                                DaVinci Resolve, social content, short-form
+                                storytelling. Developed a visual eye that now
+                                shapes every design decision.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start"
+                    >
+                        <span class="text-sm text-salmon pt-1">2024 — Now</span>
+                        <div class="flex flex-col items-center">
+                            <div
+                                class="w-2 h-2 rounded-full border border-blush mt-1"
+                            >
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-blush font-bold mb-2">
+                                Static Site Developer
+                            </h3>
+                            <p class="text-blush opacity-60 text-sm">
+                                Learning HTML, CSS, and Astro from scratch.
+                                Building in public, documenting everything. This
+                                portfolio is the proof of work.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-8">Skills</h2>
+                <p>ここにSkillsの内容</p>
+            </section>
+
+            <section id="tools" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-8">Tools</h2>
+                <p>ここにToolsの内容</p>
+            </section>
+
+            <section id="hobbies" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-8">Hobbies</h2>
+                <p>ここにHobbiesの内容</p>
+            </section>
+
+            <section id="vision" class="min-h-screen py-32 px-8">
+                <h2 class="text-2xl font-bold mb-8">Vision</h2>
+                <p>ここにVisionの内容</p>
+            </section>
+        </main>
+
+        <script>
+            const sections = document.querySelectorAll("section[id]");
+            const navLinks = document.querySelectorAll("nav a");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach((entry) => {
+                        if (entry.isIntersecting) {
+                            navLinks.forEach((link) =>
+                                link.classList.remove("active"),
+                            );
+                            const active = document.querySelector(
+                                `nav a[href="#${entry.target.id}"]`,
+                            );
+                            if (active) active.classList.add("active");
+                        }
+                    });
+                },
+                { threshold: 0.3 },
+            );
+
+            sections.forEach((section) => observer.observe(section));
+        </script>
+    </div>
+</Layout>
