@@ -45,6 +45,58 @@ p {
     background-position: 0% 0;
   }
 }
+.nav-title-wrap {
+  overflow: hidden;
+  height: 2.5rem;
+  position: relative;
+}
+
+.nav-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  white-space: nowrap;
+}
+.nav-title.exit-up {
+  animation: nav-exit-up 0.25s ease forwards;
+}
+.nav-title.exit-down {
+  animation: nav-exit-down 0.25s ease forwards;
+}
+.nav-title.enter-up {
+  animation: nav-enter-up 0.25s ease forwards;
+}
+.nav-title.enter-down {
+  animation: nav-enter-down 0.25s ease forwards;
+}
+
+@keyframes nav-exit-up {
+  to {
+    transform: translateY(-120%);
+  }
+}
+@keyframes nav-exit-down {
+  to {
+    transform: translateY(120%);
+  }
+}
+@keyframes nav-enter-up {
+  from {
+    transform: translateY(120%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes nav-enter-down {
+  from {
+    transform: translateY(-120%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
 .btn-lang {
   padding: 4px 14px;
   border-radius: 999px;

@@ -61,6 +61,80 @@ p {
   }
 }
 
+// --- About ページのみヘッダーを透明にする ---
+.site-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 237, 237, 0.15);
+}
+
+// --- ページ背景色トランジション ---
+body {
+  transition: background-color 1.2s ease;
+}
+
+// --- 左ナビ：1タイトル表示 + 押し込みアニメーション ---
+.nav-title-wrap {
+  overflow: hidden;
+  height: 2.5rem;
+  position: relative;
+}
+
+.nav-title {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-cream);
+  white-space: nowrap;
+
+  &.exit-up {
+    animation: nav-exit-up 0.25s ease forwards;
+  }
+
+  &.exit-down {
+    animation: nav-exit-down 0.25s ease forwards;
+  }
+
+  &.enter-up {
+    animation: nav-enter-up 0.25s ease forwards;
+  }
+
+  &.enter-down {
+    animation: nav-enter-down 0.25s ease forwards;
+  }
+}
+
+@keyframes nav-exit-up {
+  to {
+    transform: translateY(-120%);
+  }
+}
+
+@keyframes nav-exit-down {
+  to {
+    transform: translateY(120%);
+  }
+}
+
+@keyframes nav-enter-up {
+  from {
+    transform: translateY(120%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes nav-enter-down {
+  from {
+    transform: translateY(-120%);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
 // --- 言語切り替えボタン ---
 .btn-lang {
   padding: 4px 14px;

@@ -17,48 +17,53 @@
  *   ページ下部 <script> 内の UIX_AXES の val を変更してください（0〜100）。
  */
 
-import Layout from '../layouts/Layout.astro';
-import '../styles/about.scss';
+import Layout from "../layouts/Layout.astro";
+import "../styles/about.scss";
 ---
 
-
 <Layout title="CV — Shoko's Portfolio">
-
-  <div class="flex bg-dark min-h-screen">
-
+  <div
+    id="page-wrap"
+    class="flex min-h-screen"
+    style="background: transparent;"
+  >
     <!-- =============================================
          左：セクションナビゲーション（スクロール追従）
          about.scss の nav a スタイルが適用されます。
          アクティブなセクションは IntersectionObserver が検出します。
     ============================================= -->
-    <nav class="sticky top-16 self-start h-[calc(100vh-4rem)] w-48 shrink-0 flex flex-col justify-center gap-6 px-8">
-      <a href="#story"    class="text-sm">Story</a>
-      <a href="#history"  class="text-sm">History</a>
-      <a href="#skills"   class="text-sm">Skills</a>
-      <a href="#hobbies"  class="text-sm">Hobbies</a>
-      <a href="#vision"   class="text-sm">Vision</a>
-    </nav>
+    <!-- 現在のセクション名だけを表示するナビ
+         JavaScript がスクロール方向に応じて押し込みアニメーションで切り替えます -->
+    <div
+      class="sticky top-16 self-start h-[calc(100vh-4rem)] w-48 shrink-0 flex flex-col justify-center px-8 relative z-10"
+    >
+      <div class="nav-title-wrap" aria-live="polite">
+        <span class="nav-title">Story</span>
+      </div>
+    </div>
 
+    <!-- ヘッダーとの境目をぼかすグラデーションオーバーレイ（固定・クリック透過） -->
+    <div class="top-fade-overlay"></div>
 
     <!-- =============================================
          右：メインコンテンツ
     ============================================= -->
-    <div class="flex-1 max-w-3xl py-8">
-
+    <div class="flex-1 max-w-3xl py-8 relative z-10">
       <!-- --- ヒーロー --- -->
       <section class="px-8 py-24">
         <h1 class="text-8xl font-black uppercase tracking-tight">
           <span class="shoko-s">S</span><span class="shoko-rest">HOKO</span>
         </h1>
         <hr class="border-salmon my-8" />
-        <p class="text-blush italic text-lg"
-           data-en="Designer / Student. Oslo-based. Detail-obsessed."
-           data-ja="デザイナー・学生。オスロ在住。細部にこだわる。"
-           data-no="Designer / Student. Oslo-basert. Detaljbesatt.">
+        <p
+          class="text-blush italic text-lg"
+          data-en="Designer / Student. Oslo-based. Detail-obsessed."
+          data-ja="デザイナー・学生。オスロ在住。細部にこだわる。"
+          data-no="Designer / Student. Oslo-basert. Detaljbesatt."
+        >
           Designer / Student. Oslo-based. Detail-obsessed.
         </p>
       </section>
-
 
       <!-- --- 言語切り替えボタン（EN / JP / NO） ---
            ここのボタンをクリックするとページ全体の data-en/ja/no テキストが切り替わります -->
@@ -70,27 +75,33 @@ import '../styles/about.scss';
         </nav>
       </div>
 
-
       <!-- ============================================================
            Story（About Me）
       ============================================================ -->
       <section id="story" class="min-h-screen py-24 px-8">
         <h2 class="text-2xl font-bold mb-8">Story</h2>
 
-        <p class="mb-6"
-           data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
-           data-ja="丁寧にものづくりをすることと、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校で学び、Web・アプリ開発者を目指しています。気づきや感性を活かして、UI/UXデザインを通じた思いやりのある体験づくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
-           data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør.">
-          I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer.
+        <p
+          class="mb-6"
+          data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
+          data-ja="丁寧にものづくりをすることと、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校で学び、Web・アプリ開発者を目指しています。気づきや感性を活かして、UI/UXデザインを通じた思いやりのある体験づくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
+          data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør."
+        >
+          I enjoy creating with care and exploring new ideas. Paying attention
+          to details and taking time to shape things thoughtfully is important
+          to me. Currently studying IT at a vocational school in Norway, aiming
+          to become a web and app developer.
         </p>
 
-        <p data-en="I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here."
-           data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
-           data-no="Jeg liker å lage ting — fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her.">
-          I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here.
+        <p
+          data-en="I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here."
+          data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
+          data-no="Jeg liker å lage ting — fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
+        >
+          I enjoy making things — from design and code to baking and digital art
+          — and I want to keep building a creative life here.
         </p>
       </section>
-
 
       <!-- ============================================================
            History（経歴タイムライン）
@@ -101,122 +112,157 @@ import '../styles/about.scss';
         <h2 class="text-2xl font-bold mb-16">History</h2>
 
         <div class="flex flex-col gap-0">
-
           <!-- Now -->
-          <div class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16">
-            <span class="text-sm text-salmon pt-1"
-                  data-en="Now" data-ja="現在" data-no="Nå">Now</span>
+          <div
+            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
+          >
+            <span
+              class="text-sm text-salmon pt-1"
+              data-en="Now"
+              data-ja="現在"
+              data-no="Nå">Now</span
+            >
             <div class="flex flex-col items-center">
               <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
               <div class="w-px flex-1 bg-brown mt-2"></div>
             </div>
             <div>
-              <h3 class="text-blush font-bold mb-2"
-                  data-en="Exploring UI/UX & Web"
-                  data-ja="UI/UX・Webを探求中"
-                  data-no="Utforsker UI/UX & web">
+              <h3
+                class="text-blush font-bold mb-2"
+                data-en="Exploring UI/UX & Web"
+                data-ja="UI/UX・Webを探求中"
+                data-no="Utforsker UI/UX & web"
+              >
                 Exploring UI/UX & Web
               </h3>
-              <p class="text-blush opacity-60 text-sm"
-                 data-en="Exploring UI/UX, Web and creative production at a vocational school in Norway."
-                 data-ja="ノルウェーの職業学校でUI/UX・Web・クリエイティブ制作に取り組み中。"
-                 data-no="Utforsker UI/UX, web og kreativ produksjon ved yrkesfagskole i Norge.">
-                Exploring UI/UX, Web and creative production at a vocational school in Norway.
+              <p
+                class="text-blush opacity-60 text-sm"
+                data-en="Exploring UI/UX, Web and creative production at a vocational school in Norway."
+                data-ja="ノルウェーの職業学校でUI/UX・Web・クリエイティブ制作に取り組み中。"
+                data-no="Utforsker UI/UX, web og kreativ produksjon ved yrkesfagskole i Norge."
+              >
+                Exploring UI/UX, Web and creative production at a vocational
+                school in Norway.
               </p>
             </div>
           </div>
 
           <!-- 2025 -->
-          <div class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16">
+          <div
+            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
+          >
             <span class="text-sm text-salmon pt-1">2025</span>
             <div class="flex flex-col items-center">
               <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
               <div class="w-px flex-1 bg-brown mt-2"></div>
             </div>
             <div>
-              <h3 class="text-blush font-bold mb-2"
-                  data-en="Started IT studies"
-                  data-ja="IT学習を開始"
-                  data-no="Startet IT-studier">
+              <h3
+                class="text-blush font-bold mb-2"
+                data-en="Started IT studies"
+                data-ja="IT学習を開始"
+                data-no="Startet IT-studier"
+              >
                 Started IT studies
               </h3>
-              <p class="text-blush opacity-60 text-sm"
-                 data-en="Started IT studies at a vocational college in Norway."
-                 data-ja="ノルウェーの職業学校でIT分野の学びを開始。"
-                 data-no="Startet IT-studier ved yrkesfagskole i Norge.">
+              <p
+                class="text-blush opacity-60 text-sm"
+                data-en="Started IT studies at a vocational college in Norway."
+                data-ja="ノルウェーの職業学校でIT分野の学びを開始。"
+                data-no="Startet IT-studier ved yrkesfagskole i Norge."
+              >
                 Started IT studies at a vocational college in Norway.
               </p>
             </div>
           </div>
 
           <!-- 2016 -->
-          <div class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16">
+          <div
+            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
+          >
             <span class="text-sm text-salmon pt-1">2016</span>
             <div class="flex flex-col items-center">
               <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
               <div class="w-px flex-1 bg-brown mt-2"></div>
             </div>
             <div>
-              <h3 class="text-blush font-bold mb-2"
-                  data-en="Moved to Norway"
-                  data-ja="ノルウェーへ移住"
-                  data-no="Flyttet til Norge">
+              <h3
+                class="text-blush font-bold mb-2"
+                data-en="Moved to Norway"
+                data-ja="ノルウェーへ移住"
+                data-no="Flyttet til Norge"
+              >
                 Moved to Norway
               </h3>
-              <p class="text-blush opacity-60 text-sm"
-                 data-en="Moved to Norway; worked to support life while learning languages."
-                 data-ja="ノルウェーへ移住。言語を学びながら生活を支えるために就労。"
-                 data-no="Flyttet til Norge; jobbet for å forsørge livet mens jeg lærte språk.">
-                Moved to Norway; worked to support life while learning languages.
+              <p
+                class="text-blush opacity-60 text-sm"
+                data-en="Moved to Norway; worked to support life while learning languages."
+                data-ja="ノルウェーへ移住。言語を学びながら生活を支えるために就労。"
+                data-no="Flyttet til Norge; jobbet for å forsørge livet mens jeg lærte språk."
+              >
+                Moved to Norway; worked to support life while learning
+                languages.
               </p>
             </div>
           </div>
 
           <!-- Japan – Univ. -->
           <div class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start">
-            <span class="text-sm text-salmon pt-1"
-                  data-en="Japan – Univ." data-ja="日本（大学）" data-no="Japan – univ.">
+            <span
+              class="text-sm text-salmon pt-1"
+              data-en="Japan – Univ."
+              data-ja="日本（大学）"
+              data-no="Japan – univ."
+            >
               Japan – Univ.
             </span>
             <div class="flex flex-col items-center">
               <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
             </div>
             <div>
-              <h3 class="text-blush font-bold mb-2"
-                  data-en="Completed university in Japan"
-                  data-ja="日本の大学を卒業"
-                  data-no="Fullførte universitet i Japan">
+              <h3
+                class="text-blush font-bold mb-2"
+                data-en="Completed university in Japan"
+                data-ja="日本の大学を卒業"
+                data-no="Fullførte universitet i Japan"
+              >
                 Completed university in Japan
               </h3>
-              <p class="text-blush opacity-60 text-sm"
-                 data-en="Joined a Japanese teaching internship in Hungary and China, supported by The Japan Foundation."
-                 data-ja="国際交流基金の助成を受け、ハンガリーと中国で日本語教育インターンに参加。"
-                 data-no="Deltok i japansk språkundervisningspraksis i Ungarn og Kina, støttet av The Japan Foundation.">
-                Joined a Japanese teaching internship in Hungary and China, supported by The Japan Foundation.
+              <p
+                class="text-blush opacity-60 text-sm"
+                data-en="Joined a Japanese teaching internship in Hungary and China, supported by The Japan Foundation."
+                data-ja="国際交流基金の助成を受け、ハンガリーと中国で日本語教育インターンに参加。"
+                data-no="Deltok i japansk språkundervisningspraksis i Ungarn og Kina, støttet av The Japan Foundation."
+              >
+                Joined a Japanese teaching internship in Hungary and China,
+                supported by The Japan Foundation.
               </p>
             </div>
           </div>
-
         </div>
 
         <!-- 職歴まとめ -->
         <div class="mt-16 border-l-2 border-brown pl-8">
-          <p class="text-teal text-sm uppercase tracking-widest mb-2"
-             data-en="Work Experience (summary)"
-             data-ja="職歴（要約）"
-             data-no="Arbeidserfaring (kort)">
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-2"
+            data-en="Work Experience (summary)"
+            data-ja="職歴（要約）"
+            data-no="Arbeidserfaring (kort)"
+          >
             Work Experience (summary)
           </p>
-          <p class="text-blush opacity-60 text-sm"
-             data-en="Worked in service and inventory roles (cook, inventory manager) to support my life in Norway. These experiences built responsibility and adaptability that I carry into design and IT."
-             data-ja="生活を支えるために飲食や在庫管理（コック、インベントリ管理など）で勤務。責任感と柔軟性を身につけ、現在のデザインやITの学びに活かしています。"
-             data-no="Jobbet i service- og lagerroller (kokk, inventory manager) for å forsørge livet i Norge. Det ga ansvarsfølelse og tilpasningsevne som jeg tar med inn i design og IT.">
-            Worked in service and inventory roles to support my life in Norway. These experiences built responsibility and adaptability that I carry into design and IT.
+          <p
+            class="text-blush opacity-60 text-sm"
+            data-en="Worked in service and inventory roles (cook, inventory manager) to support my life in Norway. These experiences built responsibility and adaptability that I carry into design and IT."
+            data-ja="生活を支えるために飲食や在庫管理（コック、インベントリ管理など）で勤務。責任感と柔軟性を身につけ、現在のデザインやITの学びに活かしています。"
+            data-no="Jobbet i service- og lagerroller (kokk, inventory manager) for å forsørge livet i Norge. Det ga ansvarsfølelse og tilpasningsevne som jeg tar med inn i design og IT."
+          >
+            Worked in service and inventory roles to support my life in Norway.
+            These experiences built responsibility and adaptability that I carry
+            into design and IT.
           </p>
         </div>
-
       </section>
-
 
       <!-- ============================================================
            Skills & Language & Certificates
@@ -227,7 +273,11 @@ import '../styles/about.scss';
 
         <!-- Web -->
         <div class="mb-8">
-          <p class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100">Web</p>
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+          >
+            Web
+          </p>
           <div class="flex flex-wrap gap-2">
             <span class="skill-chip">HTML</span>
             <span class="skill-chip">CSS</span>
@@ -240,7 +290,11 @@ import '../styles/about.scss';
 
         <!-- UI/UX -->
         <div class="mb-8">
-          <p class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100">UI/UX</p>
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+          >
+            UI/UX
+          </p>
           <div class="flex flex-wrap gap-2">
             <span class="skill-chip">Figma</span>
             <span class="skill-chip">Canva</span>
@@ -250,7 +304,11 @@ import '../styles/about.scss';
 
         <!-- Graphic -->
         <div class="mb-8">
-          <p class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100">Graphic</p>
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+          >
+            Graphic
+          </p>
           <div class="flex flex-wrap gap-2">
             <span class="skill-chip">Clip Studio Paint</span>
             <span class="skill-chip">Canva</span>
@@ -260,7 +318,11 @@ import '../styles/about.scss';
 
         <!-- Video -->
         <div class="mb-16">
-          <p class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100">Video</p>
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+          >
+            Video
+          </p>
           <div class="flex flex-wrap gap-2">
             <span class="skill-chip">DaVinci Resolve</span>
             <span class="skill-chip">GarageBand</span>
@@ -271,14 +333,12 @@ import '../styles/about.scss';
           </div>
         </div>
 
-
         <!-- 言語スキル（ドット表示）
              ドットを増減するには <span class="dot ..."> の数を変えてください。
              filled クラスで塗りつぶし、なしで空丸になります -->
         <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
 
         <div class="flex flex-col gap-4 mb-16">
-
           <div class="flex justify-between items-center">
             <span class="text-blush text-sm">Japanese</span>
             <div class="flex gap-1">
@@ -311,46 +371,56 @@ import '../styles/about.scss';
               <span class="dot"></span>
             </div>
           </div>
-
         </div>
 
-
         <!-- 資格 -->
-        <h3 class="text-xl font-bold mb-6 text-blush"
-            data-en="Certificates" data-ja="資格・証明" data-no="Sertifikater">
+        <h3
+          class="text-xl font-bold mb-6 text-blush"
+          data-en="Certificates"
+          data-ja="資格・証明"
+          data-no="Sertifikater"
+        >
           Certificates
         </h3>
 
         <ul class="flex flex-col gap-3">
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Driver's License — Class B (Automatic)"
-              data-ja="普通自動車運転免許（AT限定）"
-              data-no="Førerkort klasse B (automatgir)">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Driver's License — Class B (Automatic)"
+            data-ja="普通自動車運転免許（AT限定）"
+            data-no="Førerkort klasse B (automatgir)"
+          >
             Driver's License — Class B (Automatic)
           </li>
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
-              data-ja="日本語教師養成講座（420時間）修了"
-              data-no="Japansk språklærerutdanning (420 timer) – fullført">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
+            data-ja="日本語教師養成講座（420時間）修了"
+            data-no="Japansk språklærerutdanning (420 timer) – fullført"
+          >
             Japanese Language Teacher Training Course (420 hours) — Completed
           </li>
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Norskprøven — Level B1"
-              data-ja="ノルウェー語検定（Norskprøven）B1"
-              data-no="Norskprøven — B1">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Norskprøven — Level B1"
+            data-ja="ノルウェー語検定（Norskprøven）B1"
+            data-no="Norskprøven — B1"
+          >
             Norskprøven — Level B1
           </li>
         </ul>
-
       </section>
-
 
       <!-- ============================================================
            Hobbies（趣味）
       ============================================================ -->
       <section id="hobbies" class="min-h-screen py-24 px-8">
-        <h2 class="text-2xl font-bold mb-8"
-            data-en="Hobbies" data-ja="趣味" data-no="Hobbier">
+        <h2
+          class="text-2xl font-bold mb-8"
+          data-en="Hobbies"
+          data-ja="趣味"
+          data-no="Hobbier"
+        >
           Hobbies
         </h2>
         <ul class="flex flex-col gap-4">
@@ -361,7 +431,6 @@ import '../styles/about.scss';
         </ul>
       </section>
 
-
       <!-- ============================================================
            Vision（+ UI/UX レーダーチャート）
            レーダーのスコアは <script> 内の UIX_AXES の val で変更します。
@@ -369,54 +438,64 @@ import '../styles/about.scss';
       <section id="vision" class="min-h-screen py-24 px-8">
         <h2 class="text-2xl font-bold mb-2">Vision</h2>
 
-        <p class="text-teal text-sm mb-8 opacity-100"
-           data-en="Where I'm headed"
-           data-ja="これからの方向性"
-           data-no="Retningen videre">
+        <p
+          class="text-teal text-sm mb-8 opacity-100"
+          data-en="Where I'm headed"
+          data-ja="これからの方向性"
+          data-no="Retningen videre"
+        >
           Where I'm headed
         </p>
 
-        <p class="mb-8"
-           data-en="My goal is to bring the ideas that constantly come to mind to life through my own hands. I'm still at the beginning, learning new tools and technologies, but I aim to master them and create designs and solutions that are both useful and kind — something that can make someone's life a little easier. I've come this far mostly through self-learning alongside school, and I want to keep growing."
-           data-ja="次々と浮かぶアイデアを自分の手で形にすることが目標です。まだ学びの途中で新しい技術やツールも多いですが、使いこなせるようになり、「便利で優しい」デザインや開発を通じて、誰かの生活を少しでも楽にできるものを作りたいと考えています。学校と並行してほぼ独学で歩んできましたが、これからも成長を続けます。"
-           data-no="Målet mitt er å gjøre ideene som stadig dukker opp, til virkelighet med mine egne hender. Jeg er fortsatt i startfasen og lærer nye verktøy og teknologier, men jeg ønsker å mestre dem og skape design og løsninger som både er nyttige og varme – noe som kan gjøre hverdagen litt enklere for andre. Jeg har kommet hit stort sett gjennom selvstudier ved siden av skolen, og vil fortsette å vokse.">
-          My goal is to bring the ideas that constantly come to mind to life through my own hands.
+        <p
+          class="mb-8"
+          data-en="My goal is to bring the ideas that constantly come to mind to life through my own hands. I'm still at the beginning, learning new tools and technologies, but I aim to master them and create designs and solutions that are both useful and kind — something that can make someone's life a little easier. I've come this far mostly through self-learning alongside school, and I want to keep growing."
+          data-ja="次々と浮かぶアイデアを自分の手で形にすることが目標です。まだ学びの途中で新しい技術やツールも多いですが、使いこなせるようになり、「便利で優しい」デザインや開発を通じて、誰かの生活を少しでも楽にできるものを作りたいと考えています。学校と並行してほぼ独学で歩んできましたが、これからも成長を続けます。"
+          data-no="Målet mitt er å gjøre ideene som stadig dukker opp, til virkelighet med mine egne hender. Jeg er fortsatt i startfasen og lærer nye verktøy og teknologier, men jeg ønsker å mestre dem og skape design og løsninger som både er nyttige og varme – noe som kan gjøre hverdagen litt enklere for andre. Jeg har kommet hit stort sett gjennom selvstudier ved siden av skolen, og vil fortsette å vokse."
+        >
+          My goal is to bring the ideas that constantly come to mind to life
+          through my own hands.
         </p>
 
         <!-- 当面のフォーカス -->
-        <p class="text-teal text-sm uppercase tracking-widest mb-4 opacity-100"
-           data-en="Near-term Focus" data-ja="当面のフォーカス" data-no="Fokus på kort sikt">
+        <p
+          class="text-teal text-sm uppercase tracking-widest mb-4 opacity-100"
+          data-en="Near-term Focus"
+          data-ja="当面のフォーカス"
+          data-no="Fokus på kort sikt"
+        >
           Near-term Focus
         </p>
         <ul class="flex flex-col gap-3 mb-20">
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
-              data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
-              data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
+            data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
+            data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI"
+          >
             Strengthen fundamentals in HTML/CSS/JS and component-based UI
           </li>
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Prototype accessible, considerate user flows in Figma"
-              data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
-              data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Prototype accessible, considerate user flows in Figma"
+            data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
+            data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma"
+          >
             Prototype accessible, considerate user flows in Figma
           </li>
-          <li class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Build small apps that solve everyday problems"
-              data-ja="日常の不便を解決する小さなアプリを制作"
-              data-no="Lage små apper som løser hverdagsproblemer">
+          <li
+            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+            data-en="Build small apps that solve everyday problems"
+            data-ja="日常の不便を解決する小さなアプリを制作"
+            data-no="Lage små apper som løser hverdagsproblemer"
+          >
             Build small apps that solve everyday problems
           </li>
         </ul>
-
-
       </section>
-
     </div>
   </div>
-
 </Layout>
-
 
 <!-- ============================================================
      スタイル（CV ページ専用）
@@ -430,31 +509,77 @@ import '../styles/about.scss';
      ③ UI/UX レーダーチャートの描画
 ============================================================ -->
 <script>
+  /* ----------------------------------------------------------
+     ① セクション到達時に背景色をじんわり変える
+  ---------------------------------------------------------- */
+
+  const SECTION_COLORS: Record<string, string> = {
+    story:   "#111B18",
+    history: "#111620",
+    skills:  "#1A1118",
+    hobbies: "#1A1510",
+    vision:  "#10181A",
+  };
+
+  document.body.style.backgroundColor = "#111B18";
 
   /* ----------------------------------------------------------
      ① スクロール追従ナビ
-     セクションが 30% 以上画面に入ったら対応するナビリンクを active にします
+     セクションが入るたびにタイトルを押し込みアニメーションで切り替えます
   ---------------------------------------------------------- */
 
-  const sections  = document.querySelectorAll('section[id]');
-  const navLinks  = document.querySelectorAll('nav a[href^="#"]');
+  const SECTIONS = ["story", "history", "skills", "hobbies", "vision"];
+  const LABELS: Record<string, string> = {
+    story: "Story",
+    history: "History",
+    skills: "Skills",
+    hobbies: "Hobbies",
+    vision: "Vision",
+  };
+
+  const navWrap = document.querySelector<HTMLElement>(".nav-title-wrap");
+  let currentIdx = 0;
+  let animating = false;
+
+  function switchNavTitle(newId: string) {
+    if (!navWrap || animating) return;
+    const newIdx = SECTIONS.indexOf(newId);
+    if (newIdx < 0 || newIdx === currentIdx) return;
+
+    const goingDown = newIdx > currentIdx;
+    currentIdx = newIdx;
+    animating = true;
+
+    // 現在のタイトルを上or下に押し出す
+    const current = navWrap.querySelector<HTMLElement>(".nav-title");
+    if (current) current.classList.add(goingDown ? "exit-up" : "exit-down");
+
+    // 少し遅れて新しいタイトルを反対側から入れる
+    setTimeout(() => {
+      if (!navWrap) return;
+      navWrap.innerHTML = "";
+      const next = document.createElement("span");
+      next.className = `nav-title ${goingDown ? "enter-up" : "enter-down"}`;
+      next.textContent = LABELS[newId] ?? newId;
+      navWrap.appendChild(next);
+      animating = false;
+    }, 220);
+  }
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          navLinks.forEach((link) => link.classList.remove('active'));
-
-          const activeLink = document.querySelector(`nav a[href="#${entry.target.id}"]`);
-          if (activeLink) activeLink.classList.add('active');
+          switchNavTitle(entry.target.id);
+          const color = SECTION_COLORS[entry.target.id];
+          if (color) document.body.style.backgroundColor = color;
         }
       });
     },
-    { threshold: 0.3 }
+    { threshold: 0.3 },
   );
 
-  sections.forEach((section) => observer.observe(section));
-
+  document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
 
   /* ----------------------------------------------------------
      ② 言語切り替え
@@ -463,24 +588,22 @@ import '../styles/about.scss';
 
   /** 指定した言語に切り替える */
   function switchLang(lang: string) {
-    document.documentElement.lang = lang === 'ja' ? 'ja' : lang === 'no' ? 'no' : 'en';
+    document.documentElement.lang =
+      lang === "ja" ? "ja" : lang === "no" ? "no" : "en";
 
-    document.querySelectorAll<HTMLElement>('[data-en]').forEach((el) => {
-      el.textContent = el.dataset[lang] ?? el.dataset.en ?? '';
+    document.querySelectorAll<HTMLElement>("[data-en]").forEach((el) => {
+      el.textContent = el.dataset[lang] ?? el.dataset.en ?? "";
     });
 
     // ボタンのアクティブ状態を更新
-    document.querySelectorAll<HTMLButtonElement>('.btn-lang').forEach((btn) => {
-      btn.classList.toggle('active', btn.dataset.lang === lang);
+    document.querySelectorAll<HTMLButtonElement>(".btn-lang").forEach((btn) => {
+      btn.classList.toggle("active", btn.dataset.lang === lang);
     });
-
   }
 
-  document.querySelectorAll<HTMLButtonElement>('.btn-lang').forEach((btn) => {
-    btn.addEventListener('click', () => switchLang(btn.dataset.lang ?? 'en'));
+  document.querySelectorAll<HTMLButtonElement>(".btn-lang").forEach((btn) => {
+    btn.addEventListener("click", () => switchLang(btn.dataset.lang ?? "en"));
   });
 
-
-  switchLang('en');
-
+  switchLang("en");
 </script>
