@@ -77,7 +77,7 @@ body {
 }
 .shoko-letter.active {
   opacity: 1;
-  color: var(--color-salmon);
+  color: var(--nav-accent, var(--color-salmon));
 }
 
 .letter-rest {
