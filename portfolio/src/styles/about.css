@@ -54,58 +54,46 @@ body {
   transition: background-color 1.2s ease;
 }
 
-.nav-title-wrap {
-  overflow: hidden;
-  height: 2.5rem;
-  position: relative;
+.shoko-letters {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  gap: 0.1rem;
 }
 
-.nav-title {
-  display: block;
-  font-size: 1.5rem;
-  font-weight: 700;
+.shoko-letter {
+  font-size: 2.4rem;
+  font-weight: 900;
   color: var(--color-cream);
-  white-space: nowrap;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.5s ease, transform 0.5s ease, color 0.3s ease;
+  display: flex;
+  align-items: baseline;
 }
-.nav-title.exit-up {
-  animation: nav-exit-up 0.25s ease forwards;
+.shoko-letter.revealed {
+  opacity: 0.2;
+  transform: translateX(0);
 }
-.nav-title.exit-down {
-  animation: nav-exit-down 0.25s ease forwards;
-}
-.nav-title.enter-up {
-  animation: nav-enter-up 0.25s ease forwards;
-}
-.nav-title.enter-down {
-  animation: nav-enter-down 0.25s ease forwards;
+.shoko-letter.active {
+  opacity: 1;
+  color: var(--color-salmon);
 }
 
-@keyframes nav-exit-up {
-  to {
-    transform: translateY(-120%);
-  }
+.letter-rest {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgba(255, 237, 237, 0.75);
+  margin-left: 0.25rem;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.4s ease 0.1s, transform 0.4s ease 0.1s;
 }
-@keyframes nav-exit-down {
-  to {
-    transform: translateY(120%);
-  }
+.shoko-letter.active .letter-rest {
+  opacity: 1;
+  transform: translateX(0);
 }
-@keyframes nav-enter-up {
-  from {
-    transform: translateY(120%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-@keyframes nav-enter-down {
-  from {
-    transform: translateY(-120%);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
+
 .btn-lang {
   padding: 4px 14px;
   border-radius: 999px;

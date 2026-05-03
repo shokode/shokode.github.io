@@ -22,370 +22,382 @@ import "../styles/about.scss";
 ---
 
 <Layout title="CV — Shoko's Portfolio">
-  <div
-    id="page-wrap"
-    class="flex min-h-screen"
-    style="background: transparent;"
-  >
-    <!-- =============================================
+  <div id="page-wrap" class="min-h-screen" style="background: transparent;">
+    <div class="max-w-5xl mx-auto flex">
+      <!-- =============================================
          左：セクションナビゲーション（スクロール追従）
          about.scss の nav a スタイルが適用されます。
          アクティブなセクションは IntersectionObserver が検出します。
     ============================================= -->
-    <!-- 現在のセクション名だけを表示するナビ
+      <!-- 現在のセクション名だけを表示するナビ
          JavaScript がスクロール方向に応じて押し込みアニメーションで切り替えます -->
-    <div
-      class="sticky top-16 self-start h-[calc(100vh-4rem)] w-48 shrink-0 flex flex-col justify-center px-8 relative z-10"
-    >
-      <div class="nav-title-wrap" aria-live="polite">
-        <span class="nav-title">Story</span>
+      <div
+        class="sticky top-16 self-start h-[calc(100vh-4rem)] w-48 shrink-0 flex flex-col justify-center px-8 relative z-10"
+      >
+        <div class="shoko-letters">
+          <span class="shoko-letter" id="nav-s"
+            >S<span class="letter-rest">tory</span></span
+          >
+          <span class="shoko-letter" id="nav-h"
+            >H<span class="letter-rest">istory</span></span
+          >
+          <span class="shoko-letter" id="nav-o1"
+            >O<span class="letter-rest">bsession</span></span
+          >
+          <span class="shoko-letter" id="nav-k"
+            >K<span class="letter-rest">it</span></span
+          >
+          <span class="shoko-letter" id="nav-o2"
+            >O<span class="letter-rest">bjective</span></span
+          >
+        </div>
       </div>
-    </div>
 
-    <!-- ヘッダーとの境目をぼかすグラデーションオーバーレイ（固定・クリック透過） -->
-    <div class="top-fade-overlay"></div>
+      <!-- ヘッダーとの境目をぼかすグラデーションオーバーレイ（固定・クリック透過） -->
+      <div class="top-fade-overlay"></div>
 
-    <!-- =============================================
+      <!-- =============================================
          右：メインコンテンツ
     ============================================= -->
-    <div class="flex-1 max-w-3xl py-8 relative z-10">
-      <!-- --- ヒーロー --- -->
-      <section class="px-8 py-24">
-        <h1 class="text-8xl font-black uppercase tracking-tight">
-          <span class="shoko-s">S</span><span class="shoko-rest">HOKO</span>
-        </h1>
-        <hr class="border-salmon my-8" />
-        <p
-          class="text-blush italic text-lg"
-          data-en="Designer / Student. Oslo-based. Detail-obsessed."
-          data-ja="デザイナー・学生。オスロ在住。細部にこだわる。"
-          data-no="Designer / Student. Oslo-basert. Detaljbesatt."
-        >
-          Designer / Student. Oslo-based. Detail-obsessed.
-        </p>
-      </section>
+      <div class="flex-1 py-8 relative z-10">
+        <!-- --- ヒーロー --- -->
+        <section class="px-8 py-24">
+          <h1 class="text-8xl font-black uppercase tracking-tight">
+            <span class="shoko-s">S</span><span class="shoko-rest">HOKO</span>
+          </h1>
+          <hr class="border-salmon my-8" />
+          <p
+            class="text-blush italic text-lg"
+            data-en="Designer / Student. Oslo-based. Detail-obsessed."
+            data-ja="デザイナー・学生。オスロ在住。細部にこだわる。"
+            data-no="Designer / Student. Oslo-basert. Detaljbesatt."
+          >
+            Designer / Student. Oslo-based. Detail-obsessed.
+          </p>
+        </section>
 
-      <!-- --- 言語切り替えボタン（EN / JP / NO） ---
+        <!-- --- 言語切り替えボタン（EN / JP / NO） ---
            ここのボタンをクリックするとページ全体の data-en/ja/no テキストが切り替わります -->
-      <div class="px-8 mb-4">
-        <nav class="flex gap-2" aria-label="言語切り替え">
-          <button class="btn-lang active" data-lang="en">EN</button>
-          <button class="btn-lang" data-lang="ja">JP</button>
-          <button class="btn-lang" data-lang="no">NO</button>
-        </nav>
-      </div>
+        <div class="px-8 mb-4">
+          <nav class="flex gap-2" aria-label="言語切り替え">
+            <button class="btn-lang active" data-lang="en">EN</button>
+            <button class="btn-lang" data-lang="ja">JP</button>
+            <button class="btn-lang" data-lang="no">NO</button>
+          </nav>
+        </div>
 
-      <!-- ============================================================
+        <!-- ============================================================
            Story（About Me）
       ============================================================ -->
-      <section id="story" class="min-h-screen py-24 px-8">
-        <h2 class="text-2xl font-bold mb-8">Story</h2>
+        <section id="story" class="min-h-screen py-24 px-8">
+          <h2 class="text-2xl font-bold mb-8">Story</h2>
 
-        <p
-          class="mb-6"
-          data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
-          data-ja="丁寧にものづくりをすることと、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校で学び、Web・アプリ開発者を目指しています。気づきや感性を活かして、UI/UXデザインを通じた思いやりのある体験づくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
-          data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør."
-        >
-          I enjoy creating with care and exploring new ideas. Paying attention
-          to details and taking time to shape things thoughtfully is important
-          to me. Currently studying IT at a vocational school in Norway, aiming
-          to become a web and app developer.
-        </p>
+          <p
+            class="mb-6"
+            data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
+            data-ja="丁寧にものづくりをすることと、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校で学び、Web・アプリ開発者を目指しています。気づきや感性を活かして、UI/UXデザインを通じた思いやりのある体験づくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
+            data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør."
+          >
+            I enjoy creating with care and exploring new ideas. Paying attention
+            to details and taking time to shape things thoughtfully is important
+            to me. Currently studying IT at a vocational school in Norway,
+            aiming to become a web and app developer.
+          </p>
 
-        <p
-          data-en="I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here."
-          data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
-          data-no="Jeg liker å lage ting — fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
-        >
-          I enjoy making things — from design and code to baking and digital art
-          — and I want to keep building a creative life here.
-        </p>
-      </section>
+          <p
+            data-en="I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here."
+            data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
+            data-no="Jeg liker å lage ting — fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
+          >
+            I enjoy making things — from design and code to baking and digital
+            art — and I want to keep building a creative life here.
+          </p>
+        </section>
 
-      <!-- ============================================================
+        <!-- ============================================================
            History（ミニマルタイムライン）
       ============================================================ -->
-      <section id="history" class="py-24 px-8">
-        <h2 class="text-2xl font-bold mb-10">History</h2>
+        <section id="history" class="py-24 px-8">
+          <h2 class="text-2xl font-bold mb-10">History</h2>
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <span
-              class="timeline-year"
-              data-en="Now"
-              data-ja="現在"
-              data-no="Nå">Now</span
-            >
-            <div class="timeline-dot timeline-dot--now"></div>
-            <span
-              class="timeline-title"
-              data-en="Exploring UI/UX & Web"
-              data-ja="UI/UX・Web探求中"
-              data-no="Utforsker UI/UX & Web">Exploring UI/UX & Web</span
-            >
+          <div class="timeline">
+            <div class="timeline-item">
+              <span
+                class="timeline-year"
+                data-en="Now"
+                data-ja="現在"
+                data-no="Nå">Now</span
+              >
+              <div class="timeline-dot timeline-dot--now"></div>
+              <span
+                class="timeline-title"
+                data-en="Exploring UI/UX & Web"
+                data-ja="UI/UX・Web探求中"
+                data-no="Utforsker UI/UX & Web">Exploring UI/UX & Web</span
+              >
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2025</span>
+              <div class="timeline-dot"></div>
+              <span
+                class="timeline-title"
+                data-en="Started IT studies — Norway"
+                data-ja="IT職業学校へ入学（ノルウェー）"
+                data-no="Startet IT-studier — Norge"
+                >Started IT studies — Norway</span
+              >
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2023</span>
+              <div class="timeline-dot"></div>
+              <span
+                class="timeline-title"
+                data-en="Welcomed a Mame-Shiba into the family 🐕"
+                data-ja="豆柴を家族に迎える 🐕"
+                data-no="Fikk en mame-shiba i familien 🐕"
+                >Welcomed a Mame-Shiba into the family 🐕</span
+              >
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2016 –</span>
+              <div class="timeline-dot"></div>
+              <span
+                class="timeline-title"
+                data-en="Various employment roles"
+                data-ja="就労（複数職種）"
+                data-no="Ulike arbeidsroller">Various employment roles</span
+              >
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">2016</span>
+              <div class="timeline-dot"></div>
+              <span
+                class="timeline-title"
+                data-en="Moved to Norway"
+                data-ja="ノルウェーへ移住"
+                data-no="Flyttet til Norge">Moved to Norway</span
+              >
+            </div>
+
+            <div class="timeline-item">
+              <span class="timeline-year">〜 2014</span>
+              <div class="timeline-dot"></div>
+              <span
+                class="timeline-title"
+                data-en="Graduated university — Japan"
+                data-ja="大学卒業（日本）"
+                data-no="Fullførte universitet — Japan"
+                >Graduated university — Japan</span
+              >
+            </div>
           </div>
+        </section>
 
-          <div class="timeline-item">
-            <span class="timeline-year">2025</span>
-            <div class="timeline-dot"></div>
-            <span
-              class="timeline-title"
-              data-en="Started IT studies — Norway"
-              data-ja="IT職業学校へ入学（ノルウェー）"
-              data-no="Startet IT-studier — Norge"
-              >Started IT studies — Norway</span
-            >
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">2023</span>
-            <div class="timeline-dot"></div>
-            <span
-              class="timeline-title"
-              data-en="Welcomed a Mame-Shiba into the family 🐕"
-              data-ja="豆柴を家族に迎える 🐕"
-              data-no="Fikk en mame-shiba i familien 🐕"
-              >Welcomed a Mame-Shiba into the family 🐕</span
-            >
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">2016 –</span>
-            <div class="timeline-dot"></div>
-            <span
-              class="timeline-title"
-              data-en="Various employment roles"
-              data-ja="就労（複数職種）"
-              data-no="Ulike arbeidsroller">Various employment roles</span
-            >
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">2016</span>
-            <div class="timeline-dot"></div>
-            <span
-              class="timeline-title"
-              data-en="Moved to Norway"
-              data-ja="ノルウェーへ移住"
-              data-no="Flyttet til Norge">Moved to Norway</span
-            >
-          </div>
-
-          <div class="timeline-item">
-            <span class="timeline-year">〜 2014</span>
-            <div class="timeline-dot"></div>
-            <span
-              class="timeline-title"
-              data-en="Graduated university — Japan"
-              data-ja="大学卒業（日本）"
-              data-no="Fullførte universitet — Japan"
-              >Graduated university — Japan</span
-            >
-          </div>
-        </div>
-      </section>
-
-      <!-- ============================================================
-           Skills & Language & Certificates
-           スキルチップを追加・削除するときは <span class="skill-chip"> を編集してください。
+        <!-- ============================================================
+           Obsession（夢中なもの・趣味）
       ============================================================ -->
-      <section id="skills" class="min-h-screen py-24 px-8">
-        <h2 class="text-2xl font-bold mb-12">Tools</h2>
-
-        <!-- Code -->
-        <div class="mb-8">
-          <p
-            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+        <section id="obsession" class="min-h-screen py-24 px-8">
+          <h2
+            class="text-2xl font-bold mb-8"
+            data-en="Hobbies"
+            data-ja="趣味"
+            data-no="Hobbier"
           >
-            Code
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-chip">HTML</span>
-            <span class="skill-chip">CSS</span>
-            <span class="skill-chip">JavaScript</span>
-            <span class="skill-chip">Astro</span>
-            <span class="skill-chip">SCSS</span>
-            <span class="skill-chip">Tailwind</span>
-            <span class="skill-chip">Bootstrap</span>
-            <span class="skill-chip">Git / GitHub</span>
-          </div>
-        </div>
+            Hobbies
+          </h2>
+          <ul class="flex flex-col gap-4">
+            <li class="text-blush opacity-70 text-sm">🧶 Knitting</li>
+            <li class="text-blush opacity-70 text-sm">
+              🎨 Digital illustration
+            </li>
+            <li class="text-blush opacity-70 text-sm">🍪 Baking sweets</li>
+            <li class="text-blush opacity-70 text-sm">🍳 Cooking</li>
+          </ul>
+        </section>
 
-        <!-- Design -->
-        <div class="mb-16">
-          <p
-            class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
-          >
-            Design
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="skill-chip">Figma</span>
-            <span class="skill-chip">Clip Studio Paint</span>
-            <span class="skill-chip">DaVinci Resolve</span>
-          </div>
-        </div>
+        <!-- ============================================================
+           Kit（ツール・技術）
+      ============================================================ -->
+        <section id="kit" class="min-h-screen py-24 px-8">
+          <h2 class="text-2xl font-bold mb-12">Tools</h2>
 
-        <!-- 言語スキル（ドット表示）
+          <!-- Code -->
+          <div class="mb-8">
+            <p
+              class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+            >
+              Code
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-chip">HTML</span>
+              <span class="skill-chip">CSS</span>
+              <span class="skill-chip">JavaScript</span>
+              <span class="skill-chip">Astro</span>
+              <span class="skill-chip">SCSS</span>
+              <span class="skill-chip">Tailwind</span>
+              <span class="skill-chip">Bootstrap</span>
+              <span class="skill-chip">Git / GitHub</span>
+            </div>
+          </div>
+
+          <!-- Design -->
+          <div class="mb-16">
+            <p
+              class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
+            >
+              Design
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="skill-chip">Figma</span>
+              <span class="skill-chip">Clip Studio Paint</span>
+              <span class="skill-chip">DaVinci Resolve</span>
+            </div>
+          </div>
+
+          <!-- 言語スキル（ドット表示）
              ドットを増減するには <span class="dot ..."> の数を変えてください。
              filled クラスで塗りつぶし、なしで空丸になります -->
-        <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
+          <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
 
-        <div class="flex flex-col gap-4 mb-16">
-          <div class="flex justify-between items-center">
-            <span class="text-blush text-sm">Japanese</span>
-            <div class="flex gap-1">
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
+          <div class="flex flex-col gap-4 mb-16">
+            <div class="flex justify-between items-center">
+              <span class="text-blush text-sm">Japanese</span>
+              <div class="flex gap-1">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="text-blush text-sm">Norwegian</span>
+              <div class="flex gap-1">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="flex justify-between items-center">
+              <span class="text-blush text-sm">English</span>
+              <div class="flex gap-1">
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot filled"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
             </div>
           </div>
 
-          <div class="flex justify-between items-center">
-            <span class="text-blush text-sm">Norwegian</span>
-            <div class="flex gap-1">
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-
-          <div class="flex justify-between items-center">
-            <span class="text-blush text-sm">English</span>
-            <div class="flex gap-1">
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot filled"></span>
-              <span class="dot"></span>
-              <span class="dot"></span>
-            </div>
-          </div>
-        </div>
-
-        <!-- 資格 -->
-        <h3
-          class="text-xl font-bold mb-6 text-blush"
-          data-en="Certificates"
-          data-ja="資格・証明"
-          data-no="Sertifikater"
-        >
-          Certificates
-        </h3>
-
-        <ul class="flex flex-col gap-3">
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Driver's License — Class B (Automatic)"
-            data-ja="普通自動車運転免許（AT限定）"
-            data-no="Førerkort klasse B (automatgir)"
+          <!-- 資格 -->
+          <h3
+            class="text-xl font-bold mb-6 text-blush"
+            data-en="Certificates"
+            data-ja="資格・証明"
+            data-no="Sertifikater"
           >
-            Driver's License — Class B (Automatic)
-          </li>
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
-            data-ja="日本語教師養成講座（420時間）修了"
-            data-no="Japansk språklærerutdanning (420 timer) – fullført"
-          >
-            Japanese Language Teacher Training Course (420 hours) — Completed
-          </li>
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Norskprøven — Level B1"
-            data-ja="ノルウェー語検定（Norskprøven）B1"
-            data-no="Norskprøven — B1"
-          >
-            Norskprøven — Level B1
-          </li>
-        </ul>
-      </section>
+            Certificates
+          </h3>
 
-      <!-- ============================================================
-           Hobbies（趣味）
+          <ul class="flex flex-col gap-3">
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Driver's License — Class B (Automatic)"
+              data-ja="普通自動車運転免許（AT限定）"
+              data-no="Førerkort klasse B (automatgir)"
+            >
+              Driver's License — Class B (Automatic)
+            </li>
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
+              data-ja="日本語教師養成講座（420時間）修了"
+              data-no="Japansk språklærerutdanning (420 timer) – fullført"
+            >
+              Japanese Language Teacher Training Course (420 hours) — Completed
+            </li>
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Norskprøven — Level B1"
+              data-ja="ノルウェー語検定（Norskprøven）B1"
+              data-no="Norskprøven — B1"
+            >
+              Norskprøven — Level B1
+            </li>
+          </ul>
+        </section>
+
+        <!-- ============================================================
+           Objective（目標・ビジョン）
       ============================================================ -->
-      <section id="hobbies" class="min-h-screen py-24 px-8">
-        <h2
-          class="text-2xl font-bold mb-8"
-          data-en="Hobbies"
-          data-ja="趣味"
-          data-no="Hobbier"
-        >
-          Hobbies
-        </h2>
-        <ul class="flex flex-col gap-4">
-          <li class="text-blush opacity-70 text-sm">🧶 Knitting</li>
-          <li class="text-blush opacity-70 text-sm">🎨 Digital illustration</li>
-          <li class="text-blush opacity-70 text-sm">🍪 Baking sweets</li>
-          <li class="text-blush opacity-70 text-sm">🍳 Cooking</li>
-        </ul>
-      </section>
+        <section id="objective" class="min-h-screen py-24 px-8">
+          <h2 class="text-2xl font-bold mb-2">Vision</h2>
 
-      <!-- ============================================================
-           Vision（+ UI/UX レーダーチャート）
-           レーダーのスコアは <script> 内の UIX_AXES の val で変更します。
-      ============================================================ -->
-      <section id="vision" class="min-h-screen py-24 px-8">
-        <h2 class="text-2xl font-bold mb-2">Vision</h2>
-
-        <p
-          class="text-teal text-sm mb-8 opacity-100"
-          data-en="Where I'm headed"
-          data-ja="これからの方向性"
-          data-no="Retningen videre"
-        >
-          Where I'm headed
-        </p>
-
-        <p
-          class="mb-8"
-          data-en="My goal is to bring the ideas that constantly come to mind to life through my own hands. I'm still at the beginning, learning new tools and technologies, but I aim to master them and create designs and solutions that are both useful and kind — something that can make someone's life a little easier. I've come this far mostly through self-learning alongside school, and I want to keep growing."
-          data-ja="次々と浮かぶアイデアを自分の手で形にすることが目標です。まだ学びの途中で新しい技術やツールも多いですが、使いこなせるようになり、「便利で優しい」デザインや開発を通じて、誰かの生活を少しでも楽にできるものを作りたいと考えています。学校と並行してほぼ独学で歩んできましたが、これからも成長を続けます。"
-          data-no="Målet mitt er å gjøre ideene som stadig dukker opp, til virkelighet med mine egne hender. Jeg er fortsatt i startfasen og lærer nye verktøy og teknologier, men jeg ønsker å mestre dem og skape design og løsninger som både er nyttige og varme – noe som kan gjøre hverdagen litt enklere for andre. Jeg har kommet hit stort sett gjennom selvstudier ved siden av skolen, og vil fortsette å vokse."
-        >
-          My goal is to bring the ideas that constantly come to mind to life
-          through my own hands.
-        </p>
-
-        <!-- 当面のフォーカス -->
-        <p
-          class="text-teal text-sm uppercase tracking-widest mb-4 opacity-100"
-          data-en="Near-term Focus"
-          data-ja="当面のフォーカス"
-          data-no="Fokus på kort sikt"
-        >
-          Near-term Focus
-        </p>
-        <ul class="flex flex-col gap-3 mb-20">
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
-            data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
-            data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI"
+          <p
+            class="text-teal text-sm mb-8 opacity-100"
+            data-en="Where I'm headed"
+            data-ja="これからの方向性"
+            data-no="Retningen videre"
           >
-            Strengthen fundamentals in HTML/CSS/JS and component-based UI
-          </li>
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Prototype accessible, considerate user flows in Figma"
-            data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
-            data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma"
+            Where I'm headed
+          </p>
+
+          <p
+            class="mb-8"
+            data-en="My goal is to bring the ideas that constantly come to mind to life through my own hands. I'm still at the beginning, learning new tools and technologies, but I aim to master them and create designs and solutions that are both useful and kind — something that can make someone's life a little easier. I've come this far mostly through self-learning alongside school, and I want to keep growing."
+            data-ja="次々と浮かぶアイデアを自分の手で形にすることが目標です。まだ学びの途中で新しい技術やツールも多いですが、使いこなせるようになり、「便利で優しい」デザインや開発を通じて、誰かの生活を少しでも楽にできるものを作りたいと考えています。学校と並行してほぼ独学で歩んできましたが、これからも成長を続けます。"
+            data-no="Målet mitt er å gjøre ideene som stadig dukker opp, til virkelighet med mine egne hender. Jeg er fortsatt i startfasen og lærer nye verktøy og teknologier, men jeg ønsker å mestre dem og skape design og løsninger som både er nyttige og varme – noe som kan gjøre hverdagen litt enklere for andre. Jeg har kommet hit stort sett gjennom selvstudier ved siden av skolen, og vil fortsette å vokse."
           >
-            Prototype accessible, considerate user flows in Figma
-          </li>
-          <li
-            class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-            data-en="Build small apps that solve everyday problems"
-            data-ja="日常の不便を解決する小さなアプリを制作"
-            data-no="Lage små apper som løser hverdagsproblemer"
+            My goal is to bring the ideas that constantly come to mind to life
+            through my own hands.
+          </p>
+
+          <!-- 当面のフォーカス -->
+          <p
+            class="text-teal text-sm uppercase tracking-widest mb-4 opacity-100"
+            data-en="Near-term Focus"
+            data-ja="当面のフォーカス"
+            data-no="Fokus på kort sikt"
           >
-            Build small apps that solve everyday problems
-          </li>
-        </ul>
-      </section>
+            Near-term Focus
+          </p>
+          <ul class="flex flex-col gap-3 mb-20">
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
+              data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
+              data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI"
+            >
+              Strengthen fundamentals in HTML/CSS/JS and component-based UI
+            </li>
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Prototype accessible, considerate user flows in Figma"
+              data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
+              data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma"
+            >
+              Prototype accessible, considerate user flows in Figma
+            </li>
+            <li
+              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              data-en="Build small apps that solve everyday problems"
+              data-ja="日常の不便を解決する小さなアプリを制作"
+              data-no="Lage små apper som løser hverdagsproblemer"
+            >
+              Build small apps that solve everyday problems
+            </li>
+          </ul>
+        </section>
+      </div>
     </div>
   </div>
 </Layout>
@@ -409,61 +421,44 @@ import "../styles/about.scss";
   const SECTION_COLORS: Record<string, string> = {
     story: "#111B18",
     history: "#111620",
-    skills: "#1A1118",
-    hobbies: "#1A1510",
-    vision: "#10181A",
+    obsession: "#1A1510",
+    kit: "#1A1118",
+    objective: "#4f566c",
   };
 
   document.body.style.backgroundColor = "#111B18";
 
+  const ACCENT_COLORS = ["#F4A8AD", "#FFF9B0", "#88C998"];
+  const accent =
+    ACCENT_COLORS[Math.floor(Math.random() * ACCENT_COLORS.length)];
+  document.documentElement.style.setProperty("--nav-accent", accent);
+
   /* ----------------------------------------------------------
-     ① スクロール追従ナビ
-     セクションが入るたびにタイトルを押し込みアニメーションで切り替えます
+     ① SHOKO 文字を積み上げるナビ
   ---------------------------------------------------------- */
 
-  const SECTIONS = ["story", "history", "skills", "hobbies", "vision"];
-  const LABELS: Record<string, string> = {
-    story: "Story",
-    history: "History",
-    skills: "Skills",
-    hobbies: "Hobbies",
-    vision: "Vision",
-  };
+  const SECTIONS = ["story", "history", "obsession", "kit", "objective"];
+  const NAV_LETTER_IDS = ["nav-s", "nav-h", "nav-o1", "nav-k", "nav-o2"];
 
-  const navWrap = document.querySelector<HTMLElement>(".nav-title-wrap");
-  let currentIdx = 0;
-  let animating = false;
-
-  function switchNavTitle(newId: string) {
-    if (!navWrap || animating) return;
-    const newIdx = SECTIONS.indexOf(newId);
-    if (newIdx < 0 || newIdx === currentIdx) return;
-
-    const goingDown = newIdx > currentIdx;
-    currentIdx = newIdx;
-    animating = true;
-
-    // 現在のタイトルを上or下に押し出す
-    const current = navWrap.querySelector<HTMLElement>(".nav-title");
-    if (current) current.classList.add(goingDown ? "exit-up" : "exit-down");
-
-    // 少し遅れて新しいタイトルを反対側から入れる
-    setTimeout(() => {
-      if (!navWrap) return;
-      navWrap.innerHTML = "";
-      const next = document.createElement("span");
-      next.className = `nav-title ${goingDown ? "enter-up" : "enter-down"}`;
-      next.textContent = LABELS[newId] ?? newId;
-      navWrap.appendChild(next);
-      animating = false;
-    }, 220);
+  function updateShokoNav(activeId: string) {
+    const activeIdx = SECTIONS.indexOf(activeId);
+    NAV_LETTER_IDS.forEach((letterId, i) => {
+      const el = document.getElementById(letterId);
+      if (!el) return;
+      el.classList.remove("revealed", "active");
+      if (i < activeIdx) {
+        el.classList.add("revealed");
+      } else if (i === activeIdx) {
+        el.classList.add("revealed", "active");
+      }
+    });
   }
 
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          switchNavTitle(entry.target.id);
+          updateShokoNav(entry.target.id);
           const color = SECTION_COLORS[entry.target.id];
           if (color) document.body.style.backgroundColor = color;
         }
