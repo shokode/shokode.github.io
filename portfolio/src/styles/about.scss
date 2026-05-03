@@ -171,11 +171,9 @@ body {
     top: 14px;
     bottom: 14px;
     width: 1px;
-    background: linear-gradient(
-      to bottom,
-      rgba(255, 237, 237, 0.28) 0%,
-      rgba(255, 237, 237, 0.05) 100%
-    );
+    background: linear-gradient(to bottom,
+        rgba(255, 237, 237, 0.28) 0%,
+        rgba(255, 237, 237, 0.05) 100%);
   }
 }
 
@@ -216,9 +214,22 @@ body {
   &--now {
     width: 9px;
     height: 9px;
-    background: #6DCCC5;
+    background: var(--color-salmon);
     border-color: #6DCCC5;
-    box-shadow: 0 0 10px rgba(109, 204, 197, 0.55);
+    box-shadow: 0 0 10px rgb(255, 255, 255);
+    animation: dot-pulse 1.4s ease-in-out infinite;
+  }
+}
+
+@keyframes dot-pulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 8px var(--color-cream), 0 0 16px rgba(75, 238, 227, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 20px rgba(75, 238, 227, 1), 0 0 40px var(--color-salmon);
   }
 }
 

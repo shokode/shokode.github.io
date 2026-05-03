@@ -45,6 +45,15 @@ p {
     background-position: 0% 0;
   }
 }
+.site-header {
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255, 237, 237, 0.15);
+}
+
+body {
+  transition: background-color 1.2s ease;
+}
+
 .nav-title-wrap {
   overflow: hidden;
   height: 2.5rem;
@@ -115,6 +124,78 @@ p {
   background: #FFEDED;
   color: #111B18;
   border-color: #FFEDED;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 72px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(255, 237, 237, 0.28) 0%, rgba(255, 237, 237, 0.05) 100%);
+}
+
+.timeline-item {
+  display: grid;
+  grid-template-columns: 72px 24px 1fr;
+  align-items: center;
+  gap: 0 1rem;
+  padding: 1.1rem 0;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.timeline-year {
+  text-align: right;
+  font-size: 0.72rem;
+  color: rgba(255, 237, 237, 0.3);
+  letter-spacing: 0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.timeline-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  justify-self: center;
+  position: relative;
+  z-index: 1;
+  border: 1px solid rgba(255, 237, 237, 0.28);
+  background: transparent;
+}
+.timeline-dot--now {
+  width: 9px;
+  height: 9px;
+  background: var(--color-salmon);
+  border-color: #6DCCC5;
+  box-shadow: 0 0 10px rgb(255, 255, 255);
+  animation: dot-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% {
+    box-shadow: 0 0 8px var(--color-cream), 0 0 16px rgba(75, 238, 227, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgb(75, 238, 227), 0 0 40px var(--color-salmon);
+  }
+}
+.timeline-title {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 237, 237, 0.82);
+  letter-spacing: 0.01em;
 }
 
 .skill-chip {
