@@ -454,17 +454,29 @@ import "../styles/about.scss";
     });
   }
 
+  // スクロール方向を追跡
+  let prevScrollY = window.scrollY;
+  let scrollingDown = true;
+  window.addEventListener("scroll", () => {
+    scrollingDown = window.scrollY >= prevScrollY;
+    prevScrollY = window.scrollY;
+  }, { passive: true });
+
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          updateShokoNav(entry.target.id);
-          const color = SECTION_COLORS[entry.target.id];
-          if (color) document.body.style.backgroundColor = color;
-        }
+        if (!entry.isIntersecting) return;
+        const id = entry.target.id;
+        const required = id === "story" ? 0.5 : 0.3;
+        if (entry.intersectionRatio < required) return;
+        // 下スクロール中にセクションの上端が画面外 = 出ていくセクション → 無視
+        if (scrollingDown && entry.boundingClientRect.top < 0) return;
+        updateShokoNav(id);
+        const color = SECTION_COLORS[id];
+        if (color) document.body.style.backgroundColor = color;
       });
     },
-    { threshold: 0.3 },
+    { threshold: [0.3, 0.5] },
   );
 
   document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
