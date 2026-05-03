@@ -104,163 +104,41 @@ import "../styles/about.scss";
       </section>
 
       <!-- ============================================================
-           History（経歴タイムライン）
-           about.astro と同じ CSS グリッドのタイムラインデザインです。
-           エントリーを追加する場合は同じ <div class="grid..."> ブロックをコピーしてください。
+           History（ミニマルタイムライン）
       ============================================================ -->
-      <section id="history" class="min-h-screen py-24 px-8">
-        <h2 class="text-2xl font-bold mb-16">History</h2>
+      <section id="history" class="py-24 px-8">
+        <h2 class="text-2xl font-bold mb-10">History</h2>
 
-        <div class="flex flex-col gap-0">
-          <!-- Now -->
-          <div
-            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
-          >
-            <span
-              class="text-sm text-salmon pt-1"
-              data-en="Now"
-              data-ja="現在"
-              data-no="Nå">Now</span
-            >
-            <div class="flex flex-col items-center">
-              <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
-              <div class="w-px flex-1 bg-brown mt-2"></div>
-            </div>
-            <div>
-              <h3
-                class="text-blush font-bold mb-2"
-                data-en="Exploring UI/UX & Web"
-                data-ja="UI/UX・Webを探求中"
-                data-no="Utforsker UI/UX & web"
-              >
-                Exploring UI/UX & Web
-              </h3>
-              <p
-                class="text-blush opacity-60 text-sm"
-                data-en="Exploring UI/UX, Web and creative production at a vocational school in Norway."
-                data-ja="ノルウェーの職業学校でUI/UX・Web・クリエイティブ制作に取り組み中。"
-                data-no="Utforsker UI/UX, web og kreativ produksjon ved yrkesfagskole i Norge."
-              >
-                Exploring UI/UX, Web and creative production at a vocational
-                school in Norway.
-              </p>
-            </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year" data-en="Now" data-ja="現在" data-no="Nå">Now</span>
+            <div class="timeline-dot timeline-dot--now"></div>
+            <span class="timeline-title" data-en="Exploring UI/UX & Web" data-ja="UI/UX・Web探求中" data-no="Utforsker UI/UX & Web">Exploring UI/UX & Web</span>
           </div>
 
-          <!-- 2025 -->
-          <div
-            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
-          >
-            <span class="text-sm text-salmon pt-1">2025</span>
-            <div class="flex flex-col items-center">
-              <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
-              <div class="w-px flex-1 bg-brown mt-2"></div>
-            </div>
-            <div>
-              <h3
-                class="text-blush font-bold mb-2"
-                data-en="Started IT studies"
-                data-ja="IT学習を開始"
-                data-no="Startet IT-studier"
-              >
-                Started IT studies
-              </h3>
-              <p
-                class="text-blush opacity-60 text-sm"
-                data-en="Started IT studies at a vocational college in Norway."
-                data-ja="ノルウェーの職業学校でIT分野の学びを開始。"
-                data-no="Startet IT-studier ved yrkesfagskole i Norge."
-              >
-                Started IT studies at a vocational college in Norway.
-              </p>
-            </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2025</span>
+            <div class="timeline-dot"></div>
+            <span class="timeline-title" data-en="Started IT studies — Norway" data-ja="IT職業学校へ入学（ノルウェー）" data-no="Startet IT-studier — Norge">Started IT studies — Norway</span>
           </div>
 
-          <!-- 2016 -->
-          <div
-            class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start pb-16"
-          >
-            <span class="text-sm text-salmon pt-1">2016</span>
-            <div class="flex flex-col items-center">
-              <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
-              <div class="w-px flex-1 bg-brown mt-2"></div>
-            </div>
-            <div>
-              <h3
-                class="text-blush font-bold mb-2"
-                data-en="Moved to Norway"
-                data-ja="ノルウェーへ移住"
-                data-no="Flyttet til Norge"
-              >
-                Moved to Norway
-              </h3>
-              <p
-                class="text-blush opacity-60 text-sm"
-                data-en="Moved to Norway; worked to support life while learning languages."
-                data-ja="ノルウェーへ移住。言語を学びながら生活を支えるために就労。"
-                data-no="Flyttet til Norge; jobbet for å forsørge livet mens jeg lærte språk."
-              >
-                Moved to Norway; worked to support life while learning
-                languages.
-              </p>
-            </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2016 –</span>
+            <div class="timeline-dot"></div>
+            <span class="timeline-title" data-en="Various employment roles" data-ja="就労（複数職種）" data-no="Ulike arbeidsroller">Various employment roles</span>
           </div>
 
-          <!-- Japan – Univ. -->
-          <div class="grid grid-cols-[120px_24px_1fr] gap-x-6 items-start">
-            <span
-              class="text-sm text-salmon pt-1"
-              data-en="Japan – Univ."
-              data-ja="日本（大学）"
-              data-no="Japan – univ."
-            >
-              Japan – Univ.
-            </span>
-            <div class="flex flex-col items-center">
-              <div class="w-2 h-2 rounded-full border border-blush mt-1"></div>
-            </div>
-            <div>
-              <h3
-                class="text-blush font-bold mb-2"
-                data-en="Completed university in Japan"
-                data-ja="日本の大学を卒業"
-                data-no="Fullførte universitet i Japan"
-              >
-                Completed university in Japan
-              </h3>
-              <p
-                class="text-blush opacity-60 text-sm"
-                data-en="Joined a Japanese teaching internship in Hungary and China, supported by The Japan Foundation."
-                data-ja="国際交流基金の助成を受け、ハンガリーと中国で日本語教育インターンに参加。"
-                data-no="Deltok i japansk språkundervisningspraksis i Ungarn og Kina, støttet av The Japan Foundation."
-              >
-                Joined a Japanese teaching internship in Hungary and China,
-                supported by The Japan Foundation.
-              </p>
-            </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2016</span>
+            <div class="timeline-dot"></div>
+            <span class="timeline-title" data-en="Moved to Norway" data-ja="ノルウェーへ移住" data-no="Flyttet til Norge">Moved to Norway</span>
           </div>
-        </div>
 
-        <!-- 職歴まとめ -->
-        <div class="mt-16 border-l-2 border-brown pl-8">
-          <p
-            class="text-teal text-sm uppercase tracking-widest mb-2"
-            data-en="Work Experience (summary)"
-            data-ja="職歴（要約）"
-            data-no="Arbeidserfaring (kort)"
-          >
-            Work Experience (summary)
-          </p>
-          <p
-            class="text-blush opacity-60 text-sm"
-            data-en="Worked in service and inventory roles (cook, inventory manager) to support my life in Norway. These experiences built responsibility and adaptability that I carry into design and IT."
-            data-ja="生活を支えるために飲食や在庫管理（コック、インベントリ管理など）で勤務。責任感と柔軟性を身につけ、現在のデザインやITの学びに活かしています。"
-            data-no="Jobbet i service- og lagerroller (kokk, inventory manager) for å forsørge livet i Norge. Det ga ansvarsfølelse og tilpasningsevne som jeg tar med inn i design og IT."
-          >
-            Worked in service and inventory roles to support my life in Norway.
-            These experiences built responsibility and adaptability that I carry
-            into design and IT.
-          </p>
+          <div class="timeline-item">
+            <span class="timeline-year">〜 2014</span>
+            <div class="timeline-dot"></div>
+            <span class="timeline-title" data-en="Graduated university — Japan" data-ja="大学卒業（日本）" data-no="Fullførte universitet — Japan">Graduated university — Japan</span>
+          </div>
         </div>
       </section>
 
@@ -580,6 +458,23 @@ import "../styles/about.scss";
   );
 
   document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
+
+  /* ----------------------------------------------------------
+     History カードのスクロールフェードイン
+  ---------------------------------------------------------- */
+  const cardObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.15 },
+  );
+
+  document.querySelectorAll(".timeline-item").forEach((item) => cardObserver.observe(item));
 
   /* ----------------------------------------------------------
      ② 言語切り替え
