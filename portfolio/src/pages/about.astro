@@ -95,7 +95,7 @@ import "../styles/about.scss";
           <p
             class="mb-6"
             data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
-            data-ja="丁寧にものづくりをすることと、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校で学び、Web・アプリ開発者を目指しています。気づきや感性を活かして、UI/UXデザインを通じた思いやりのある体験づくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
+            data-ja="ノルウェー在住の聖子です。丁寧にものづくりをすること、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校へ通っています。学業と並行して独学でWeb開発を学んでいます。気づきや感性を活かして、UI/UXデザインにも気を配り思いやりのあるウェブサイトづくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
             data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør."
           >
             I enjoy creating with care and exploring new ideas. Paying attention
@@ -105,9 +105,9 @@ import "../styles/about.scss";
           </p>
 
           <p
-            data-en="I enjoy making things — from design and code to baking and digital art — and I want to keep building a creative life here."
+            data-en="I enjoy making things, from design and code to baking and digital art — and I want to keep building a creative life here."
             data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
-            data-no="Jeg liker å lage ting — fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
+            data-no="Jeg liker å lage ting, fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
           >
             I enjoy making things — from design and code to baking and digital
             art — and I want to keep building a creative life here.
@@ -142,10 +142,10 @@ import "../styles/about.scss";
               <div class="timeline-dot"></div>
               <span
                 class="timeline-title"
-                data-en="Started IT studies — Norway"
-                data-ja="IT職業学校へ入学（ノルウェー）"
-                data-no="Startet IT-studier — Norge"
-                >Started IT studies — Norway</span
+                data-en="Started IT/media studies — Norway"
+                data-ja="IT/メディア職業学校へ入学（ノルウェー）"
+                data-no="Startet IT/media-studier — Norge"
+                >Started IT/Media studies — Norway</span
               >
             </div>
 
@@ -154,11 +154,11 @@ import "../styles/about.scss";
               <div class="timeline-dot"></div>
               <span
                 class="timeline-title"
-                data-en="Welcomed a Mame-Shiba into the family 🐕"
-                data-ja="豆柴を家族に迎える 🐕"
-                data-no="Fikk en mame-shiba i familien 🐕"
-                >Welcomed a Mame-Shiba into the family 🐕</span
-              >
+                data-en="Welcomed a Mame-Shiba into the family "
+                data-ja="豆柴を家族に迎える "
+                data-no="Fikk en mame-shiba i familien "
+                >Welcomed a Mame-Shiba into the family
+              </span>
             </div>
 
             <div class="timeline-item">
@@ -210,13 +210,53 @@ import "../styles/about.scss";
             Hobbies
           </h2>
           <ul class="flex flex-col gap-4">
-            <li class="text-blush opacity-70 text-sm">🧶 Knitting</li>
-            <li class="text-blush opacity-70 text-sm">
+            <li
+              class="text-blush opacity-70 text-sm"
+              data-en="Knitting"
+              data-ja="編み物"
+              data-no="Strikking"
+            >
+              🧶 Knitting
+            </li>
+            <li
+              class="text-blush opacity-70 text-sm"
+              data-en="Digital illustration"
+              data-ja="デジタルイラスト"
+              data-no="Digital illustrasjon"
+            >
               🎨 Digital illustration
             </li>
-            <li class="text-blush opacity-70 text-sm">🍪 Baking sweets</li>
-            <li class="text-blush opacity-70 text-sm">🍳 Cooking</li>
+
+            <li
+              class="text-blush opacity-70 text-sm"
+              data-en="Baking sweets"
+              data-ja="お菓子作り"
+              data-no="Baking"
+            >
+              🍪 Baking sweets
+            </li>
+
+            <li
+              class="text-blush opacity-70 text-sm"
+              data-en="Cooking"
+              data-ja="料理"
+              data-no="Matlaging"
+            >
+              🍳 Cooking
+            </li>
           </ul>
+
+          <!-- 写真グリッド 3×2 -->
+          <!-- 写真を追加するときは下の PHOTOS 配列にパスを追加するだけ -->
+          <div class="photo-grid mt-12">
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+          </div>
+
         </section>
 
         <!-- ============================================================
@@ -253,83 +293,112 @@ import "../styles/about.scss";
             </p>
             <div class="flex flex-wrap gap-2">
               <span class="skill-chip">Figma</span>
-              <span class="skill-chip">Clip Studio Paint</span>
               <span class="skill-chip">DaVinci Resolve</span>
+              <span class="skill-chip">Clip Studio Paint</span>
             </div>
           </div>
 
           <!-- Language -->
           <div class="kit-group">
-          <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
+            <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
 
-          <div class="flex flex-col gap-4 mb-4 max-w-xs">
-            <div class="flex justify-between items-center">
-              <span class="text-blush text-sm">Japanese</span>
-              <div class="flex gap-1">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
+            <div class="flex flex-col gap-4 mb-4 max-w-xs">
+              <div class="flex justify-between items-center">
+                <span class="text-blush text-sm">Japanese</span>
+                <div class="flex gap-1">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-blush text-sm">Norwegian</span>
+                <div class="flex gap-1">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+              </div>
+
+              <div class="flex justify-between items-center">
+                <span class="text-blush text-sm">English</span>
+                <div class="flex gap-1">
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot filled"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
               </div>
             </div>
 
-            <div class="flex justify-between items-center">
-              <span class="text-blush text-sm">Norwegian</span>
-              <div class="flex gap-1">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
-
-            <div class="flex justify-between items-center">
-              <span class="text-blush text-sm">English</span>
-              <div class="flex gap-1">
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot filled"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-              </div>
-            </div>
-          </div>
-
-          <p
-            class="text-blush text-sm opacity-50 mb-16"
-            data-en="Written communication in English and Norwegian is fully fluent."
-            data-ja="英語・ノルウェー語での文書コミュニケーションは完全に対応できます。"
-            data-no="Skriftlig kommunikasjon på engelsk og norsk beherskes fullt ut."
-          >
-            Written communication in English and Norwegian is fully fluent.
-          </p>
-
+            <p
+              class="text-blush text-sm opacity-50 mb-16"
+              data-en="Written communication in English and Norwegian is fully fluent."
+              data-ja="英語・ノルウェー語での文書コミュニケーションは完全に対応できます。"
+              data-no="Skriftlig kommunikasjon på engelsk og norsk beherskes fullt ut."
+            >
+              Written communication in English and Norwegian is fully fluent.
+            </p>
           </div><!-- /Language kit-group -->
 
           <!-- 資格 -->
           <div class="kit-group">
-          <h3
-            class="text-xl font-bold mb-6 text-blush"
-            data-en="Certificates"
-            data-ja="資格・証明"
-            data-no="Sertifikater"
-          >
-            Certificates
-          </h3>
-
-          <ul class="flex flex-col gap-3">
-            <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
-              data-ja="日本語教師養成講座（420時間）修了"
-              data-no="Japansk språklærerutdanning (420 timer) – fullført"
+            <h3
+              class="text-xl font-bold mb-6 text-blush"
+              data-en="Certificates"
+              data-ja="資格・証明"
+              data-no="Sertifikater"
             >
-              Japanese Language Teacher Training Course (420 hours) — Completed
-            </li>
-          </ul>
+              Certificates
+            </h3>
+
+            <ul class="flex flex-col gap-3">
+              <li
+                class="text-blush opacity-70 text-sm border-l-2 pl-4"
+                style="border-color: var(--nav-accent, #633D26);"
+                data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
+                data-ja="日本語教師養成講座（420時間）修了"
+                data-no="Japansk språklærerutdanning (420 timer) – fullført"
+              >
+                Japanese Language Teacher Training Course (420 hours) —
+                Completed
+              </li>
+            </ul>
           </div><!-- /Certificates kit-group -->
+
+          <!-- 性格 -->
+          <div class="kit-group mt-8">
+            <h3
+              class="text-xl font-bold mb-6 text-blush"
+              data-en="Personality"
+              data-ja="性格"
+              data-no="Personlighet"
+            >
+              Personality
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="trait-chip" data-en="Detail-oriented"      data-ja="細部へのこだわり"         data-no="Detaljorientert"        >Detail-oriented</span>
+              <span class="trait-chip" data-en="Aesthetic sensibility" data-ja="審美眼"                  data-no="Estetisk sans"          >Aesthetic sensibility</span>
+              <span class="trait-chip" data-en="Visual thinker"        data-ja="視覚的思考"               data-no="Visuell tenker"         >Visual thinker</span>
+              <span class="trait-chip" data-en="Empathetic"            data-ja="共感性が高い"             data-no="Empatisk"               >Empathetic</span>
+              <span class="trait-chip" data-en="User-focused"          data-ja="ユーザー視点"             data-no="Brukerfokusert"         >User-focused</span>
+              <span class="trait-chip" data-en="Compassionate"         data-ja="思いやりのある"           data-no="Medfølende"             >Compassionate</span>
+              <span class="trait-chip" data-en="Curious"               data-ja="好奇心旺盛"               data-no="Nysgjerrig"             >Curious</span>
+              <span class="trait-chip" data-en="Analytical"            data-ja="論理的思考"               data-no="Analytisk"              >Analytical</span>
+              <span class="trait-chip" data-en="Problem-solver"        data-ja="問題解決思考"             data-no="Problemløser"           >Problem-solver</span>
+              <span class="trait-chip" data-en="Creative"              data-ja="創造的"                   data-no="Kreativ"                >Creative</span>
+              <span class="trait-chip" data-en="Patient"               data-ja="粘り強い"                 data-no="Tålmodig"               >Patient</span>
+              <span class="trait-chip" data-en="Adaptable"             data-ja="柔軟性がある"             data-no="Tilpasningsdyktig"      >Adaptable</span>
+              <span class="trait-chip" data-en="Open to feedback"      data-ja="フィードバックを受け入れる" data-no="Åpen for tilbakemelding">Open to feedback</span>
+              <span class="trait-chip" data-en="Self-motivated"        data-ja="自発的"                   data-no="Selvmotivert"           >Self-motivated</span>
+            </div>
+          </div><!-- /Personality kit-group -->
         </section>
 
         <!-- ============================================================
@@ -368,7 +437,8 @@ import "../styles/about.scss";
           </p>
           <ul class="flex flex-col gap-3 mb-20">
             <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              class="text-blush opacity-70 text-sm border-l-2 pl-4"
+                style="border-color: var(--nav-accent, #633D26);"
               data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
               data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
               data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI"
@@ -376,7 +446,8 @@ import "../styles/about.scss";
               Strengthen fundamentals in HTML/CSS/JS and component-based UI
             </li>
             <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              class="text-blush opacity-70 text-sm border-l-2 pl-4"
+                style="border-color: var(--nav-accent, #633D26);"
               data-en="Prototype accessible, considerate user flows in Figma"
               data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
               data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma"
@@ -384,7 +455,8 @@ import "../styles/about.scss";
               Prototype accessible, considerate user flows in Figma
             </li>
             <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
+              class="text-blush opacity-70 text-sm border-l-2 pl-4"
+                style="border-color: var(--nav-accent, #633D26);"
               data-en="Build small apps that solve everyday problems"
               data-ja="日常の不便を解決する小さなアプリを制作"
               data-no="Lage små apper som løser hverdagsproblemer"
@@ -424,7 +496,6 @@ import "../styles/about.scss";
 
   document.body.style.backgroundColor = "#111B18";
 
-
   /* ----------------------------------------------------------
      ① SHOKO 文字を積み上げるナビ
   ---------------------------------------------------------- */
@@ -449,10 +520,14 @@ import "../styles/about.scss";
   // スクロール方向を追跡
   let prevScrollY = window.scrollY;
   let scrollingDown = true;
-  window.addEventListener("scroll", () => {
-    scrollingDown = window.scrollY >= prevScrollY;
-    prevScrollY = window.scrollY;
-  }, { passive: true });
+  window.addEventListener(
+    "scroll",
+    () => {
+      scrollingDown = window.scrollY >= prevScrollY;
+      prevScrollY = window.scrollY;
+    },
+    { passive: true },
+  );
 
   const observer = new IntersectionObserver(
     (entries) => {
@@ -479,14 +554,19 @@ import "../styles/about.scss";
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
         if (scrollingDown && entry.boundingClientRect.top < 0) return;
+        // ページ末尾でスクロールが止まった瞬間に発火するのを防ぐ
+        // top が画面の60%より下にある（まだ上まで来ていない）ときは待つ
+        if (entry.boundingClientRect.top > window.innerHeight * 0.6) return;
         entry.target.classList.add("section-revealed");
         revealObserver.unobserve(entry.target);
       });
     },
-    { rootMargin: "-30% 0px -35% 0px", threshold: 0 },
+    { rootMargin: "-30% 0px -55% 0px", threshold: 0 },
   );
 
-  document.querySelectorAll("section[id]").forEach((s) => revealObserver.observe(s));
+  document
+    .querySelectorAll("section[id]")
+    .forEach((s) => revealObserver.observe(s));
 
   /* Kit内グループの個別フェードイン */
   const kitObserver = new IntersectionObserver(
@@ -500,7 +580,9 @@ import "../styles/about.scss";
     { rootMargin: "-25% 0px -30% 0px", threshold: 0 },
   );
 
-  document.querySelectorAll(".kit-group").forEach((el) => kitObserver.observe(el));
+  document
+    .querySelectorAll(".kit-group")
+    .forEach((el) => kitObserver.observe(el));
 
   /* ----------------------------------------------------------
      History カードのスクロールフェードイン
@@ -546,4 +628,22 @@ import "../styles/about.scss";
   });
 
   switchLang("en");
+
+  /* ----------------------------------------------------------
+     写真グリッド：PHOTOS からランダムに6枚を表示
+     写真を追加するときはここにパスを足すだけ
+  ---------------------------------------------------------- */
+  const PHOTOS: string[] = [
+    // '/images/hobbies/photo1.jpg',
+    // '/images/hobbies/photo2.jpg',
+    // ... 最大20枚くらいまで追加できる
+  ];
+
+  if (PHOTOS.length > 0) {
+    const shuffled = [...PHOTOS].sort(() => Math.random() - 0.5);
+    document.querySelectorAll<HTMLImageElement>('.photo-img').forEach((img, i) => {
+      if (shuffled[i]) img.src = shuffled[i];
+    });
+  }
+
 </script>
