@@ -65,7 +65,7 @@ import "../styles/about.scss";
           <h1 class="text-8xl font-black uppercase tracking-tight">
             <span class="shoko-s">S</span><span class="shoko-rest">HOKO</span>
           </h1>
-          <hr class="border-salmon my-8" />
+          <hr class="my-8" style="border-color: var(--nav-accent, #F4A8AD);" />
           <p
             class="text-blush italic text-lg"
             data-en="Designer / Student. Oslo-based. Detail-obsessed."
@@ -89,7 +89,7 @@ import "../styles/about.scss";
         <!-- ============================================================
            Story（About Me）
       ============================================================ -->
-        <section id="story" class="min-h-screen py-24 px-8">
+        <section id="story" class="py-24 px-8">
           <h2 class="text-2xl font-bold mb-8">Story</h2>
 
           <p
@@ -226,7 +226,7 @@ import "../styles/about.scss";
           <h2 class="text-2xl font-bold mb-12">Tools</h2>
 
           <!-- Code -->
-          <div class="mb-8">
+          <div class="mb-8 kit-group">
             <p
               class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
             >
@@ -245,7 +245,7 @@ import "../styles/about.scss";
           </div>
 
           <!-- Design -->
-          <div class="mb-16">
+          <div class="mb-16 kit-group">
             <p
               class="text-teal text-sm uppercase tracking-widest mb-3 opacity-100"
             >
@@ -258,12 +258,11 @@ import "../styles/about.scss";
             </div>
           </div>
 
-          <!-- 言語スキル（ドット表示）
-             ドットを増減するには <span class="dot ..."> の数を変えてください。
-             filled クラスで塗りつぶし、なしで空丸になります -->
+          <!-- Language -->
+          <div class="kit-group">
           <h3 class="text-xl font-bold mb-6 text-blush">Language</h3>
 
-          <div class="flex flex-col gap-4 mb-16">
+          <div class="flex flex-col gap-4 mb-4 max-w-xs">
             <div class="flex justify-between items-center">
               <span class="text-blush text-sm">Japanese</span>
               <div class="flex gap-1">
@@ -298,7 +297,19 @@ import "../styles/about.scss";
             </div>
           </div>
 
+          <p
+            class="text-blush text-sm opacity-50 mb-16"
+            data-en="Written communication in English and Norwegian is fully fluent."
+            data-ja="英語・ノルウェー語での文書コミュニケーションは完全に対応できます。"
+            data-no="Skriftlig kommunikasjon på engelsk og norsk beherskes fullt ut."
+          >
+            Written communication in English and Norwegian is fully fluent.
+          </p>
+
+          </div><!-- /Language kit-group -->
+
           <!-- 資格 -->
+          <div class="kit-group">
           <h3
             class="text-xl font-bold mb-6 text-blush"
             data-en="Certificates"
@@ -311,29 +322,14 @@ import "../styles/about.scss";
           <ul class="flex flex-col gap-3">
             <li
               class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Driver's License — Class B (Automatic)"
-              data-ja="普通自動車運転免許（AT限定）"
-              data-no="Førerkort klasse B (automatgir)"
-            >
-              Driver's License — Class B (Automatic)
-            </li>
-            <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
               data-en="Japanese Language Teacher Training Course (420 hours) — Completed"
               data-ja="日本語教師養成講座（420時間）修了"
               data-no="Japansk språklærerutdanning (420 timer) – fullført"
             >
               Japanese Language Teacher Training Course (420 hours) — Completed
             </li>
-            <li
-              class="text-blush opacity-70 text-sm border-l-2 border-brown pl-4"
-              data-en="Norskprøven — Level B1"
-              data-ja="ノルウェー語検定（Norskprøven）B1"
-              data-no="Norskprøven — B1"
-            >
-              Norskprøven — Level B1
-            </li>
           </ul>
+          </div><!-- /Certificates kit-group -->
         </section>
 
         <!-- ============================================================
@@ -428,10 +424,6 @@ import "../styles/about.scss";
 
   document.body.style.backgroundColor = "#111B18";
 
-  const ACCENT_COLORS = ["#F4A8AD", "#FFF9B0", "#88C998"];
-  const accent =
-    ACCENT_COLORS[Math.floor(Math.random() * ACCENT_COLORS.length)];
-  document.documentElement.style.setProperty("--nav-accent", accent);
 
   /* ----------------------------------------------------------
      ① SHOKO 文字を積み上げるナビ
@@ -480,6 +472,35 @@ import "../styles/about.scss";
   );
 
   document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
+
+  /* セクションのフェードイン（ナビより遅いタイミングで発火） */
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        if (scrollingDown && entry.boundingClientRect.top < 0) return;
+        entry.target.classList.add("section-revealed");
+        revealObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "-30% 0px -35% 0px", threshold: 0 },
+  );
+
+  document.querySelectorAll("section[id]").forEach((s) => revealObserver.observe(s));
+
+  /* Kit内グループの個別フェードイン */
+  const kitObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("kit-revealed");
+        kitObserver.unobserve(entry.target);
+      });
+    },
+    { rootMargin: "-25% 0px -30% 0px", threshold: 0 },
+  );
+
+  document.querySelectorAll(".kit-group").forEach((el) => kitObserver.observe(el));
 
   /* ----------------------------------------------------------
      History カードのスクロールフェードイン
