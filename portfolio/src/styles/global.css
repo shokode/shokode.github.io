@@ -28,6 +28,7 @@
 /* ルートフォントサイズ（rem の基準） */
 html {
     font-size: 18px;
+    scrollbar-gutter: stable;
 }
 
 /* 本文：Josefin Sans（日本語は Kiwi Maru） */
@@ -35,10 +36,10 @@ body {
     font-family: 'Josefin Sans', 'Kiwi Maru', system-ui, sans-serif;
 }
 
-/* 日本語モード時のみ Kiwi Maru を軽くする */
+/* 日本語モード時のみ Kiwi Maru を軽くする（SHOKO等ラテン文字要素は除外） */
 :lang(ja) p,
 :lang(ja) li,
-:lang(ja) span {
+:lang(ja) .timeline-title {
     font-weight: 300;
 }
 

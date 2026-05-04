@@ -37,7 +37,7 @@ const { title = "Shoko's Portfolio" } = Astro.props;
     <!-- Google Fonts: Fraunces（見出し）+ Raleway（本文） -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Josefin+Sans:wght@300;400;600&family=Klee+One:wght@400;600&family=Kiwi+Maru:wght@300;400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Josefin+Sans:wght@300;400;600&family=Klee+One:wght@400;600&family=Kiwi+Maru:wght@300;400;500;700&display=optional" rel="stylesheet" />
 
     <!-- 各ページが追加の <link> や <meta> を差し込む場所 -->
     <slot name="head" />
@@ -73,6 +73,11 @@ const { title = "Shoko's Portfolio" } = Astro.props;
    * <body> に "dark" クラスが付いたり外れたりします。
    * works.css の body.dark セレクタがテーマを切り替えます。
    */
+  // ページ読み込みごとにランダムなアクセントカラーを設定
+  const ACCENT_COLORS = ["#F4A8AD", "#FFF9B0", "#88C998", "#7ECFE0", "#F6B796", "#FEF08A", "#DDB6FC"];
+  const accent = ACCENT_COLORS[Math.floor(Math.random() * ACCENT_COLORS.length)];
+  document.documentElement.style.setProperty("--nav-accent", accent);
+
   const toggle   = document.getElementById('themeToggle');
   const iconSun  = document.getElementById('icon-sun');
   const iconMoon = document.getElementById('icon-moon');
