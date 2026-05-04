@@ -9,7 +9,7 @@
   --container-color: #fffdf8;
   --accent-color: #FFF9B0;
 
-  --body-font: system-ui, -apple-system, Segoe UI, sans-serif;
+  --body-font: 'Josefin Sans', system-ui, sans-serif;
   --h2-font-size: 1.25rem;
   --small-font-size: .813rem;
 

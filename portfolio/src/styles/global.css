@@ -1,6 +1,8 @@
 @import "tailwindcss";
 
 @theme {
+    --font-sans: 'Josefin Sans', system-ui, sans-serif;
+    --font-serif: 'Fraunces', Georgia, serif;
     --color-salmon: #F4A8AD;
     /* ピンクサーモン */
     --color-cream: #FFF9B0;
@@ -21,4 +23,26 @@
     /* ダーク（ほぼ黒） */
     --color-peach: #F6B796;
     /* ピーチ */
+}
+
+/* ルートフォントサイズ（rem の基準） */
+html {
+    font-size: 18px;
+}
+
+/* 本文：Josefin Sans（日本語は Kiwi Maru） */
+body {
+    font-family: 'Josefin Sans', 'Kiwi Maru', system-ui, sans-serif;
+}
+
+/* 日本語モード時のみ Kiwi Maru を軽くする */
+:lang(ja) p,
+:lang(ja) li,
+:lang(ja) span {
+    font-weight: 300;
+}
+
+/* 見出し：Fraunces（日本語は Zen Maru Gothic） */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Fraunces', 'Kiwi Maru', Georgia, serif;
 }
