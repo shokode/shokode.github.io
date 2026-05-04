@@ -84,16 +84,13 @@ const sorted = [...works].sort(
               rel={isPdf ? undefined : 'noopener'}
             >
 
-              {/* --- メディア（動画 or 画像） --- */}
+              {/* --- メディア（動画サムネイル or 画像） --- */}
               {isVideo ? (
-                <div class="card__media">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${w.youtubeId}`}
-                    title={w.title}
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen
-                  ></iframe>
-                </div>
+                <img
+                  class="card__img"
+                  src={`https://img.youtube.com/vi/${w.youtubeId}/hqdefault.jpg`}
+                  alt={w.title}
+                />
               ) : (
                 <img class="card__img" src={w.thumb} alt={w.title} />
               )}
