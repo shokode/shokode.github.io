@@ -233,6 +233,29 @@ section[id] {
     box-shadow: 0 0 10px rgb(255, 255, 255);
     animation: dot-pulse 1.4s ease-in-out infinite;
   }
+
+  &--sub {
+    width: 5px;
+    height: 5px;
+    border-style: dashed;
+    border-color: rgba(255, 237, 237, 0.2);
+  }
+}
+
+.timeline-item--sub {
+  padding-top: 0.2rem;
+  padding-bottom: 0.6rem;
+
+  .timeline-year {
+    font-size: 0.9rem;
+    color: rgba(255, 237, 237, 0.2);
+    letter-spacing: 0;
+  }
+
+  .timeline-title {
+    font-size: 0.8rem;
+    color: rgba(255, 237, 237, 0.5);
+  }
 }
 
 @keyframes dot-pulse {
