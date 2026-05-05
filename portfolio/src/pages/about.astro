@@ -612,28 +612,14 @@ import "../styles/about.scss";
   // スクロール方向を追跡
   let prevScrollY = window.scrollY;
   let scrollingDown = true;
-  let hasScrolled = false;
+  let hasScrolled = false;      // ページ読み込み直後の Observer 誤発火を防ぐ
+  let navInitialized = false;   // ナビが一度でも初期化されたか
   window.addEventListener(
     "scroll",
     () => {
+      hasScrolled = true;
       scrollingDown = window.scrollY >= prevScrollY;
       prevScrollY = window.scrollY;
-
-      if (!hasScrolled) {
-        // 最初のスクロール時に現在のセクションを検出してナビを初期化
-        hasScrolled = true;
-        const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
-        for (let i = sections.length - 1; i >= 0; i--) {
-          const rect = sections[i].getBoundingClientRect();
-          if (rect.top < window.innerHeight * 0.6) {
-            const id = sections[i].id;
-            updateShokoNav(id);
-            const color = SECTION_COLORS[id];
-            if (color) document.body.style.backgroundColor = color;
-            break;
-          }
-        }
-      }
     },
     { passive: true },
   );
@@ -649,6 +635,7 @@ import "../styles/about.scss";
         if (entry.intersectionRatio < required) return;
         // 下スクロール中にセクションの上端が画面外 = 出ていくセクション → 無視
         if (scrollingDown && entry.boundingClientRect.top < 0) return;
+        navInitialized = true;
         updateShokoNav(id);
         const color = SECTION_COLORS[id];
         if (color) document.body.style.backgroundColor = color;
@@ -670,9 +657,9 @@ import "../styles/about.scss";
         if (entry.boundingClientRect.top > window.innerHeight * 0.6) return;
         entry.target.classList.add("section-revealed");
         revealObserver.unobserve(entry.target);
-        // コンテンツのフェードインと同時にナビも初期化（スクロール前でも発火）
-        if (!hasScrolled) {
-          hasScrolled = true;
+        // コンテンツのフェードインと同時にナビを初期化（まだ一度も初期化されていない場合）
+        if (!navInitialized) {
+          navInitialized = true;
           const id = entry.target.id;
           updateShokoNav(id);
           const color = SECTION_COLORS[id];
