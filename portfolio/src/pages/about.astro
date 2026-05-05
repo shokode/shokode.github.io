@@ -670,6 +670,14 @@ import "../styles/about.scss";
         if (entry.boundingClientRect.top > window.innerHeight * 0.6) return;
         entry.target.classList.add("section-revealed");
         revealObserver.unobserve(entry.target);
+        // コンテンツのフェードインと同時にナビも初期化（スクロール前でも発火）
+        if (!hasScrolled) {
+          hasScrolled = true;
+          const id = entry.target.id;
+          updateShokoNav(id);
+          const color = SECTION_COLORS[id];
+          if (color) document.body.style.backgroundColor = color;
+        }
       });
     },
     { rootMargin: "-30% 0px -55% 0px", threshold: 0 },
