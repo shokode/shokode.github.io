@@ -609,10 +609,6 @@ import "../styles/about.scss";
     });
   }
 
-  // ページ初期状態は Story セクションから始まる
-  updateShokoNav("story");
-  document.body.style.backgroundColor = SECTION_COLORS["story"] ?? "";
-
   // スクロール方向を追跡
   let prevScrollY = window.scrollY;
   let scrollingDown = true;
@@ -620,9 +616,24 @@ import "../styles/about.scss";
   window.addEventListener(
     "scroll",
     () => {
-      hasScrolled = true;
       scrollingDown = window.scrollY >= prevScrollY;
       prevScrollY = window.scrollY;
+
+      if (!hasScrolled) {
+        // 最初のスクロール時に現在のセクションを検出してナビを初期化
+        hasScrolled = true;
+        const sections = Array.from(document.querySelectorAll<HTMLElement>("section[id]"));
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const rect = sections[i].getBoundingClientRect();
+          if (rect.top < window.innerHeight * 0.6) {
+            const id = sections[i].id;
+            updateShokoNav(id);
+            const color = SECTION_COLORS[id];
+            if (color) document.body.style.backgroundColor = color;
+            break;
+          }
+        }
+      }
     },
     { passive: true },
   );
