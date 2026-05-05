@@ -32,7 +32,7 @@ import "../styles/about.scss";
       <!-- 現在のセクション名だけを表示するナビ
          JavaScript がスクロール方向に応じて押し込みアニメーションで切り替えます -->
       <div
-        class="sticky top-16 self-start h-[calc(100vh-8rem)] w-48 shrink-0 flex flex-col justify-center px-8 relative z-10"
+        class="sticky top-16 self-start h-[calc(100vh-8rem)] w-36 shrink-0 flex flex-col justify-center px-6 relative z-10"
       >
         <div class="shoko-letters">
           <span class="shoko-letter" id="nav-s"
@@ -68,11 +68,11 @@ import "../styles/about.scss";
           <hr class="my-8" style="border-color: var(--nav-accent, #F4A8AD);" />
           <p
             class="text-blush italic text-lg"
-            data-en="Designer / Student. Oslo-based. Detail-obsessed."
-            data-ja="デザイナー・学生。オスロ在住。細部にこだわる。"
-            data-no="Designer / Student. Oslo-basert. Detaljbesatt."
+            data-en="Japanese UI/UX Designer & Developer based in Oslo."
+            data-ja="オスロ在住の日本人UI/UXデザイナー＆デベロッパー。"
+            data-no="Japansk UI/UX Designer & Developer basert i Oslo."
           >
-            Designer / Student. Oslo-based. Detail-obsessed.
+            Japanese UI/UX Designer & Developer based in Oslo.
           </p>
         </section>
 
@@ -94,23 +94,15 @@ import "../styles/about.scss";
 
           <p
             class="mb-6"
-            data-en="I enjoy creating with care and exploring new ideas. Paying attention to details and taking time to shape things thoughtfully is important to me. Currently studying IT at a vocational school in Norway, aiming to become a web and app developer. I hope to use my sensitivity and attention to detail in UI and UX design to create considerate, user-friendly experiences. I'm inspired by kindness, sincerity, and creativity — by thoughtful creations and the people who put genuine care into their work."
-            data-ja="ノルウェー在住の聖子です。丁寧にものづくりをすること、新しいアイデアを考えることが好きです。細部にまで気を配りながら、時間をかけて形にしていく過程を大切にしています。現在はノルウェーのIT職業学校へ通っています。学業と並行して独学でWeb開発を学んでいます。気づきや感性を活かして、UI/UXデザインにも気を配り思いやりのあるウェブサイトづくりを目指しています。優しさや誠実さ、心を込めて作られた作品、それに向き合う人々に深く惹かれます。"
-            data-no="Jeg liker å skape med omtanke og utforske nye ideer. Det er viktig for meg å legge merke til detaljer og bruke tid på å forme ting på en gjennomtenkt måte. Jeg studerer IT ved en yrkesfagskole i Norge og ønsker å bli web- og apputvikler. Håper å bruke min følsomhet og sans for detaljer i UI- og UX-design for å skape gode og brukervennlige opplevelser. Blir inspirert av vennlighet, ærlighet og kreativitet — av gjennomtenkte arbeider og menneskene som legger sjelen sin i det de gjør."
+            data-en="I'm Shoko, based in Norway. While attending an IT vocational school, I've been teaching myself UI/UX, web design, and development. I care about keeping the user in mind and crafting thoughtful, detail-driven interfaces. I love making things in all forms, and I'm always pushing to close the gap between what I imagine and what I can build."
+            data-ja="ノルウェー在住の聖子です。IT職業学校に通いながら、UI/UX・Webデザイン・開発を独学で学んできました。ユーザー目線を忘れずに、細部にこだわった思いやりのあるUIをつくることを心がけています。ものづくり全般が好きです。浮かんでくるアイディアを自由自在に形にできるよう、日々精進しています。"
+            data-no="Jeg er Shoko, bosatt i Norge. Mens jeg går på en IT-yrkesskole, har jeg lært meg UI/UX, webdesign og utvikling på egenhånd. Jeg er opptatt av å ha brukeren i fokus og lage gjennomtenkte UI-er med sans for detaljer. Jeg elsker å skape ting i alle former, og jeg jobber alltid for å lære å realisere ideene mine fullt ut."
           >
-            I enjoy creating with care and exploring new ideas. Paying attention
-            to details and taking time to shape things thoughtfully is important
-            to me. Currently studying IT at a vocational school in Norway,
-            aiming to become a web and app developer.
-          </p>
-
-          <p
-            data-en="I enjoy making things, from design and code to baking and digital art — and I want to keep building a creative life here."
-            data-ja="デザインやコード、焼き菓子やデジタル絵など、ものづくりが好きです。ここノルウェーで創作のある暮らしを続けていきます。"
-            data-no="Jeg liker å lage ting, fra design og koding til baking og digital kunst — og vil fortsette å bygge et kreativt liv her."
-          >
-            I enjoy making things — from design and code to baking and digital
-            art — and I want to keep building a creative life here.
+            I'm Shoko, based in Norway. While attending an IT vocational school,
+            I've been teaching myself UI/UX, web design, and development. I care
+            about keeping the user in mind and crafting thoughtful,
+            detail-driven interfaces. I love making things in all forms, and
+            every day I'm working to better bring the ideas in my head to life.
           </p>
         </section>
 
@@ -201,62 +193,100 @@ import "../styles/about.scss";
            Obsession（夢中なもの・趣味）
       ============================================================ -->
         <section id="obsession" class="min-h-screen py-24 px-8">
-          <h2
-            class="text-2xl font-bold mb-8"
-            data-en="Hobbies"
-            data-ja="趣味"
-            data-no="Hobbier"
+          <h2 class="text-2xl font-bold mb-2">Obsession</h2>
+          <p
+            class="text-teal text-sm mb-8 opacity-100"
+            data-en="What I love doing"
+            data-ja="夢中になっていること"
+            data-no="Det jeg elsker å gjøre"
           >
-            Hobbies
-          </h2>
-          <ul class="flex flex-col gap-4">
-            <li
-              class="text-blush opacity-70 text-sm"
+            What I love doing
+          </p>
+          <div class="flex flex-wrap gap-2">
+            <span
+              class="skill-chip"
               data-en="Knitting"
               data-ja="編み物"
-              data-no="Strikking"
+              data-no="Strikking">Knitting</span
             >
-              🧶 Knitting
-            </li>
-            <li
-              class="text-blush opacity-70 text-sm"
+            <span
+              class="skill-chip"
               data-en="Digital illustration"
               data-ja="デジタルイラスト"
-              data-no="Digital illustrasjon"
+              data-no="Digital illustrasjon">Digital illustration</span
             >
-              🎨 Digital illustration
-            </li>
-
-            <li
-              class="text-blush opacity-70 text-sm"
+            <span
+              class="skill-chip"
               data-en="Baking sweets"
               data-ja="お菓子作り"
-              data-no="Baking"
+              data-no="Baking">Baking sweets</span
             >
-              🍪 Baking sweets
-            </li>
-
-            <li
-              class="text-blush opacity-70 text-sm"
+            <span
+              class="skill-chip"
               data-en="Cooking"
               data-ja="料理"
-              data-no="Matlaging"
+              data-no="Matlaging">Cooking</span
             >
-              🍳 Cooking
-            </li>
-          </ul>
+            <span
+              class="skill-chip"
+              data-en="My dog"
+              data-ja="愛犬"
+              data-no="Hunden min">My dog</span
+            >
+            <span
+              class="skill-chip"
+              data-en="Health & wellness"
+              data-ja="健康"
+              data-no="Helse">Health & wellness</span
+            >
+            <span
+              class="skill-chip"
+              data-en="Video editing"
+              data-ja="動画編集"
+              data-no="Videoredigering">Video editing</span
+            >
+            <span
+              class="skill-chip"
+              data-en="Hot spring trips"
+              data-ja="温泉旅行"
+              data-no="Onsen-turer">Hot spring trips</span
+            >
+            <span
+              class="skill-chip"
+              data-en="Anime"
+              data-ja="アニメ"
+              data-no="Anime">Anime</span
+            >
+            <span
+              class="skill-chip"
+              data-en="Table tennis"
+              data-ja="卓球"
+              data-no="Bordtennis">Table tennis</span
+            >
+          </div>
 
           <!-- 写真グリッド 3×2 -->
           <!-- 写真を追加するときは下の PHOTOS 配列にパスを追加するだけ -->
           <div class="photo-grid mt-12">
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
-            <div class="photo-grid-item kit-group"><img class="photo-img" src="" alt="hobby photo"></div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
+            <div class="photo-grid-item kit-group">
+              <img class="photo-img" src="" alt="hobby photo" />
+            </div>
           </div>
-
         </section>
 
         <!-- ============================================================
@@ -383,20 +413,90 @@ import "../styles/about.scss";
               Personality
             </h3>
             <div class="flex flex-wrap gap-2">
-              <span class="trait-chip" data-en="Detail-oriented"      data-ja="細部へのこだわり"         data-no="Detaljorientert"        >Detail-oriented</span>
-              <span class="trait-chip" data-en="Aesthetic sensibility" data-ja="審美眼"                  data-no="Estetisk sans"          >Aesthetic sensibility</span>
-              <span class="trait-chip" data-en="Visual thinker"        data-ja="視覚的思考"               data-no="Visuell tenker"         >Visual thinker</span>
-              <span class="trait-chip" data-en="Empathetic"            data-ja="共感性が高い"             data-no="Empatisk"               >Empathetic</span>
-              <span class="trait-chip" data-en="User-focused"          data-ja="ユーザー視点"             data-no="Brukerfokusert"         >User-focused</span>
-              <span class="trait-chip" data-en="Compassionate"         data-ja="思いやりのある"           data-no="Medfølende"             >Compassionate</span>
-              <span class="trait-chip" data-en="Curious"               data-ja="好奇心旺盛"               data-no="Nysgjerrig"             >Curious</span>
-              <span class="trait-chip" data-en="Analytical"            data-ja="論理的思考"               data-no="Analytisk"              >Analytical</span>
-              <span class="trait-chip" data-en="Problem-solver"        data-ja="問題解決思考"             data-no="Problemløser"           >Problem-solver</span>
-              <span class="trait-chip" data-en="Creative"              data-ja="創造的"                   data-no="Kreativ"                >Creative</span>
-              <span class="trait-chip" data-en="Patient"               data-ja="粘り強い"                 data-no="Tålmodig"               >Patient</span>
-              <span class="trait-chip" data-en="Adaptable"             data-ja="柔軟性がある"             data-no="Tilpasningsdyktig"      >Adaptable</span>
-              <span class="trait-chip" data-en="Open to feedback"      data-ja="フィードバックを受け入れる" data-no="Åpen for tilbakemelding">Open to feedback</span>
-              <span class="trait-chip" data-en="Self-motivated"        data-ja="自発的"                   data-no="Selvmotivert"           >Self-motivated</span>
+              <span
+                class="trait-chip"
+                data-en="Detail-oriented"
+                data-ja="細部へのこだわり"
+                data-no="Detaljorientert">Detail-oriented</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Aesthetic sensibility"
+                data-ja="審美眼"
+                data-no="Estetisk sans">Aesthetic sensibility</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Visual thinker"
+                data-ja="視覚的思考"
+                data-no="Visuell tenker">Visual thinker</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Empathetic"
+                data-ja="共感性が高い"
+                data-no="Empatisk">Empathetic</span
+              >
+              <span
+                class="trait-chip"
+                data-en="User-focused"
+                data-ja="ユーザー視点"
+                data-no="Brukerfokusert">User-focused</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Compassionate"
+                data-ja="思いやりのある"
+                data-no="Medfølende">Compassionate</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Curious"
+                data-ja="好奇心旺盛"
+                data-no="Nysgjerrig">Curious</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Analytical"
+                data-ja="論理的思考"
+                data-no="Analytisk">Analytical</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Problem-solver"
+                data-ja="問題解決思考"
+                data-no="Problemløser">Problem-solver</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Creative"
+                data-ja="創造的"
+                data-no="Kreativ">Creative</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Patient"
+                data-ja="粘り強い"
+                data-no="Tålmodig">Patient</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Adaptable"
+                data-ja="柔軟性がある"
+                data-no="Tilpasningsdyktig">Adaptable</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Open to feedback"
+                data-ja="フィードバックを受け入れる"
+                data-no="Åpen for tilbakemelding">Open to feedback</span
+              >
+              <span
+                class="trait-chip"
+                data-en="Self-motivated"
+                data-ja="自発的"
+                data-no="Selvmotivert">Self-motivated</span
+              >
             </div>
           </div><!-- /Personality kit-group -->
         </section>
@@ -405,7 +505,7 @@ import "../styles/about.scss";
            Objective（目標・ビジョン）
       ============================================================ -->
         <section id="objective" class="min-h-screen py-24 px-8">
-          <h2 class="text-2xl font-bold mb-2">Vision</h2>
+          <h2 class="text-2xl font-bold mb-2">Objective</h2>
 
           <p
             class="text-teal text-sm mb-8 opacity-100"
@@ -438,30 +538,22 @@ import "../styles/about.scss";
           <ul class="flex flex-col gap-3 mb-20">
             <li
               class="text-blush opacity-70 text-sm border-l-2 pl-4"
-                style="border-color: var(--nav-accent, #633D26);"
-              data-en="Strengthen fundamentals in HTML/CSS/JS and component-based UI"
-              data-ja="HTML/CSS/JS とコンポーネント指向UIの基礎を強化"
-              data-no="Styrke grunnleggende HTML/CSS/JS og komponentbasert UI"
+              style="border-color: var(--nav-accent, #633D26);"
+              data-en="Design and build static websites solo, from concept to code"
+              data-ja="デザインから実装まで、スタティックウェブサイトを一人で手がける"
+              data-no="Designe og bygge statiske nettsider alene, fra konsept til kode"
             >
-              Strengthen fundamentals in HTML/CSS/JS and component-based UI
+              Design and build static websites solo, from concept to code
             </li>
             <li
               class="text-blush opacity-70 text-sm border-l-2 pl-4"
-                style="border-color: var(--nav-accent, #633D26);"
-              data-en="Prototype accessible, considerate user flows in Figma"
-              data-ja="Figmaでアクセシブルで思いやりのあるユーザーフローを試作"
-              data-no="Prototypere tilgjengelige og omtanke-fulle brukerflyter i Figma"
+              style="border-color: var(--nav-accent, #633D26);"
+              data-en="Grow into frontend development, beyond design, into real programming"
+              data-ja="フロントエンド開発者と名乗れるくらい、プログラミングも本格的に学ぶ"
+              data-no="Vokse inn i frontend-utvikling, utover design, inn i skikkelig programmering"
             >
-              Prototype accessible, considerate user flows in Figma
-            </li>
-            <li
-              class="text-blush opacity-70 text-sm border-l-2 pl-4"
-                style="border-color: var(--nav-accent, #633D26);"
-              data-en="Build small apps that solve everyday problems"
-              data-ja="日常の不便を解決する小さなアプリを制作"
-              data-no="Lage små apper som løser hverdagsproblemer"
-            >
-              Build small apps that solve everyday problems
+              Grow into frontend development, beyond design, into real
+              programming
             </li>
           </ul>
         </section>
@@ -520,9 +612,11 @@ import "../styles/about.scss";
   // スクロール方向を追跡
   let prevScrollY = window.scrollY;
   let scrollingDown = true;
+  let hasScrolled = false;
   window.addEventListener(
     "scroll",
     () => {
+      hasScrolled = true;
       scrollingDown = window.scrollY >= prevScrollY;
       prevScrollY = window.scrollY;
     },
@@ -533,6 +627,8 @@ import "../styles/about.scss";
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
+        // ページを開いた瞬間（まだスクロールしていない）は無視
+        if (!hasScrolled) return;
         const id = entry.target.id;
         const required = id === "story" ? 0.5 : 0.3;
         if (entry.intersectionRatio < required) return;
@@ -641,9 +737,10 @@ import "../styles/about.scss";
 
   if (PHOTOS.length > 0) {
     const shuffled = [...PHOTOS].sort(() => Math.random() - 0.5);
-    document.querySelectorAll<HTMLImageElement>('.photo-img').forEach((img, i) => {
-      if (shuffled[i]) img.src = shuffled[i];
-    });
+    document
+      .querySelectorAll<HTMLImageElement>(".photo-img")
+      .forEach((img, i) => {
+        if (shuffled[i]) img.src = shuffled[i];
+      });
   }
-
 </script>
