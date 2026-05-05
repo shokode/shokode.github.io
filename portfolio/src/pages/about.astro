@@ -609,6 +609,10 @@ import "../styles/about.scss";
     });
   }
 
+  // ページ初期状態は Story セクションから始まる
+  updateShokoNav("story");
+  document.body.style.backgroundColor = SECTION_COLORS["story"] ?? "";
+
   // スクロール方向を追跡
   let prevScrollY = window.scrollY;
   let scrollingDown = true;
