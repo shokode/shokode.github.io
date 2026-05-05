@@ -28,6 +28,11 @@ h2 {
   text-underline-offset: 8px;
 }
 
+// --- 日本語時はサブタイトルを細字に ---
+:lang(ja) h2 + p {
+  font-weight: 300;
+}
+
 // --- 本文テキスト ---
 p {
   color: var(--color-blush);
