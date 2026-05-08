@@ -2,21 +2,20 @@
 // About ページ専用スタイル (about.scss)
 // ============================================================
 
-// --- サイドナビゲーション ---
-nav {
-  a {
-    transition: color 0.3s, font-weight 0.3s;
-    color: var(--color-teal);
+// --- About ページのみヘッダーをガラス効果に ---
+:root {
+  --header-bg: rgba(22, 34, 53, 0.45);
+  --header-border: rgba(255, 237, 237, 0.15);
+}
 
-    &.active {
-      color: var(--color-cream);
-      font-weight: 600;
-    }
+body:not(.dark) {
+  --header-bg: rgba(245, 239, 230, 0.55);
+  --header-border: rgba(28, 28, 26, 0.12);
+}
 
-    &:hover {
-      color: var(--color-teal);
-    }
-  }
+.site-header {
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
 // --- セクション見出し ---
@@ -70,11 +69,6 @@ p {
   }
 }
 
-// --- About ページのみヘッダーを透明にする ---
-.site-header {
-  background: transparent !important;
-  border-bottom: 1px solid rgba(255, 237, 237, 0.15);
-}
 
 // --- ページ背景色トランジション ---
 body {
@@ -490,10 +484,6 @@ body:not(.dark) {
   --color-blush: #2A2420;
   --color-teal: #0D7A8A;
   --shoko-fill-color: #2A2420;
-
-  .site-header {
-    border-bottom-color: rgba(28, 28, 26, 0.12) !important;
-  }
 
   h2 {
     color: #2A2420;
