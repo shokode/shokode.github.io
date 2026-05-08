@@ -28,6 +28,7 @@
 /* ルートフォントサイズ（rem の基準） */
 html {
     font-size: 18px;
+    overflow-y: scroll;
     scrollbar-gutter: stable;
 }
 
@@ -53,9 +54,9 @@ body:not(.dark)::before {
     z-index: -1;
 }
 
-/* 本文：Josefin Sans（日本語は Kiwi Maru） */
+/* 本文：Josefin Sans（日本語は Kiwi Maru、フォールバックは日本語系） */
 body {
-    font-family: 'Josefin Sans', 'Kiwi Maru', system-ui, sans-serif;
+    font-family: 'Josefin Sans', 'Kiwi Maru', 'Hiragino Mincho ProN', 'Yu Mincho', 'MS PMincho', serif;
 }
 
 /* 日本語モード時のみ Kiwi Maru を軽くする（SHOKO等ラテン文字要素は除外） */

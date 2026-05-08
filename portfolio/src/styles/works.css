@@ -425,7 +425,7 @@ body.dark .filters-button.is-active {
 /* =========================
    Breakpoints
 ========================= */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 640px) {
   .filters {
     display: flex;
     flex-wrap: wrap;
@@ -449,7 +449,7 @@ body.dark .filters-button.is-active {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 641px) {
   .card__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 1.5rem;
