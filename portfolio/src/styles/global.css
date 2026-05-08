@@ -31,6 +31,28 @@ html {
     scrollbar-gutter: stable;
 }
 
+/* ダークモード：全ページ共通 */
+body.dark {
+    background-color: #162235;
+    color: #e5e7eb;
+}
+
+/* ライトモード：全ページ共通 */
+body:not(.dark) {
+    background-color: #F5EFE6;
+}
+
+body:not(.dark)::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('/images/hobbies/washi/japanese-paper_00474.jpg');
+    background-size: cover;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: -1;
+}
+
 /* 本文：Josefin Sans（日本語は Kiwi Maru） */
 body {
     font-family: 'Josefin Sans', 'Kiwi Maru', system-ui, sans-serif;
@@ -40,7 +62,7 @@ body {
 :lang(ja) p,
 :lang(ja) li,
 :lang(ja) .timeline-title {
-    font-weight: 300;
+    font-weight: 400;
 }
 
 /* 見出し：Fraunces（日本語は Zen Maru Gothic） */
