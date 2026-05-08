@@ -358,7 +358,7 @@ section[id] {
 // --- 写真グリッド 3×2 ---
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(3, 180px);
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
