@@ -183,4 +183,36 @@ const { Content } = await render(post);
     border-top: 1px solid rgba(57, 74, 101, 0.2);
     margin: 2rem 0;
   }
+
+  /* ダークモード */
+  :global(body.dark) .post-back,
+  :global(body.dark) .post-title {
+    color: #e5e7eb;
+  }
+
+  :global(body.dark) .post-date {
+    color: #9ca3af;
+  }
+
+  :global(body.dark) .prose {
+    color: #d1d5db;
+  }
+
+  :global(body.dark) .prose :global(h2),
+  :global(body.dark) .prose :global(h3) {
+    color: #e5e7eb;
+  }
+
+  :global(body.dark) .prose :global(a) {
+    color: #7eb3f0;
+  }
+
+  :global(body.dark) .prose :global(code) {
+    background: #374151;
+    color: #f3f4f6;
+  }
+
+  :global(body.dark) .prose :global(hr) {
+    border-top-color: rgba(229, 231, 235, 0.15);
+  }
 </style>

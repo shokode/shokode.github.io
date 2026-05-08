@@ -136,4 +136,28 @@ const posts = (await getCollection('blog')).sort(
     color: #6b7280;
     margin: 0;
   }
+
+  /* ダークモード */
+  :global(body.dark) .blog-heading,
+  :global(body.dark) .blog-title {
+    color: #e5e7eb;
+  }
+
+  :global(body.dark) .blog-date,
+  :global(body.dark) .blog-desc,
+  :global(body.dark) .blog-empty {
+    color: #9ca3af;
+  }
+
+  :global(body.dark) .blog-item {
+    border-color: rgba(229, 231, 235, 0.12);
+  }
+
+  :global(body.dark) .blog-item:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+  }
+
+  :global(body.dark) .blog-link {
+    color: inherit;
+  }
 </style>
