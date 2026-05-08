@@ -19,6 +19,12 @@
 
 import Layout from "../layouts/Layout.astro";
 import "../styles/about.scss";
+import { readdirSync } from "fs";
+import { resolve } from "path";
+
+const hobbiesPhotos = readdirSync(resolve("./public/images/hobbies"))
+  .filter((f) => /\.(jpe?g|png|gif|webp)$/i.test(f))
+  .map((f) => `/images/hobbies/${f}`);
 ---
 
 <Layout title="CV — Shoko's Portfolio">
@@ -59,7 +65,7 @@ import "../styles/about.scss";
       <!-- =============================================
          右：メインコンテンツ
     ============================================= -->
-      <div class="flex-1 py-8 relative z-10">
+      <div class="flex-1 py-8 pr-16 relative z-10">
         <!-- --- ヒーロー --- -->
         <section class="px-8 py-24">
           <h1 class="text-8xl font-black uppercase tracking-tight">
@@ -97,14 +103,14 @@ import "../styles/about.scss";
             data-ja="自己紹介"
             data-no="Om meg"
           >
-            My background
+            About me
           </p>
 
           <p
             class="mb-6"
-            data-en="I'm Shoko, based in Norway. While attending an IT vocational school, I've been teaching myself UI/UX, web design, and development. I care about keeping the user perspective in mind and crafting considerate, detail-driven interfaces. I love making things in all forms, and I'm always pushing to close the gap between what I imagine and what I can build."
-            data-ja="ノルウェー在住の聖子です。IT職業学校に通いながら、UI/UX・Webデザイン・開発を独学で学んできました。ユーザー目線を大切に、細部にこだわった思いやりのあるインターフェイスづくりを心がけています。ものづくり全般が好きです。浮かんでくるアイディアを自由自在に形にできるよう、日々精進しています。"
-            data-no="Jeg er Shoko, bosatt i Norge. Mens jeg går på en IT-yrkesskole, har jeg lært meg UI/UX, webdesign og utvikling på egenhånd. Jeg er opptatt av å ha brukerperspektivet i fokus og lage omsorgsfulle, detaljrike grensesnitt. Jeg elsker å skape ting i alle former, og jeg jobber alltid for å lære å realisere ideene mine fullt ut."
+            data-en="I'm Shoko, based in Norway. While attending an IT vocational school, I've been teaching myself UI/UX, web design, and development. A love for making things and a pull toward visible, tangible interfaces is what led me here. Design alone isn't enough for me, I want to write the logic too and bring it all together myself. That might be greedy, but it's what keeps me going. Right now I'm focused on being able to design and build static websites entirely on my own, while working toward becoming a frontend engineer down the line."
+            data-ja="ノルウェー在住の聖子です。IT職業学校に通いながらUI/UX・Webデザイン・開発を独学で学んでいます。作ることが好きで目に見えるインターフェイスに関わる仕事がしたいと思いこの道へ進みました。デザインだけでは飽き足らずロジックも自分で組んで形にしたいのは欲張りかもしれませんがそれが私の原動力です。現在はスタティックウェブサイトの設計から実装まで一人でこなせることに注力しながら将来的にはフロントエンドエンジニアを目指しています。"
+            data-no="Jeg er Shoko, bosatt i Norge. Mens jeg går på en IT-yrkesskole har jeg lært meg UI/UX, webdesign og utvikling på egenhånd. Skaperlysten og fascinasjonen for det visuelle er det som til slutt dro meg hit. Design alene er ikke nok for meg, jeg vil også skrive logikken og sette det hele sammen selv. Det er kanskje grådighet, men det er det som driver meg. For øyeblikket fokuserer jeg på å kunne designe og bygge statiske nettsider helt på egenhånd, mens jeg sikter mot å bli frontend-utvikler på sikt."
           >
             I'm Shoko, based in Norway. While attending an IT vocational school,
             I've been teaching myself UI/UX, web design, and development. I care
@@ -125,7 +131,7 @@ import "../styles/about.scss";
             data-ja="経歴"
             data-no="Min reise"
           >
-            Where I've been
+            <!-- Where I've been -->
           </p>
 
           <div class="timeline">
@@ -146,14 +152,14 @@ import "../styles/about.scss";
             </div>
 
             <div class="timeline-item">
-              <span class="timeline-year">2024</span>
+              <span class="timeline-year">2025</span>
               <div class="timeline-dot"></div>
               <span
                 class="timeline-title"
-                data-en="Started IT/media studies — Norway"
-                data-ja="IT/メディア職業学校へ入学（ノルウェー）"
-                data-no="Startet IT/media-studier — Norge"
-                >Started IT/Media studies — Norway</span
+                data-en="Started IT/Media studies"
+                data-ja="IT/メディア職業学校へ入学"
+                data-no="Startet IT/media-studier"
+                >Started IT/Media studies</span
               >
             </div>
 
@@ -196,10 +202,10 @@ import "../styles/about.scss";
               <div class="timeline-dot"></div>
               <span
                 class="timeline-title"
-                data-en="Graduated — Josai Intl. Univ., Intl. Exchange Dept."
-                data-ja="城西国際大学 国際人文学部 国際交流学科 卒業"
-                data-no="Fullførte Josai International University — Japan"
-                >Graduated — Josai Intl. Univ., Intl. Exchange Dept.</span
+                data-en="Graduated — Josai Intl. Univ., Japan"
+                data-ja="城西国際大学 国際人文学部 国際交流学科 卒業（日本）"
+                data-no="Fullførte Josai International University, Japan"
+                >Graduated — Josai Intl. Univ., Japan</span
               >
             </div>
 
@@ -329,8 +335,13 @@ import "../styles/about.scss";
             >
           </div>
 
-          <!-- 写真グリッド 3×2 -->
-          <!-- 写真を追加するときは下の PHOTOS 配列にパスを追加するだけ -->
+          <!-- 写真グリッド 3×1 -->
+          <div
+            id="photos-data"
+            data-photos={JSON.stringify(hobbiesPhotos)}
+            hidden
+          >
+          </div>
           <div class="photo-grid mt-12">
             <div class="photo-grid-item kit-group">
               <img class="photo-img" src="" alt="hobby photo" />
@@ -341,16 +352,8 @@ import "../styles/about.scss";
             <div class="photo-grid-item kit-group">
               <img class="photo-img" src="" alt="hobby photo" />
             </div>
-            <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
-            </div>
-            <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
-            </div>
-            <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
-            </div>
           </div>
+          <button id="shuffle-photos" class="shuffle-btn mt-6">↻</button>
         </section>
 
         <!-- ============================================================
@@ -490,9 +493,9 @@ import "../styles/about.scss";
             <div class="flex flex-wrap gap-2">
               <span
                 class="trait-chip"
-                data-en="Detail-oriented"
+                data-en="Meticulous"
                 data-ja="細部へのこだわり"
-                data-no="Detaljorientert">Detail-oriented</span
+                data-no="Nøyaktig">Meticulous</span
               >
               <span
                 class="trait-chip"
@@ -591,16 +594,6 @@ import "../styles/about.scss";
             Where I'm headed
           </p>
 
-          <p
-            class="mb-8"
-            data-en="My goal is to bring the ideas that constantly come to mind to life through my own hands. I'm still at the beginning, learning new tools and technologies, but I aim to master them and create designs and solutions that are both useful and kind — something that can make someone's life a little easier. I've come this far mostly through self-learning alongside school, and I want to keep growing."
-            data-ja="次々と浮かぶアイデアを自分の手で形にすることが目標です。まだ学びの途中で新しい技術やツールも多いですが、使いこなせるようになり、「便利で優しい」デザインや開発を通じて、誰かの生活を少しでも楽にできるものを作りたいと考えています。学校と並行してほぼ独学で歩んできましたが、これからも成長を続けます。"
-            data-no="Målet mitt er å gjøre ideene som stadig dukker opp, til virkelighet med mine egne hender. Jeg er fortsatt i startfasen og lærer nye verktøy og teknologier, men jeg ønsker å mestre dem og skape design og løsninger som både er nyttige og varme – noe som kan gjøre hverdagen litt enklere for andre. Jeg har kommet hit stort sett gjennom selvstudier ved siden av skolen, og vil fortsette å vokse."
-          >
-            My goal is to bring the ideas that constantly come to mind to life
-            through my own hands.
-          </p>
-
           <!-- 当面のフォーカス -->
           <p
             class="text-teal text-sm uppercase tracking-widest mb-4 opacity-100"
@@ -610,7 +603,7 @@ import "../styles/about.scss";
           >
             Near-term Focus
           </p>
-          <ul class="flex flex-col gap-3 mb-20">
+          <ul class="flex flex-col gap-3 mb-8">
             <li
               class="text-blush opacity-70 text-sm border-l-2 pl-4"
               style="border-color: var(--nav-accent, #633D26);"
@@ -631,6 +624,100 @@ import "../styles/about.scss";
               programming
             </li>
           </ul>
+          <p
+            class="mb-8"
+            data-en="Being able to bring the ideas in my head to life with my own hands, that's what I'm working toward. Technology keeps evolving and there's always so much to learn, but that curiosity for its depth is what keeps driving me forward. I want to create things through design and development that make someone's everyday life a little easier and kinder. My long-term goal is to become an engineer who can build anything, from apps to games."
+            data-ja="頭に浮かぶアイデアを自分の手で形にできること、それが目指す姿です。進化し続けるテクノロジーには覚えることが山ほどありますがその奥深さへの探求心が自分を前へと動かし続けています。「便利で優しい」デザインや開発を通じて誰かの生活を少しでも楽にできるものを作りたい。将来はアプリやゲームまで何でも自分でつくれるエンジニアになることが長期的な目標です。"
+            data-no="Å kunne gjøre ideene i hodet mitt til virkelighet med egne hender, det er det jeg sikter mot. Teknologien er i stadig utvikling og det er alltid masse å lære, men nysgjerrigheten for dybden er det som driver meg fremover. Jeg vil lage ting gjennom design og utvikling som gjør hverdagen litt enklere og varmere for noen. Det langsiktige målet er å bli en utvikler som kan bygge hva som helst, fra apper til spill."
+          >
+            Bringing the ideas that come to mind to life with my own hands,
+            that's my goal. Technology keeps evolving and there's always so much
+            to learn, but I love every bit of it. Growth is what drives me most,
+            and I've walked this path excited about what tomorrow will bring. I
+            want to create things through design and development that are both
+            useful and kind, things that make someone's everyday life a little
+            easier. Someday I'd love to build apps, games, anything really.
+            That's the dream.
+          </p>
+
+          <!-- ページ末尾CTA -->
+
+          <div class="pt-16 pb-16 kit-group">
+            <a href="/" class="cta-main">
+              <span
+                data-en="See my work"
+                data-ja="作品を見る"
+                data-no="Se arbeidet mitt">See my work</span
+              >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                ><g fill="currentColor"
+                  ><path
+                    fill-opacity="0"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z"
+                    ><animate
+                      fill="freeze"
+                      attributeName="d"
+                      dur="0.5s"
+                      values="M4 12c1.38 -0.77 4.42 -1.3 8 -1.3c3.58 0 6.62 0.53 8 1.3c-1.38 0.77 -4.42 1.3 -8 1.3c-3.58 0 -6.62 -0.53 -8 -1.3Z;M2 12c1.72 -3.83 5.53 -6.5 10 -6.5c4.47 0 8.28 2.67 10 6.5c-1.72 3.83 -5.53 6.5 -10 6.5c-4.47 0 -8.28 -2.67 -10 -6.5Z"
+                    ></animate><animate
+                      fill="freeze"
+                      attributeName="fill-opacity"
+                      begin="0.5s"
+                      dur="0.15s"
+                      to="0.3"></animate></path
+                  ><circle cx="12" cy="12" r="3"
+                    ><animate
+                      fill="freeze"
+                      attributeName="r"
+                      dur="0.2s"
+                      values="0;3"></animate></circle
+                  ></g
+                ></svg
+              >
+            </a>
+          </div>
+          <div class="pb-24 flex justify-center">
+            <button
+              class="cta-top"
+              onclick="window.scrollTo({top:0,behavior:'smooth'})"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                ><g
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-dasharray="12"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  ><path d="M12 5l-7 7M12 5l7 7"
+                    ><animate
+                      fill="freeze"
+                      attributeName="stroke-dashoffset"
+                      dur="0.4s"
+                      values="12;0"></animate></path
+                  ><path stroke-dashoffset="12" d="M12 11l-7 7M12 11l7 7"
+                    ><animate
+                      fill="freeze"
+                      attributeName="stroke-dashoffset"
+                      begin="0.4s"
+                      dur="0.4s"
+                      to="0"></animate></path
+                  ></g
+                ></svg
+              ></button
+            >
+          </div>
         </section>
       </div>
     </div>
@@ -661,7 +748,23 @@ import "../styles/about.scss";
     objective: "#071728",
   };
 
-  document.body.style.backgroundColor = "#111B18";
+  const SECTION_COLORS_LIGHT: Record<string, string> = {
+    story: "#F5EFE6",
+    history: "#EDE8E0",
+    obsession: "#F5EFE6",
+    kit: "#EDE8E0",
+    objective: "#F5EFE6",
+  };
+
+  function applyBgColor(sectionId?: string) {
+    const isDark = document.body.classList.contains("dark");
+    const colors = isDark ? SECTION_COLORS : SECTION_COLORS_LIGHT;
+    const fallback = isDark ? "#111B18" : "#F5EFE6";
+    document.body.style.backgroundColor =
+      (sectionId ? colors[sectionId] : undefined) ?? fallback;
+  }
+
+  applyBgColor();
 
   /* ----------------------------------------------------------
      ① SHOKO 文字を積み上げるナビ
@@ -669,6 +772,14 @@ import "../styles/about.scss";
 
   const SECTIONS = ["story", "history", "obsession", "kit", "objective"];
   const NAV_LETTER_IDS = ["nav-s", "nav-h", "nav-o1", "nav-k", "nav-o2"];
+
+  // テーマ切り替え時に背景色をライト/ダーク対応で更新
+  new MutationObserver(() => {
+    const activeIdx = NAV_LETTER_IDS.findIndex((lid) =>
+      document.getElementById(lid)?.classList.contains("active"),
+    );
+    applyBgColor(activeIdx >= 0 ? SECTIONS[activeIdx] : undefined);
+  }).observe(document.body, { attributeFilter: ["class"] });
 
   function updateShokoNav(activeId: string) {
     const activeIdx = SECTIONS.indexOf(activeId);
@@ -712,8 +823,7 @@ import "../styles/about.scss";
         if (scrollingDown && entry.boundingClientRect.top < 0) return;
         navInitialized = true;
         updateShokoNav(id);
-        const color = SECTION_COLORS[id];
-        if (color) document.body.style.backgroundColor = color;
+        applyBgColor(id);
       });
     },
     { threshold: [0.3, 0.5] },
@@ -737,8 +847,7 @@ import "../styles/about.scss";
           navInitialized = true;
           const id = entry.target.id;
           updateShokoNav(id);
-          const color = SECTION_COLORS[id];
-          if (color) document.body.style.backgroundColor = color;
+          applyBgColor(id);
         }
       });
     },
@@ -794,38 +903,53 @@ import "../styles/about.scss";
     document.documentElement.lang =
       lang === "ja" ? "ja" : lang === "no" ? "no" : "en";
 
-    document.querySelectorAll<HTMLElement>("[data-en]").forEach((el) => {
-      el.textContent = el.dataset[lang] ?? el.dataset.en ?? "";
+    document.querySelectorAll("[data-en]").forEach((el) => {
+      const h = el as HTMLElement;
+      h.innerHTML = h.dataset[lang] ?? h.dataset.en ?? "";
     });
 
     // ボタンのアクティブ状態を更新
-    document.querySelectorAll<HTMLButtonElement>(".btn-lang").forEach((btn) => {
-      btn.classList.toggle("active", btn.dataset.lang === lang);
+    document.querySelectorAll(".btn-lang").forEach((btn) => {
+      const b = btn as HTMLElement;
+      b.classList.toggle("active", b.dataset.lang === lang);
     });
   }
 
-  document.querySelectorAll<HTMLButtonElement>(".btn-lang").forEach((btn) => {
-    btn.addEventListener("click", () => switchLang(btn.dataset.lang ?? "en"));
+  document.querySelectorAll(".btn-lang").forEach((btn) => {
+    const b = btn as HTMLElement;
+    b.addEventListener("click", () => switchLang(b.dataset.lang ?? "en"));
   });
 
   switchLang("en");
 
   /* ----------------------------------------------------------
-     写真グリッド：PHOTOS からランダムに6枚を表示
-     写真を追加するときはここにパスを足すだけ
+     写真グリッド：hobbies フォルダから自動読み込み・ランダム表示
+     写真はフォルダに入れるだけで自動反映されます
   ---------------------------------------------------------- */
-  const PHOTOS: string[] = [
-    // '/images/hobbies/photo1.jpg',
-    // '/images/hobbies/photo2.jpg',
-    // ... 最大20枚くらいまで追加できる
-  ];
+  const photosEl = document.getElementById("photos-data") as HTMLElement | null;
+  const PHOTOS: string[] = JSON.parse(photosEl?.dataset.photos ?? "[]");
+
+  function pickRandom(arr: string[], n: number): string[] {
+    const pool = [...arr];
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    return pool.slice(0, n);
+  }
+
+  function shufflePhotos() {
+    const imgs = document.querySelectorAll<HTMLImageElement>(".photo-img");
+    const picked = pickRandom(PHOTOS, imgs.length);
+    imgs.forEach((img, i) => {
+      img.src = picked[i];
+    });
+  }
 
   if (PHOTOS.length > 0) {
-    const shuffled = [...PHOTOS].sort(() => Math.random() - 0.5);
+    shufflePhotos();
     document
-      .querySelectorAll<HTMLImageElement>(".photo-img")
-      .forEach((img, i) => {
-        if (shuffled[i]) img.src = shuffled[i];
-      });
+      .getElementById("shuffle-photos")
+      ?.addEventListener("click", shufflePhotos);
   }
 </script>
