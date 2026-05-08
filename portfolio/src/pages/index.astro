@@ -14,6 +14,8 @@
  */
 
 import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import { works } from '../data/works.js';
 import '../styles/works.css';
 
@@ -21,6 +23,16 @@ import '../styles/works.css';
 const sorted = [...works].sort(
   (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
 );
+
+const thumbModules = import.meta.glob<{ default: ImageMetadata }>(
+  '/src/assets/img/*.{png,jpg,jpeg,webp}',
+  { eager: true }
+);
+
+function getThumbSrc(thumbPath: string): ImageMetadata | null {
+  const filename = thumbPath.split('/').pop()!;
+  return thumbModules[`/src/assets/img/${filename}`]?.default ?? null;
+}
 ---
 
 
@@ -59,6 +71,7 @@ const sorted = [...works].sort(
         // type が "video" かつ youtubeId がある → iframe 埋め込み
         // それ以外 → サムネイル画像を表示
         const isVideo = w.type === 'video' && w.youtubeId;
+        const thumbSrc = !isVideo ? getThumbSrc(w.thumb) : null;
 
         // カード下部の CTA テキスト（type と used の組み合わせで自動決定）
         const cta =
@@ -99,6 +112,8 @@ const sorted = [...works].sort(
                     </svg>
                   </div>
                 </div>
+              ) : thumbSrc ? (
+                <Image class="card__img" src={thumbSrc} width={640} format="webp" quality={80} alt={w.title} />
               ) : (
                 <img class="card__img" src={w.thumb} alt={w.title} />
               )}
