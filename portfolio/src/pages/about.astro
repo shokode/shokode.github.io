@@ -28,8 +28,12 @@ const hobbiesPhotos = readdirSync(resolve("./public/images/hobbies"))
 ---
 
 <Layout title="CV — Shoko's Portfolio">
-  <div id="page-wrap" class="min-h-screen" style="background: transparent;">
-    <div class="max-w-5xl mx-auto flex">
+  <div
+    id="page-wrap"
+    class="min-h-screen overflow-x-clip"
+    style="background: transparent;"
+  >
+    <div class="max-w-5xl mx-auto flex min-w-0">
       <!-- =============================================
          左：セクションナビゲーション（スクロール追従）
          about.scss の nav a スタイルが適用されます。
@@ -38,7 +42,7 @@ const hobbiesPhotos = readdirSync(resolve("./public/images/hobbies"))
       <!-- 現在のセクション名だけを表示するナビ
          JavaScript がスクロール方向に応じて押し込みアニメーションで切り替えます -->
       <div
-        class="sticky top-16 self-start h-[calc(100vh-8rem)] w-36 shrink-0 flex flex-col justify-center px-6 relative z-10"
+        class="max-sm:hidden sticky top-16 self-start h-[calc(100vh-8rem)] w-36 shrink-0 flex flex-col justify-center pr-0 px-6 relative z-10"
       >
         <div class="shoko-letters">
           <span class="shoko-letter" id="nav-s"
@@ -65,7 +69,7 @@ const hobbiesPhotos = readdirSync(resolve("./public/images/hobbies"))
       <!-- =============================================
          右：メインコンテンツ
     ============================================= -->
-      <div class="flex-1 py-8 pr-16 relative z-10">
+      <div class="flex-1 min-w-0 pl-0 py-8 pr-16 max-sm:pr-0 relative z-10">
         <!-- --- ヒーロー --- -->
         <section class="px-8 py-24">
           <h1 class="text-8xl font-black uppercase tracking-tight">
