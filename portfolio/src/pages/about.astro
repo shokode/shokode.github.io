@@ -376,7 +376,6 @@ const hobbiesPhotos = await Promise.all(
               <img class="photo-img" src="" alt="hobby photo" />
             </div>
           </div>
-          <button id="shuffle-photos" class="shuffle-btn mt-6">↻</button>
         </section>
 
         <!-- ============================================================
@@ -971,8 +970,28 @@ const hobbiesPhotos = await Promise.all(
 
   if (PHOTOS.length > 0) {
     shufflePhotos();
-    document
-      .getElementById("shuffle-photos")
-      ?.addEventListener("click", shufflePhotos);
+
+    let autoInterval: ReturnType<typeof setInterval> | null = null;
+    const photoGrid = document.querySelector(".photo-grid");
+
+    const photoVisibilityObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!autoInterval) {
+              autoInterval = setInterval(shufflePhotos, 1500);
+            }
+          } else {
+            if (autoInterval) {
+              clearInterval(autoInterval);
+              autoInterval = null;
+            }
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    if (photoGrid) photoVisibilityObserver.observe(photoGrid);
   }
 </script>
