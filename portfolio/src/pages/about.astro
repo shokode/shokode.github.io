@@ -951,25 +951,50 @@ const hobbiesPhotos = await Promise.all(
   const photosEl = document.getElementById("photos-data") as HTMLElement | null;
   const PHOTOS: string[] = JSON.parse(photosEl?.dataset.photos ?? "[]");
 
-  function pickRandom(arr: string[], n: number): string[] {
+  function shuffleArr(arr: string[]): string[] {
     const pool = [...arr];
     for (let i = pool.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
       [pool[i], pool[j]] = [pool[j], pool[i]];
     }
-    return pool.slice(0, n);
+    return pool;
   }
 
-  function shufflePhotos() {
+  let photoQueue: string[] = shuffleArr(PHOTOS);
+  let currentlyShown: string[] = [];
+
+  function dequeue(n: number): string[] {
+    if (photoQueue.length < n) {
+      const available = PHOTOS.filter((p) => !currentlyShown.includes(p));
+      photoQueue = [...photoQueue, ...shuffleArr(available)];
+    }
+    return photoQueue.splice(0, n);
+  }
+
+  function showPhotos() {
     const imgs = document.querySelectorAll<HTMLImageElement>(".photo-img");
-    const picked = pickRandom(PHOTOS, imgs.length);
+    const picked = dequeue(imgs.length);
+    currentlyShown = picked;
     imgs.forEach((img, i) => {
-      img.src = picked[i];
+      const targetSrc = picked[i];
+      setTimeout(() => {
+        const item = img.closest<HTMLElement>(".photo-grid-item");
+        item?.classList.add("fading");
+        setTimeout(() => {
+          img.src = targetSrc;
+          item?.classList.remove("fading");
+        }, 700);
+      }, i * 150);
     });
   }
 
   if (PHOTOS.length > 0) {
-    shufflePhotos();
+    const imgs = document.querySelectorAll<HTMLImageElement>(".photo-img");
+    const initial = dequeue(imgs.length);
+    currentlyShown = initial;
+    imgs.forEach((img, i) => {
+      img.src = initial[i];
+    });
 
     let autoInterval: ReturnType<typeof setInterval> | null = null;
     const photoGrid = document.querySelector(".photo-grid");
@@ -979,7 +1004,7 @@ const hobbiesPhotos = await Promise.all(
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             if (!autoInterval) {
-              autoInterval = setInterval(shufflePhotos, 1500);
+              autoInterval = setInterval(showPhotos, 3000);
             }
           } else {
             if (autoInterval) {

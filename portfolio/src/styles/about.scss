@@ -367,6 +367,11 @@ section[id] {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+  transition: opacity 0.7s ease;
+
+  &.fading {
+    opacity: 0;
+  }
   border: 1px solid var(--nav-accent, #633D26);
 
   &::after {
@@ -419,8 +424,9 @@ section[id] {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
+    transition: transform 0.4s ease, opacity 0.35s ease;
   }
+
 
   &:hover .photo-img {
     transform: scale(1.07);
