@@ -4,7 +4,10 @@
       "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" -Recurse -Force)",
       "Bash(Select-Object FullName)",
       "Bash(ConvertTo-Csv -NoTypeInformation)",
-      "Bash(Format-Table -AutoSize)"
+      "Bash(Format-Table -AutoSize)",
+      "Bash(git push *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
     ]
   }
 }
