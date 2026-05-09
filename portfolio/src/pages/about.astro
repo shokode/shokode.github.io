@@ -116,7 +116,7 @@ const hobbiesPhotos = await Promise.all(
           <h2 class="text-2xl font-bold mb-2">Story</h2>
           <p
             class="text-teal text-sm mb-8 opacity-100"
-            data-en="My background"
+            data-en=""
             data-ja="自己紹介"
             data-no="Om meg"
           >
@@ -144,7 +144,7 @@ const hobbiesPhotos = await Promise.all(
           <h2 class="text-2xl font-bold mb-2">History</h2>
           <p
             class="text-teal text-sm mb-10 opacity-100"
-            data-en="Where I've been"
+            data-en=""
             data-ja="経歴"
             data-no="Min reise"
           >
@@ -247,7 +247,7 @@ const hobbiesPhotos = await Promise.all(
           <h2 class="text-2xl font-bold mb-2">Obsession</h2>
           <p
             class="text-teal text-sm mb-8 opacity-100"
-            data-en="What I love doing"
+            data-en=""
             data-ja="好きなこと"
             data-no="Det jeg elsker å gjøre"
           >
@@ -388,7 +388,7 @@ const hobbiesPhotos = await Promise.all(
           <h2 class="text-2xl font-bold mb-2">Tools</h2>
           <p
             class="text-teal text-sm mb-12 opacity-100"
-            data-en="What I work with"
+            data-en=""
             data-ja="スキルと素材"
             data-no="Verktøy jeg bruker"
           >
@@ -612,7 +612,7 @@ const hobbiesPhotos = await Promise.all(
 
           <p
             class="text-teal text-sm mb-8 opacity-100"
-            data-en="Where I'm headed"
+            data-en=""
             data-ja="これからの方向性"
             data-no="Retningen videre"
           >
@@ -979,8 +979,10 @@ const hobbiesPhotos = await Promise.all(
       front.style.transition = "none";
       front.src = newSrc;
       front.classList.remove("fading-out");
-      requestAnimationFrame(() => { front.style.transition = ""; });
-    }, 750);
+      requestAnimationFrame(() => {
+        front.style.transition = "";
+      });
+    }, 1300);
   }
 
   function showPhotos() {

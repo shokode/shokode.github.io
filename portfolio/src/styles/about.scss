@@ -33,9 +33,14 @@ h2 {
 }
 
 // --- 本文テキスト ---
+#page-wrap li {
+  font-size: 1.125rem;
+}
+
 p {
   color: var(--color-blush);
   opacity: 0.7;
+  font-size: 1.125rem;
 }
 
 // --- S：先に0.6秒後にふわっと出現 ---
@@ -162,7 +167,7 @@ section[id] {
   border: 1px solid rgba(255, 237, 237, 0.4);
   color: rgba(255, 237, 237, 0.5);
   background: transparent;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   cursor: pointer;
   transition: all 0.2s;
 
@@ -277,7 +282,7 @@ section[id] {
 }
 
 .timeline-title {
-  font-size: 0.95rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: rgba(255, 237, 237, 0.82);
   letter-spacing: 0.01em;
@@ -322,7 +327,7 @@ section[id] {
 // --- 性格チップ ---
 .trait-chip {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #FFEDED;
   border: 1px solid var(--nav-accent, #F4A8AD);
   border-radius: 999px;
@@ -333,7 +338,7 @@ section[id] {
 // --- スキルチップ ---
 .skill-chip {
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: #FFEDED;
   border: 1px solid var(--nav-accent, #633D26);
   border-radius: 999px;
@@ -425,7 +430,7 @@ section[id] {
 
   .photo-front {
     z-index: 1;
-    transition: opacity 0.7s ease;
+    transition: opacity 1.2s ease;
 
     &.fading-out {
       opacity: 0;
