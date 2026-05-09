@@ -1,24 +1,7 @@
 ---
-/**
- * サイトヘッダー (Header.astro)
- * ==============================
- * 全ページの上部に表示される共通ナビゲーションです。
- * Layout.astro から読み込まれます。
- *
- * ナビリンクを追加・変更したい場合は
- * 下の <nav> 内の <a> タグを編集してください。
- *
- * ダークモードの切り替えボタン (#themeToggle) もここにあります。
- * ボタンの JavaScript は Layout.astro の <script> に書いています。
- */
-
 // 現在のページパスを取得（アクティブなリンクに active クラスを付けるため）
 const currentPath = Astro.url.pathname;
 
-/**
- * 指定したパスが現在のページかどうか判定する関数
- * '/' はトップページだけを対象にする（他のパスと被らないように）
- */
 function isActive(path: string): boolean {
   if (path === "/") return currentPath === "/";
   return currentPath.startsWith(path);
@@ -26,40 +9,15 @@ function isActive(path: string): boolean {
 ---
 
 <header class="site-header">
-  <!-- サイトロゴ（クリックでトップに戻る） -->
   <a class="site-logo" href="/">Shoko</a>
 
-  <!-- ナビゲーション -->
   <nav class="site-nav">
-    <!-- Works: トップページ（制作物一覧） -->
     <a href="/" class:list={["nav-link", { active: isActive("/") }]}>Works</a>
+    <a href="/blog" class:list={["nav-link", { active: isActive("/blog") }]}>Blog</a>
+    <a href="/about" class:list={["nav-link", { active: isActive("/about") }]}>About</a>
 
-    <!-- Blog: 制作記録 -->
-    <a href="/blog" class:list={["nav-link", { active: isActive("/blog") }]}
-      >Blog</a
-    >
-
-    <!-- About: 経歴・自己紹介 -->
-    <a href="/about" class:list={["nav-link", { active: isActive("/about") }]}
-      >About</a
-    >
-
-    <!-- ダークモード切り替えボタン（Worksページ "/" のみ表示）
-         visibility: hidden で非表示にすることでレイアウトの幅を保つ
-         他ページに対応するときは style 属性の条件を削除してください -->
     <button id="themeToggle" type="button" aria-label="ダークモード切り替え">
-      <!-- 太陽アイコン（ダークモード中に表示） -->
-      <svg
-        id="icon-sun"
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-      >
+      <svg id="icon-sun" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
         <circle cx="12" cy="12" r="4"></circle>
         <line x1="12" y1="2" x2="12" y2="5"></line>
         <line x1="12" y1="19" x2="12" y2="22"></line>
@@ -70,24 +28,74 @@ function isActive(path: string): boolean {
         <line x1="4.93" y1="19.07" x2="7.05" y2="16.95"></line>
         <line x1="16.95" y1="7.05" x2="19.07" y2="4.93"></line>
       </svg>
-      <!-- 月アイコン（ライトモード中に表示） -->
-      <svg
-        id="icon-moon"
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        style="display:none;"
-      >
+      <svg id="icon-moon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none;">
         <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+
+    <!-- ハンバーガーボタン（スマホのみ表示） -->
+    <button class="hamburger" id="hamburgerBtn" type="button" aria-label="メニューを開く" aria-expanded="false">
+      <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+      <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="display:none;">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
       </svg>
     </button>
   </nav>
 </header>
+
+<!-- モバイルドロップダウンメニュー -->
+<div class="mobile-dropdown" id="mobileMenu" aria-hidden="true">
+  <a href="/" class:list={["mobile-nav-link", { active: isActive("/") }]}>Works</a>
+  <a href="/blog" class:list={["mobile-nav-link", { active: isActive("/blog") }]}>Blog</a>
+  <a href="/about" class:list={["mobile-nav-link", { active: isActive("/about") }]}>About</a>
+</div>
+
+<script>
+  const hamburger = document.getElementById('hamburgerBtn');
+  const menu = document.getElementById('mobileMenu');
+  const hamburgerIcon = hamburger?.querySelector('.hamburger-icon') as HTMLElement | null;
+  const closeIcon = hamburger?.querySelector('.close-icon') as HTMLElement | null;
+
+  function openMenu() {
+    menu?.classList.add('is-open');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    menu?.setAttribute('aria-hidden', 'false');
+    if (hamburgerIcon) hamburgerIcon.style.display = 'none';
+    if (closeIcon) closeIcon.style.display = 'block';
+  }
+
+  function closeMenu() {
+    menu?.classList.remove('is-open');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    menu?.setAttribute('aria-hidden', 'true');
+    if (hamburgerIcon) hamburgerIcon.style.display = 'block';
+    if (closeIcon) closeIcon.style.display = 'none';
+  }
+
+  hamburger?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    menu?.classList.contains('is-open') ? closeMenu() : openMenu();
+  });
+
+  menu?.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!hamburger?.contains(e.target as Node) && !menu?.contains(e.target as Node)) {
+      closeMenu();
+    }
+  });
+</script>
 
 <style>
   /* ヘッダー全体（画面上部に固定） */
@@ -100,18 +108,20 @@ function isActive(path: string): boolean {
     align-items: center;
     padding: 1rem 2rem;
     background: var(--header-bg, #162235);
-    /* border-bottom: 1px solid var(--header-border, rgba(255, 237, 237, 0.15)); */
+    font-family: 'Josefin Sans', system-ui, sans-serif;
+    box-sizing: border-box;
   }
 
   /* サイトロゴ */
   .site-logo {
+    font-family: 'Josefin Sans', system-ui, sans-serif;
     font-weight: 700;
     font-size: 1.125rem;
     color: #ffeded;
     text-decoration: none;
   }
 
-  /* ナビゲーション（リンクとボタンを横並びに） */
+  /* ナビゲーション */
   .site-nav {
     display: flex;
     align-items: center;
@@ -121,6 +131,7 @@ function isActive(path: string): boolean {
   /* ナビリンク */
   .nav-link {
     position: relative;
+    font-family: 'Josefin Sans', system-ui, sans-serif;
     font-size: 0.875rem;
     font-weight: 500;
     color: #ffeded;
@@ -129,13 +140,11 @@ function isActive(path: string): boolean {
     transition: color 0.2s;
   }
 
-  /* アクティブ・ホバーはアンダーラインのみで表現 */
   .nav-link:hover,
   .nav-link.active {
     color: #ffeded;
   }
 
-  /* センター固定のアンダーライン（全リンク同幅） */
   .nav-link::after {
     content: "";
     position: absolute;
@@ -172,13 +181,29 @@ function isActive(path: string): boolean {
     line-height: 1;
     padding: 0;
     flex-shrink: 0;
-    transition:
-      background-color 0.2s,
-      opacity 0.2s;
+    transition: background-color 0.2s, opacity 0.2s;
   }
 
   #themeToggle:hover {
     opacity: 0.8;
+  }
+
+  /* ハンバーガーボタン（デスクトップでは非表示） */
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    color: #ffeded;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  /* ドロップダウン（デスクトップでは非表示） */
+  .mobile-dropdown {
+    display: none;
   }
 
   /* ライトモード */
@@ -205,13 +230,31 @@ function isActive(path: string): boolean {
     opacity: 0.8;
   }
 
-  /* スマホ用レイアウト調整 */
+  :global(body:not(.dark)) .hamburger {
+    color: #1c1c1a;
+  }
+
+  :global(body:not(.dark)) .mobile-nav-link {
+    color: #1c1c1a;
+    border-top-color: rgba(28, 28, 26, 0.08);
+  }
+
+  :global(body:not(.dark)) .mobile-nav-link.active {
+    color: var(--nav-accent, #f4a8ad);
+  }
+
+  :global(body:not(.dark)) .mobile-dropdown {
+    background: var(--header-bg, rgba(245, 239, 230, 0.96));
+    border-bottom-color: rgba(28, 28, 26, 0.1);
+  }
+
+  /* ===== スマホ ===== */
   @media (max-width: 640px) {
     .site-header {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
+      width: 100vw;
       height: 56px;
       padding: 0 16px;
       box-sizing: border-box;
@@ -222,11 +265,76 @@ function isActive(path: string): boolean {
     }
 
     .site-nav {
-      gap: 12px;
+      gap: 10px;
     }
 
+    /* ナビリンクを隠してハンバーガーを表示 */
     .nav-link {
-      font-size: 13px;
+      display: none;
+    }
+
+    .hamburger {
+      display: flex;
+    }
+
+    /* ドロップダウン */
+    .mobile-dropdown {
+      position: fixed;
+      top: 56px;
+      left: 0;
+      width: 100vw;
+      z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      background: var(--header-bg, rgba(22, 34, 53, 0.96));
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255, 237, 237, 0.1);
+      /* 非表示状態 */
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+
+    .mobile-dropdown.is-open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-nav-link {
+      position: relative;
+      font-family: 'Josefin Sans', system-ui, sans-serif;
+      font-size: 0.9375rem;
+      font-weight: 500;
+      color: #ffeded;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      border-top: 1px solid rgba(255, 237, 237, 0.08);
+    }
+
+    .mobile-nav-link:first-child {
+      border-top: none;
+    }
+
+    .mobile-nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: 10px;
+      left: 1.5rem;
+      width: 1.5rem;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--nav-accent, #f4a8ad);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s ease;
+    }
+
+    .mobile-nav-link.active::after,
+    .mobile-nav-link:hover::after {
+      transform: scaleX(1);
     }
   }
 </style>
