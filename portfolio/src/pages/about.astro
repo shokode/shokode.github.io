@@ -367,13 +367,16 @@ const hobbiesPhotos = await Promise.all(
           </div>
           <div class="photo-grid mt-12">
             <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
+              <img class="photo-img photo-back" src="" alt="" />
+              <img class="photo-img photo-front" src="" alt="" />
             </div>
             <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
+              <img class="photo-img photo-back" src="" alt="" />
+              <img class="photo-img photo-front" src="" alt="" />
             </div>
             <div class="photo-grid-item kit-group">
-              <img class="photo-img" src="" alt="hobby photo" />
+              <img class="photo-img photo-back" src="" alt="" />
+              <img class="photo-img photo-front" src="" alt="" />
             </div>
           </div>
         </section>
@@ -971,29 +974,38 @@ const hobbiesPhotos = await Promise.all(
     return photoQueue.splice(0, n);
   }
 
+  function crossfade(item: HTMLElement, newSrc: string) {
+    const front = item.querySelector<HTMLImageElement>(".photo-front");
+    const back = item.querySelector<HTMLImageElement>(".photo-back");
+    if (!front || !back) return;
+    back.src = newSrc;
+    front.classList.add("fading-out");
+    setTimeout(() => {
+      front.style.transition = "none";
+      front.src = newSrc;
+      front.classList.remove("fading-out");
+      requestAnimationFrame(() => { front.style.transition = ""; });
+    }, 750);
+  }
+
   function showPhotos() {
-    const imgs = document.querySelectorAll<HTMLImageElement>(".photo-img");
-    const picked = dequeue(imgs.length);
+    const items = document.querySelectorAll<HTMLElement>(".photo-grid-item");
+    const picked = dequeue(items.length);
     currentlyShown = picked;
-    imgs.forEach((img, i) => {
-      const targetSrc = picked[i];
-      setTimeout(() => {
-        const item = img.closest<HTMLElement>(".photo-grid-item");
-        item?.classList.add("fading");
-        setTimeout(() => {
-          img.src = targetSrc;
-          item?.classList.remove("fading");
-        }, 700);
-      }, i * 150);
+    items.forEach((item, i) => {
+      setTimeout(() => crossfade(item, picked[i]), i * 150);
     });
   }
 
   if (PHOTOS.length > 0) {
-    const imgs = document.querySelectorAll<HTMLImageElement>(".photo-img");
-    const initial = dequeue(imgs.length);
+    const items = document.querySelectorAll<HTMLElement>(".photo-grid-item");
+    const initial = dequeue(items.length);
     currentlyShown = initial;
-    imgs.forEach((img, i) => {
-      img.src = initial[i];
+    items.forEach((item, i) => {
+      const front = item.querySelector<HTMLImageElement>(".photo-front");
+      const back = item.querySelector<HTMLImageElement>(".photo-back");
+      if (front) front.src = initial[i];
+      if (back) back.src = initial[i];
     });
 
     let autoInterval: ReturnType<typeof setInterval> | null = null;

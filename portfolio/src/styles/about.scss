@@ -367,11 +367,6 @@ section[id] {
   border-radius: 8px;
   overflow: hidden;
   position: relative;
-  transition: opacity 0.7s ease;
-
-  &.fading {
-    opacity: 0;
-  }
   border: 1px solid var(--nav-accent, #633D26);
 
   &::after {
@@ -415,21 +410,26 @@ section[id] {
     transition-delay: 1.25s;
   }
 
-  // 写真がない間はグレー背景
-  background: #2e2e2e;
-
-  // ホバーで内側だけ拡大（外側の transform と衝突しない）
   .photo-img {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease, opacity 0.35s ease;
   }
 
+  .photo-back {
+    z-index: 0;
+  }
 
-  &:hover .photo-img {
-    transform: scale(1.07);
+  .photo-front {
+    z-index: 1;
+    transition: opacity 0.7s ease;
+
+    &.fading-out {
+      opacity: 0;
+    }
   }
 }
 
@@ -579,9 +579,12 @@ body:not(.dark) {
 }
 
 @keyframes dot-pulse-light {
-  0%, 100% {
+
+  0%,
+  100% {
     box-shadow: 0 0 8px var(--nav-accent), 0 0 18px rgba(75, 238, 227, 0.5);
   }
+
   50% {
     box-shadow: 0 0 18px var(--nav-accent), 0 0 36px rgba(75, 238, 227, 0.8);
   }
