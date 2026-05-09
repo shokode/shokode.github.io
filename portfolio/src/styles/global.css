@@ -70,3 +70,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Fraunces', 'Kiwi Maru', Georgia, serif;
 }
+
+/* スマホ：スクロールバーのギャップを消す＋fixed ヘッダーの分だけコンテンツを押し下げる */
+@media (max-width: 640px) {
+    html {
+        overflow-y: auto;
+        scrollbar-gutter: auto;
+    }
+    main {
+        padding-top: 56px;
+    }
+}

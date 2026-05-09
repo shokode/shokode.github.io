@@ -427,6 +427,7 @@ body.dark .filters-button.is-active {
 ========================= */
 @media screen and (max-width: 640px) {
   .filters {
+    top: 56px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
