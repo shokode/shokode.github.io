@@ -243,7 +243,7 @@ const hobbiesPhotos = await Promise.all(
         <!-- ============================================================
            Obsession（夢中なもの・趣味）
       ============================================================ -->
-        <section id="obsession" class="min-h-screen py-24 px-8">
+        <section id="obsession" class="py-24 px-8">
           <h2 class="text-2xl font-bold mb-2">Obsession</h2>
           <p
             class="text-teal text-sm mb-8 opacity-100"
@@ -384,7 +384,7 @@ const hobbiesPhotos = await Promise.all(
         <!-- ============================================================
            Kit（ツール・技術）
       ============================================================ -->
-        <section id="kit" class="min-h-screen py-24 px-8">
+        <section id="kit" class="py-24 px-8">
           <h2 class="text-2xl font-bold mb-2">Tools</h2>
           <p
             class="text-teal text-sm mb-12 opacity-100"
@@ -607,7 +607,7 @@ const hobbiesPhotos = await Promise.all(
         <!-- ============================================================
            Objective（目標・ビジョン）
       ============================================================ -->
-        <section id="objective" class="min-h-screen py-24 px-8">
+        <section id="objective" class="py-24 px-8">
           <h2 class="text-2xl font-bold mb-2">Objective</h2>
 
           <p
@@ -839,19 +839,14 @@ const hobbiesPhotos = await Promise.all(
     (entries) => {
       entries.forEach((entry) => {
         if (!entry.isIntersecting) return;
-        // ページを開いた瞬間（まだスクロールしていない）は無視
         if (!hasScrolled) return;
-        const id = entry.target.id;
-        const required = id === "story" ? 0.5 : 0.3;
-        if (entry.intersectionRatio < required) return;
-        // 下スクロール中にセクションの上端が画面外 = 出ていくセクション → 無視
         if (scrollingDown && entry.boundingClientRect.top < 0) return;
         navInitialized = true;
-        updateShokoNav(id);
-        applyBgColor(id);
+        updateShokoNav(entry.target.id);
+        applyBgColor(entry.target.id);
       });
     },
-    { threshold: [0.3, 0.5] },
+    { rootMargin: "-30% 0px -55% 0px", threshold: 0 },
   );
 
   document.querySelectorAll("section[id]").forEach((s) => observer.observe(s));
