@@ -46,11 +46,17 @@ function getThumbSrc(thumbPath: string): ImageMetadata | null {
          ボタンを追加する場合は works.js の tags も合わせてください。
     ============================================================ -->
     <div class="filters">
-      <button class="filters-button is-active" data-filter="All">All</button>
-      <button class="filters-button" data-filter="Web">Web</button>
-      <button class="filters-button" data-filter="UI/UX">UI/UX</button>
-      <button class="filters-button" data-filter="Graphic">Graphic</button>
-      <button class="filters-button" data-filter="Video">Video</button>
+      <button class="filters-toggle" aria-expanded="false">
+        <span class="filters-toggle__label">All</span>
+        <span class="filters-toggle__icon">▼</span>
+      </button>
+      <div class="filters-list">
+        <button class="filters-button is-active" data-filter="All">All</button>
+        <button class="filters-button" data-filter="Web">Web</button>
+        <button class="filters-button" data-filter="UI/UX">UI/UX</button>
+        <button class="filters-button" data-filter="Graphic">Graphic</button>
+        <button class="filters-button" data-filter="Video">Video</button>
+      </div>
     </div>
 
 
@@ -260,6 +266,14 @@ function getThumbSrc(thumbPath: string): ImageMetadata | null {
 
   const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filters-button');
   const cards         = document.querySelectorAll<HTMLElement>('.card__article');
+  const filtersToggle = document.querySelector<HTMLButtonElement>('.filters-toggle');
+  const filtersEl     = document.querySelector<HTMLElement>('.filters');
+  const toggleLabel   = filtersToggle?.querySelector<HTMLSpanElement>('.filters-toggle__label');
+
+  filtersToggle?.addEventListener('click', () => {
+    const isOpen = filtersEl?.classList.toggle('is-open') ?? false;
+    filtersToggle.setAttribute('aria-expanded', String(isOpen));
+  });
 
   filterButtons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -269,6 +283,11 @@ function getThumbSrc(thumbPath: string): ImageMetadata | null {
       btn.classList.add('is-active');
 
       const activeFilter = btn.dataset.filter ?? 'All';
+
+      // トグルラベル更新 + メニューを閉じる
+      if (toggleLabel) toggleLabel.textContent = activeFilter;
+      filtersEl?.classList.remove('is-open');
+      filtersToggle?.setAttribute('aria-expanded', 'false');
 
       // 各カードのタグとフィルターを照合
       cards.forEach((card) => {
