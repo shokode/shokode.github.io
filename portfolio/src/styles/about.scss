@@ -18,6 +18,11 @@ body:not(.dark) {
   -webkit-backdrop-filter: blur(14px);
 }
 
+// --- ページタイトル（Tailwind text-8xl を上書き） ---
+#page-wrap h1 {
+  font-size: clamp(3rem, 10vw, 6rem);
+}
+
 // --- セクション見出し ---
 h2 {
   color: var(--color-blush);
@@ -125,7 +130,7 @@ section[id] {
 }
 
 .shoko-letter {
-  font-size: 2.4rem;
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
   font-weight: 900;
   color: var(--color-cream);
   opacity: 0;
@@ -617,4 +622,59 @@ body:not(.dark) {
     color: rgba(255, 237, 237, 0.6);
     transform: translateY(-4px);
   }
+}
+
+// --- 400px 以下：余白・グリッド調整 ---
+@media (max-width: 400px) {
+  #page-wrap section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+// --- 640px 以下：フォントサイズ調整 ---
+@media (max-width: 640px) {
+
+  p,
+  #page-wrap li {
+    font-size: 1rem;
+  }
+
+  .timeline-title {
+    font-size: 1rem;
+  }
+
+  .trait-chip,
+  .skill-chip {
+    font-size: 0.875rem;
+  }
+
+  // 640pxブロックに追加
+  .timeline-item {
+    grid-template-columns: 48px 18px 1fr; // 72px → 48px（年号列を縮める）
+    padding: 0.7rem 0; // 1.1rem → 0.7rem
+  }
+
+  .timeline::before {
+    left: 48px; // 年号列に合わせてラインも移動
+  }
+
+  .timeline-year {
+    font-size: 0.65rem; // 0.72rem → 0.65rem
+  }
+
+  .timeline-title {
+    font-size: 0.9rem; // 1rem → 0.9rem
+  }
+
+  .timeline-item--sub {
+    padding-top: 0.15rem;
+    padding-bottom: 0.4rem;
+  }
+
 }
