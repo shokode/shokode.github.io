@@ -9,7 +9,11 @@
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
       "Bash(npm install *)",
-      "Bash(npm list *)"
+      "Bash(npm list *)",
+      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" add portfolio/src/pages/blog/index.astro)",
+      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" commit -m \"fix\\(blog\\): detect lang from filename instead of frontmatter\")",
+      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" push)",
+      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" commit -m \"style\\(blog\\): move lang toggle below Blog heading\")"
     ]
   }
 }
