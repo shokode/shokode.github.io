@@ -73,8 +73,9 @@ const posts = (await getCollection('blog')).sort(
   /* タイトル行（Blog + 言語トグル） */
   .blog-header {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
     margin-bottom: 2rem;
   }
 
