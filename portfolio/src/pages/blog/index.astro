@@ -28,18 +28,23 @@ const posts = (await getCollection('blog')).sort(
 
   <div class="blog-wrap">
 
-    <h1 class="blog-heading">Blog</h1>
+    <div class="blog-header">
+      <h1 class="blog-heading">Blog</h1>
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn" data-lang="ja">JP</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+    </div>
 
     <!-- 記事が 0 件のときのメッセージ -->
-    {posts.length === 0 && (
-      <p class="blog-empty">まだ記事がありません。</p>
-    )}
+    <p class="blog-empty" style="display:none;">まだ記事がありません。</p>
 
     <!-- 記事一覧 -->
     {posts.length > 0 && (
       <ul class="blog-list">
         {posts.map((post) => (
-          <li class="blog-item">
+          <li class="blog-item" data-lang={(post.data as any).lang ?? 'ja'}>
             <a href={`/blog/${post.id}/`} class="blog-link">
 
               <!-- 公開日 -->
@@ -65,6 +70,57 @@ const posts = (await getCollection('blog')).sort(
 
 
 <style>
+  /* タイトル行（Blog + 言語トグル） */
+  .blog-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .blog-header .blog-heading {
+    margin-bottom: 0;
+  }
+
+  /* JP | EN トグル */
+  .lang-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: 'Josefin Sans', system-ui, sans-serif;
+    font-size: 0.8rem;
+  }
+
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.1rem 0.25rem;
+    color: #9ca3af;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .lang-btn.is-active {
+    color: #394A65;
+    font-weight: 700;
+  }
+
+  .lang-sep {
+    color: #d1d5db;
+    user-select: none;
+  }
+
+  :global(body.dark) .lang-btn.is-active {
+    color: #e5e7eb;
+  }
+
+  :global(body.dark) .lang-sep {
+    color: #4b5563;
+  }
+
   /* ページ全体のラッパー */
   .blog-wrap {
     max-width: 800px;
@@ -161,3 +217,33 @@ const posts = (await getCollection('blog')).sort(
     color: inherit;
   }
 </style>
+
+<script>
+  const items = document.querySelectorAll<HTMLElement>('.blog-item');
+  const buttons = document.querySelectorAll<HTMLButtonElement>('.lang-btn');
+  const emptyMsg = document.querySelector<HTMLElement>('.blog-empty');
+
+  function applyLang(lang: string) {
+    localStorage.setItem('lang', lang);
+
+    buttons.forEach(btn => {
+      btn.classList.toggle('is-active', btn.dataset.lang === lang);
+    });
+
+    let visibleCount = 0;
+    items.forEach(item => {
+      const match = (item.dataset.lang ?? 'ja') === lang;
+      item.style.display = match ? '' : 'none';
+      if (match) visibleCount++;
+    });
+
+    if (emptyMsg) emptyMsg.style.display = visibleCount === 0 ? 'block' : 'none';
+  }
+
+  const stored = localStorage.getItem('lang') ?? 'en';
+  applyLang(stored);
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang ?? 'ja'));
+  });
+</script>
