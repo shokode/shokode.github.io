@@ -44,7 +44,7 @@ const posts = (await getCollection('blog')).sort(
     {posts.length > 0 && (
       <ul class="blog-list">
         {posts.map((post) => (
-          <li class="blog-item" data-lang={(post.data as any).lang ?? 'ja'}>
+          <li class="blog-item" data-lang={post.id.endsWith('-en') ? 'en' : 'ja'}>
             <a href={`/blog/${post.id}/`} class="blog-link">
 
               <!-- 公開日 -->
