@@ -1,0 +1,937 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout title="båzu frisør · UX Case Study">
+    <link slot="head" rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+        slot="head"
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    />
+    <link
+        slot="head"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Recia:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    />
+    <article class="bazu-case-study">
+        <section class="case-study-hero">
+            <div class="hero-copy">
+                <p class="eyebrow">båzu frisør</p>
+                <h1>A UI/UX case study for a buzz cut salon.</h1>
+                <p class="lead">
+                    båzu comes from bozu, the Japanese word for a shaved head or
+                    buzz cut. This is a one page website concept for a fictional
+                    short hair specialty salon in Oslo.
+                </p>
+            </div>
+
+            <figure class="hero-media">
+                <img
+                    src="/img/case-studies/hero2.png"
+                    alt="båzu frisør website hero screen with a buzz cut model and booking buttons"
+                />
+                <figcaption>
+                    Current landing page direction for the concept in progress.
+                </figcaption>
+            </figure>
+
+            <dl class="case-study-meta">
+                <div class="meta-row">
+                    <dt>Type</dt>
+                    <dd>Website concept · One page</dd>
+                </div>
+                <div class="meta-row">
+                    <dt>Year</dt>
+                    <dd>2026</dd>
+                </div>
+                <div class="meta-row">
+                    <dt>Role</dt>
+                    <dd>UX design, UI design, copy, branding, planning</dd>
+                </div>
+                <div class="meta-row">
+                    <dt>Tools</dt>
+                    <dd>
+                        Figma Make, Midjourney, Astro, Claude (AI assistant)
+                    </dd>
+                </div>
+                <div class="meta-row">
+                    <dt>Languages</dt>
+                    <dd>Norwegian / English / Japanese</dd>
+                </div>
+                <div class="meta-row">
+                    <dt>Status</dt>
+                    <dd>Concept project</dd>
+                </div>
+            </dl>
+        </section>
+
+        <section class="case-study-snapshot" aria-label="Case study snapshot">
+            <div>
+                <span>Problem</span>
+                <p>
+                    Hair length is usually sold as numbers, but users need a
+                    visual sense of what 1mm, 5mm, or 20mm will feel like.
+                </p>
+            </div>
+            <div>
+                <span>Approach</span>
+                <p>
+                    Turn the decision into a guided flow: preview the length,
+                    answer a short quiz, then book with more certainty.
+                </p>
+            </div>
+            <div>
+                <span>Focus</span>
+                <p>
+                    A calm one page concept with a slider, five question quiz,
+                    multilingual framing, and a precise salon brand direction.
+                </p>
+            </div>
+        </section>
+
+        <section class="case-study-overview">
+            <h2>UX Strategy</h2>
+
+            <div class="overview-item">
+                <span class="overview-number">1</span>
+                <div>
+                    <p class="overview-title">Show less, say more.</p>
+                    <p>
+                        Build the trust of a specialty salon through subtraction
+                        with a bold, minimal, refined expression.
+                    </p>
+                </div>
+            </div>
+
+            <div class="overview-item">
+                <span class="overview-number">2</span>
+                <div>
+                    <p class="overview-title">
+                        Guide the undecided in five questions.
+                    </p>
+                    <p>
+                        A light quiz that answers the unspoken “which length
+                        actually suits me?”
+                    </p>
+                </div>
+            </div>
+
+            <div class="overview-item">
+                <span class="overview-number">3</span>
+                <div>
+                    <p class="overview-title">
+                        See the difference before you choose.
+                    </p>
+                    <p>
+                        A slider that previews every millimeter, so the decision
+                        happens with your eyes, not your guesses.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-challenge">
+            <h2>The Challenge</h2>
+            <p>
+                The biggest fear before a buzz cut is realizing it's shorter
+                than you imagined. Hair doesn't grow back the same day, and yet
+                most salons reduce the choice to numbers like "3mm" and "5mm,"
+                with no way to picture how it'll land on your own head.
+            </p>
+            <p>
+                The second challenge is gender. Buzz cuts have long been coded
+                as masculine, and most salon spaces and advertising follow suit.
+                The reality is that people of every gender choose to cut their
+                hair this short, but the existing market doesn't acknowledge
+                them.
+            </p>
+        </section>
+
+        <section class="case-study-user">
+            <h2>The User</h2>
+            <p>
+                <strong>båzu frisør</strong> is designed for three overlapping groups:
+            </p>
+            <ul>
+                <li>
+                    <strong>First timers</strong> afraid of going too short
+                </li>
+                <li>
+                    <strong>Returning short hair wearers</strong> looking to try a
+                    new length
+                </li>
+                <li>
+                    <strong>Fashion driven choosers</strong> searching for the shape
+                    that suits their head
+                </li>
+            </ul>
+            <p>
+                What they share is one quiet question: <strong
+                    >"Can I see it before I commit?"</strong
+                > The site is built to answer that, regardless of gender, age, or
+                experience.
+            </p>
+        </section>
+
+        <section class="case-study-feature">
+            <h2>The Slider</h2>
+            <div class="feature-grid">
+                <div>
+                    <p class="feature-eyebrow">
+                        See every millimeter, with your eyes.
+                    </p>
+                    <p>
+                        Seven steps from 1mm to 20mm. As the slider moves, the
+                        portrait crossfades to show the cut at that length, so
+                        the choice is visual, not numerical.
+                    </p>
+                    <p>
+                        I considered finer increments like 6mm and 7mm, but kept
+                        it to lengths the eye can actually tell apart. Fewer
+                        choices, easier decision.
+                    </p>
+                </div>
+                <img
+                    src="/img/case-studies/bazu-slider.png"
+                    alt="Slider interface showing hair length preview from 1mm to 20mm"
+                    class="feature-image"
+                />
+            </div>
+        </section>
+
+        <section class="case-study-feature">
+            <h2>The Quiz</h2>
+            <div class="feature-grid feature-grid--reverse">
+                <img
+                    src="/img/case-studies/bazu-quiz.png"
+                    alt="Quiz interface: five questions for finding your ideal buzz cut length"
+                    class="feature-image"
+                />
+                <div>
+                    <p class="feature-eyebrow">
+                        Five questions for the undecided.
+                    </p>
+                    <p>
+                        Five questions across motivation, experience, head
+                        shape, styling habits, and formality. The answers map to
+                        a recommended length between 1mm and 20mm.
+                    </p>
+                    <p>
+                        I avoided abstract questions like "what's your style?"
+                        in favor of grounded ones like "how often do you need to
+                        look formal?" The result should connect to the user's
+                        actual life, not a vague aesthetic.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-feature">
+            <h2>The Machine</h2>
+            <div class="feature-grid">
+                <div>
+                    <p class="feature-eyebrow">
+                        Milli 0.1, precision at a tenth of a millimeter.
+                    </p>
+                    <p>
+                        Most clippers cut in 1mm steps. Milli 0.1 cuts in 0.1mm
+                        steps, guided by a 3D scan of the head. Made in Japan,
+                        built where traditional Kyoto craftsmanship meets modern
+                        engineering.
+                    </p>
+                    <p>
+                        Showing the machine makes the promise tangible. It gives
+                        the service a technical reason to trust it, so precision
+                        feels less like a claim and more like something the user
+                        can see.
+                    </p>
+                </div>
+                <div class="machine-visual">
+                    <img
+                        src="/img/case-studies/milli0.1-clean.png"
+                        alt="Milli 0.1: a precision clipper device with black finish and blue accents"
+                        class="feature-image feature-image--machine"
+                    />
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-visual">
+            <h2>Visual Direction</h2>
+            <div class="visual-grid">
+                <div class="visual-copy">
+                    <p class="visual-kicker">Bold · Minimal · Refined.</p>
+                    <p class="visual-lead">
+                        For a buzz cut, I chose earth colors close to the body:
+                        skin, soil, and sand. The mint adds the playful side of
+                        båzu, a small surprise that keeps simplicity from
+                        feeling heavy.
+                    </p>
+                    <p class="visual-reference">
+                        References: Aesop · Margiela · MUJI
+                    </p>
+                    <div class="palette-grid">
+                        <div class="palette-item">
+                            <span
+                                class="palette-chip"
+                                style="background-color: #F8F4E1;"></span>
+                            <strong>Cream</strong>
+                            <span>#F8F4E1</span>
+                        </div>
+                        <div class="palette-item">
+                            <span
+                                class="palette-chip"
+                                style="background-color: #4E3620;"></span>
+                            <strong>Earth brown</strong>
+                            <span>#4E3620</span>
+                        </div>
+                        <div class="palette-item">
+                            <span
+                                class="palette-chip"
+                                style="background-color: #897853;"></span>
+                            <strong>Sand</strong>
+                            <span>#897853</span>
+                        </div>
+                        <div class="palette-item">
+                            <span
+                                class="palette-chip"
+                                style="background-color: #C8EED9;"></span>
+                            <strong>Mint</strong>
+                            <span>#C8EED9</span>
+                        </div>
+                        <div class="palette-item">
+                            <span
+                                class="palette-chip"
+                                style="background-color: #C8963A;"></span>
+                            <strong>Mustard</strong>
+                            <span>#C8963A</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="type-panel">
+                    <p class="visual-kicker">Type</p>
+                    <div class="type-specimen-list">
+                        <div class="type-spec type-spec--display">
+                            <span class="type-role">Display</span>
+                            <span class="type-name">Recia</span>
+                            <p class="type-sample">
+                                Even one millimeter changes you.
+                            </p>
+                        </div>
+                        <div class="type-spec type-spec--functional">
+                            <span class="type-role">Functional</span>
+                            <span class="type-name">Space Grotesk</span>
+                            <p class="type-sample">
+                                Find your length before you book.
+                            </p>
+                        </div>
+                        <div class="type-spec type-spec--japanese">
+                            <span class="type-role">Japanese</span>
+                            <span class="type-name">Noto Sans JP Light</span>
+                            <p class="type-sample" lang="ja">
+                                一ミリで印象は変わる。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="case-study-outcome">
+            <h2>Current Direction</h2>
+            <div class="outcome-gallery">
+                <img
+                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.20.png"
+                    alt="Full webpage screen for båzu frisør"
+                />
+                <img
+                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.32.png"
+                    alt="båzu frisør website section showing the Milli 0.1 machine"
+                />
+                <img
+                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.43.png"
+                    alt="båzu frisør website booking section"
+                />
+            </div>
+            <p>
+                The concept treats the website as a decision tool, not just a
+                salon brochure. Each section answers one moment of doubt: what
+                the length looks like, which option fits the user, why the
+                service is precise, and how to book.
+            </p>
+        </section>
+
+        <section class="case-study-learned">
+            <h2>What I Learned</h2>
+            <p>
+                The thing I underestimated was how many decisions design is
+                actually made of. Color, type, the number of questions, the
+                exact word in a piece of copy. Each one tests both your instinct
+                for users and your own taste.
+            </p>
+            <p>
+                I aimed for something that feels good for both sides, the person
+                using it, and the person making it. Next time, I'd factor in
+                technical constraints earlier, especially the difficulty of
+                keeping a single portrait consistent across seven hair lengths.
+            </p>
+        </section>
+    </article>
+</Layout>
+
+<style>
+    :global(body.dark),
+    :global(body:not(.dark)) {
+        background: #f5f1e8;
+        color: #1d1a17;
+    }
+
+    :global(body:not(.dark)::before) {
+        display: none;
+    }
+
+    .bazu-case-study {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 5.5rem 1.5rem 7rem;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        color: #1d1a17;
+    }
+
+    .case-study-hero {
+        display: grid;
+        gap: clamp(2.4rem, 5vw, 4.5rem);
+    }
+
+    .hero-copy {
+        max-width: 860px;
+        padding-top: clamp(1rem, 4vw, 3rem);
+    }
+
+    .hero-media {
+        margin: 0;
+    }
+
+    .hero-media img {
+        display: block;
+        width: 100%;
+        border: 1px solid rgba(78, 54, 32, 0.12);
+        border-radius: 1rem;
+        box-shadow: 0 24px 80px rgba(36, 31, 26, 0.12);
+    }
+
+    .hero-media figcaption {
+        margin-top: 0.8rem;
+        font-size: 0.86rem;
+        line-height: 1.6;
+        color: #675d52;
+    }
+
+    .bazu-case-study h1 {
+        font-family: "Recia", serif;
+    }
+
+    .bazu-case-study :lang(ja) {
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 300;
+    }
+
+    .eyebrow {
+        margin: 0 0 clamp(1.25rem, 2.5vw, 2rem);
+        font-size: clamp(0.72rem, 1.1vw, 0.86rem);
+        letter-spacing: 0.32em;
+        text-transform: uppercase;
+        color: #4e3620;
+    }
+
+    h1 {
+        margin: 0;
+        font-size: clamp(2.75rem, 5.4vw, 4.7rem);
+        line-height: 1.08;
+        max-width: 13em;
+        font-weight: 500;
+        text-wrap: balance;
+    }
+
+    .lead {
+        margin: clamp(1.35rem, 2.4vw, 2rem) 0 0;
+        max-width: 62ch;
+        font-size: clamp(0.98rem, 1.35vw, 1.16rem);
+        line-height: 1.72;
+        text-wrap: pretty;
+        color: #3d372f;
+    }
+
+    .case-study-meta {
+        margin-top: 3rem;
+        display: grid;
+        grid-template-columns: 1fr;
+        border-top: 1px solid rgba(78, 54, 32, 0.14);
+    }
+
+    .meta-row {
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.28fr) 1fr;
+        gap: clamp(1.5rem, 5vw, 4rem);
+        align-items: baseline;
+        padding: 1.25rem 0;
+        border-bottom: 1px solid rgba(78, 54, 32, 0.14);
+    }
+
+    dt {
+        margin: 0;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4e3620;
+        flex-shrink: 0;
+    }
+
+    dd {
+        margin: 0;
+        font-size: clamp(1rem, 1.4vw, 1.28rem);
+        line-height: 1.55;
+        color: #1d1a17;
+    }
+
+    .case-study-snapshot {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        margin-top: 5rem;
+        overflow: hidden;
+        border-top: 1px solid rgba(78, 54, 32, 0.16);
+        border-bottom: 1px solid rgba(78, 54, 32, 0.16);
+    }
+
+    .case-study-snapshot div {
+        display: grid;
+        grid-template-columns: minmax(7rem, 0.22fr) 1fr;
+        gap: clamp(1.25rem, 4vw, 3rem);
+        padding: 1.4rem 0;
+        border-bottom: 1px solid rgba(78, 54, 32, 0.12);
+    }
+
+    .case-study-snapshot div:last-child {
+        border-bottom: 0;
+    }
+
+    .case-study-snapshot span {
+        display: block;
+        margin-bottom: 0;
+        font-size: 0.76rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: #4e3620;
+    }
+
+    .case-study-snapshot p {
+        margin: 0;
+        line-height: 1.75;
+        color: #3b352f;
+    }
+
+    .case-study-overview,
+    .case-study-challenge,
+    .case-study-user {
+        margin-top: 5rem;
+    }
+
+    .case-study-overview h2,
+    .case-study-challenge h2,
+    .case-study-user h2,
+    .case-study-outcome h2 {
+        margin: 0 0 2rem;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4e3620;
+    }
+
+    .case-study-challenge p,
+    .case-study-user p {
+        max-width: 68ch;
+        margin-bottom: 1.5rem;
+        color: #3b352f;
+        font-size: 1rem;
+        line-height: 1.82;
+    }
+
+    .case-study-user ul {
+        margin: 0 0 1.5rem;
+        padding-left: 1.4rem;
+        color: #3b352f;
+        line-height: 1.8;
+    }
+
+    .case-study-user li {
+        margin-bottom: 0.9rem;
+    }
+
+    .case-study-feature {
+        margin-top: 5rem;
+    }
+
+    .case-study-feature h2 {
+        margin: 0 0 2rem;
+        font-family: "Recia", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 500;
+        line-height: 1;
+        color: #241f1a;
+    }
+
+    .feature-grid {
+        display: grid;
+        gap: clamp(2rem, 5vw, 4rem);
+        align-items: center;
+        grid-template-columns: 1.2fr 1fr;
+    }
+
+    .feature-grid--reverse {
+        grid-template-columns: 1fr 1.2fr;
+    }
+
+    .feature-eyebrow {
+        margin: 0 0 1rem;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: #4e3620;
+        font-weight: 700;
+    }
+
+    .feature-placeholder {
+        min-height: 220px;
+        display: grid;
+        place-items: center;
+        padding: 2rem;
+        border: 1px solid rgba(78, 54, 32, 0.18);
+        border-radius: 1.5rem;
+        color: #4e3620;
+        background: rgba(248, 244, 225, 0.46);
+        font-style: italic;
+        text-align: center;
+    }
+
+    .feature-image {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 0.75rem;
+        object-fit: cover;
+    }
+
+    .machine-visual {
+        display: grid;
+        place-items: center;
+        min-height: 320px;
+        padding: 1.5rem;
+        overflow: hidden;
+        border: 1px solid rgba(78, 54, 32, 0.1);
+        border-radius: 0.75rem;
+        background: linear-gradient(
+            145deg,
+            rgba(248, 244, 225, 0.88),
+            rgba(229, 220, 207, 0.5)
+        );
+    }
+
+    .feature-image--machine {
+        width: min(100%, 520px);
+        border-radius: 0;
+        filter: drop-shadow(0 26px 34px rgba(29, 26, 23, 0.22));
+    }
+
+    .case-study-visual {
+        margin-top: 6rem;
+    }
+
+    .case-study-visual h2 {
+        margin: 0 0 2.4rem;
+        font-family: "Recia", serif;
+        font-size: clamp(2.2rem, 5vw, 4.4rem);
+        font-weight: 500;
+        line-height: 0.98;
+        color: #241f1a;
+    }
+
+    .visual-grid {
+        display: grid;
+        gap: clamp(3rem, 7vw, 5.5rem);
+        align-items: start;
+        grid-template-columns: 1fr;
+    }
+
+    .visual-copy,
+    .type-panel {
+        width: 100%;
+        max-width: 58rem;
+        margin: 0 auto;
+    }
+
+    .visual-kicker {
+        margin: 0 0 1.15rem;
+        color: #4e3620;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+        line-height: 1.5;
+        text-transform: uppercase;
+    }
+
+    .visual-lead {
+        margin: 0;
+        max-width: 52rem;
+        color: #2e2923;
+        font-family: "Recia", serif;
+        font-size: clamp(1.35rem, 2.2vw, 2rem);
+        line-height: 1.32;
+    }
+
+    .visual-reference {
+        margin: 1.5rem 0 0;
+        color: #70675d;
+        font-size: 0.92rem;
+        line-height: 1.7;
+    }
+
+    .palette-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: 0.65rem;
+        margin: 2rem 0 0;
+    }
+
+    .palette-item {
+        min-width: 0;
+        padding-top: 0.2rem;
+    }
+
+    .palette-chip {
+        display: block;
+        width: 100%;
+        height: clamp(3rem, 7vw, 4.5rem);
+        margin-bottom: 0.75rem;
+        border: 1px solid rgba(78, 54, 32, 0.12);
+        border-radius: 999px 999px 0 0;
+    }
+
+    .palette-item strong,
+    .palette-item span:last-child {
+        display: block;
+        overflow-wrap: anywhere;
+    }
+
+    .palette-item strong {
+        color: #241f1a;
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.25;
+    }
+
+    .palette-item span:last-child {
+        margin-top: 0.25rem;
+        color: #82776a;
+        font-size: 0.72rem;
+        letter-spacing: 0.04em;
+    }
+
+    .type-panel {
+        padding-top: 0;
+    }
+
+    .type-specimen-list {
+        display: grid;
+        gap: 0;
+        border-top: 1px solid rgba(78, 54, 32, 0.14);
+    }
+
+    .type-spec {
+        display: grid;
+        grid-template-columns: minmax(7rem, 0.22fr) minmax(12rem, 0.3fr) 1fr;
+        gap: clamp(1.2rem, 3vw, 2.8rem);
+        align-items: baseline;
+        padding: 1.45rem 0;
+        border-bottom: 1px solid rgba(78, 54, 32, 0.14);
+    }
+
+    .type-role {
+        color: #4e3620;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        line-height: 1.45;
+        text-transform: uppercase;
+    }
+
+    .type-name,
+    .type-sample {
+        margin: 0;
+    }
+
+    .type-name {
+        color: #1d1a17;
+        font-size: clamp(1.05rem, 1.45vw, 1.24rem);
+        line-height: 1.2;
+    }
+
+    .type-sample {
+        color: #6d6258;
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+
+    .type-spec--display .type-name,
+    .type-spec--display .type-sample {
+        font-family: "Recia", serif;
+    }
+
+    .type-spec--display .type-sample {
+        color: #241f1a;
+        font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+        line-height: 1.12;
+    }
+
+    .type-spec--functional .type-name,
+    .type-spec--functional .type-sample {
+        font-family: "Space Grotesk", system-ui, sans-serif;
+    }
+
+    .type-spec--japanese .type-name,
+    .type-spec--japanese .type-sample {
+        font-family: "Noto Sans JP", sans-serif;
+        font-weight: 300;
+    }
+
+    .case-study-learned {
+        margin-top: 5rem;
+    }
+
+    .case-study-outcome {
+        margin-top: 5rem;
+    }
+
+    .outcome-gallery {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr;
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .outcome-gallery img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 260px;
+        object-fit: cover;
+        object-position: top;
+        border: 1px solid rgba(78, 54, 32, 0.12);
+        border-radius: 1rem;
+        background: #f8f4e1;
+    }
+
+    .outcome-gallery img:first-child {
+        grid-row: span 2;
+    }
+
+    .case-study-outcome p,
+    .case-study-learned p {
+        max-width: 68ch;
+        color: #3b352f;
+        line-height: 1.8;
+    }
+
+    .case-study-learned p:last-child {
+        margin-bottom: 0;
+    }
+
+    .overview-item {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 1.2rem;
+        margin-bottom: 2rem;
+        align-items: start;
+    }
+
+    .overview-number {
+        display: inline-flex;
+        width: 3rem;
+        height: 3rem;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        background: #4e3620;
+        color: white;
+        font-weight: 700;
+        font-size: 1.05rem;
+    }
+
+    .overview-title {
+        margin: 0 0 0.6rem;
+        font-family: "Recia", serif;
+        font-size: clamp(1.25rem, 2vw, 1.6rem);
+        font-weight: 500;
+        line-height: 1.15;
+        color: #241f1a;
+    }
+
+    .overview-item p {
+        margin: 0;
+        color: #3b352f;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    @media (max-width: 760px) {
+        .bazu-case-study {
+            padding: 3rem 1.25rem 4rem;
+        }
+
+        .case-study-meta {
+            grid-template-columns: 1fr;
+        }
+
+        .meta-row,
+        .case-study-snapshot div {
+            grid-template-columns: 1fr;
+            gap: 0.6rem;
+        }
+
+        .case-study-snapshot,
+        .outcome-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .outcome-gallery img:first-child {
+            grid-row: auto;
+        }
+
+        .overview-item,
+        .feature-grid,
+        .visual-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .palette-grid {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .type-spec {
+            grid-template-columns: 1fr;
+            gap: 0.55rem;
+        }
+
+        .overview-number {
+            width: 2.6rem;
+            height: 2.6rem;
+        }
+    }
+</style>
