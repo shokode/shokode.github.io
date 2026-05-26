@@ -175,6 +175,17 @@ export const works = [
     thumb: "/img/pdf/glutenfreeBakeri.png"
   },
   {
+    id: "web5",
+    type: "web",
+    title: "båzu frisør",
+    subtitle: "One-page website concept / UX case study",
+    date: "2026-05-26",
+    tags: ["Web", "UI/UX"],
+    used: ["Figma Make", "Midjourney", "Astro", "Claude (AI assistant)"],
+    href: "/works/bazu-frisor/",
+    thumb: "/img/case-studies/hero2.png"
+  },
+  {
     id: "slides1",
     type: "slides",
     title: "Hvem er universell utforming nyttig for?",
