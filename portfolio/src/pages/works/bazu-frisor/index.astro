@@ -21,9 +21,9 @@ import Layout from "../../../layouts/Layout.astro";
                 <p class="eyebrow">båzu frisør</p>
                 <h1>A UI/UX case study for a buzz cut salon.</h1>
                 <p class="lead">
-                    båzu comes from bozu, the Japanese word for a shaved head or
-                    buzz cut. This is a one page website concept for a fictional
-                    short hair specialty salon in Oslo.
+                    båzu comes from bozu (坊主), the Japanese word for a shaved
+                    head or buzz cut. This is a one page website concept for a
+                    fictional short hair specialty salon in Oslo.
                 </p>
             </div>
 
@@ -154,20 +154,38 @@ import Layout from "../../../layouts/Layout.astro";
             <p>
                 <strong>båzu frisør</strong> is designed for three overlapping groups:
             </p>
-            <ul>
-                <li>
-                    <strong>First timers</strong> afraid of going too short
-                </li>
-                <li>
-                    <strong>Returning short hair wearers</strong> looking to try a
-                    new length
-                </li>
-                <li>
-                    <strong>Fashion driven choosers</strong> searching for the shape
-                    that suits their head
-                </li>
-            </ul>
-            <p>
+
+            <div class="user-groups">
+                <div class="overview-item">
+                    <span class="overview-number">1</span>
+                    <div>
+                        <p class="overview-title">First timers</p>
+                        <p>Afraid of going too short</p>
+                    </div>
+                </div>
+
+                <div class="overview-item">
+                    <span class="overview-number">2</span>
+                    <div>
+                        <p class="overview-title">
+                            Returning short hair wearers
+                        </p>
+                        <p>Looking to try a new length</p>
+                    </div>
+                </div>
+
+                <div class="overview-item">
+                    <span class="overview-number">3</span>
+                    <div>
+                        <p class="overview-title">Fashion driven choosers</p>
+                        <p>
+                            Searching for the shape that suits their head
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="user-question">
                 What they share is one quiet question: <strong
                     >"Can I see it before I commit?"</strong
                 > The site is built to answer that, regardless of gender, age, or
@@ -213,11 +231,13 @@ import Layout from "../../../layouts/Layout.astro";
                     <p class="feature-eyebrow">
                         Five questions for the undecided.
                     </p>
-                    <p>
-                        Five questions across motivation, experience, head
-                        shape, styling habits, and formality. The answers map to
-                        a recommended length between 1mm and 20mm.
-                    </p>
+                    <ol class="quiz-questions">
+                        <li>Why do you want a buzz cut?</li>
+                        <li>Have you had one before?</li>
+                        <li>How do you feel about your head shape?</li>
+                        <li>Do you style your hair with products?</li>
+                        <li>How often do you need to look formal?</li>
+                    </ol>
                     <p>
                         I avoided abstract questions like "what's your style?"
                         in favor of grounded ones like "how often do you need to
@@ -269,9 +289,6 @@ import Layout from "../../../layouts/Layout.astro";
                         båzu, a small surprise that keeps simplicity from
                         feeling heavy.
                     </p>
-                    <p class="visual-reference">
-                        References: Aesop · Margiela · MUJI
-                    </p>
                     <div class="palette-grid">
                         <div class="palette-item">
                             <span
@@ -311,24 +328,24 @@ import Layout from "../../../layouts/Layout.astro";
                     </div>
                 </div>
                 <div class="type-panel">
-                    <p class="visual-kicker">Type</p>
+                    <p class="visual-kicker">Typography</p>
                     <div class="type-specimen-list">
                         <div class="type-spec type-spec--display">
-                            <span class="type-role">Display</span>
+                            <span class="type-role">Brand voice</span>
                             <span class="type-name">Recia</span>
                             <p class="type-sample">
                                 Even one millimeter changes you.
                             </p>
                         </div>
                         <div class="type-spec type-spec--functional">
-                            <span class="type-role">Functional</span>
+                            <span class="type-role">Interface text</span>
                             <span class="type-name">Space Grotesk</span>
                             <p class="type-sample">
                                 Find your length before you book.
                             </p>
                         </div>
                         <div class="type-spec type-spec--japanese">
-                            <span class="type-role">Japanese</span>
+                            <span class="type-role">Japanese copy</span>
                             <span class="type-name">Noto Sans JP Light</span>
                             <p class="type-sample" lang="ja">
                                 一ミリで印象は変わる。
@@ -382,13 +399,54 @@ import Layout from "../../../layouts/Layout.astro";
 </Layout>
 
 <style>
-    :global(body.dark),
-    :global(body:not(.dark)) {
-        background: #f5f1e8;
-        color: #1d1a17;
+    :global(:root) {
+        --bazu-bg: #f5f1e8;
+        --bazu-cream: #f8f4e1;
+        --bazu-text: #1d1a17;
+        --bazu-heading: #241f1a;
+        --bazu-copy: #3b352f;
+        --bazu-lead: #3d372f;
+        --bazu-visual-text: #2e2923;
+        --bazu-muted: #6d6258;
+        --bazu-caption: #675d52;
+        --bazu-reference: #70675d;
+        --bazu-palette-meta: #82776a;
+        --bazu-brown: #4e3620;
+        --bazu-line: rgba(78, 54, 32, 0.14);
+        --bazu-line-soft: rgba(78, 54, 32, 0.12);
+        --bazu-line-strong: rgba(78, 54, 32, 0.16);
+        --bazu-serif: "Recia", serif;
+        --bazu-sans: "Space Grotesk", system-ui, sans-serif;
+        --bazu-jp: "Noto Sans JP", sans-serif;
+        --bazu-measure: 76ch;
+        --bazu-section-gap: 5rem;
     }
 
-    :global(body:not(.dark)::before) {
+    :global(body.dark) {
+        --bazu-bg: #1c1814;
+        --bazu-cream: #241e18;
+        --bazu-text: #ede8de;
+        --bazu-heading: #f5f1e7;
+        --bazu-copy: #c8c2b4;
+        --bazu-lead: #c0bab0;
+        --bazu-visual-text: #ddd8ce;
+        --bazu-muted: #9a948a;
+        --bazu-caption: #9a948a;
+        --bazu-reference: #9a948a;
+        --bazu-palette-meta: #9a948a;
+        --bazu-brown: #c8a87c;
+        --bazu-line: rgba(237, 232, 222, 0.1);
+        --bazu-line-soft: rgba(237, 232, 222, 0.08);
+        --bazu-line-strong: rgba(237, 232, 222, 0.15);
+    }
+
+    :global(body.dark),
+    :global(body:not(.dark)) {
+        background: var(--bazu-bg);
+        color: var(--bazu-text);
+    }
+
+    :global(body::before) {
         display: none;
     }
 
@@ -396,8 +454,8 @@ import Layout from "../../../layouts/Layout.astro";
         max-width: 1040px;
         margin: 0 auto;
         padding: 5.5rem 1.5rem 7rem;
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        color: #1d1a17;
+        font-family: var(--bazu-sans);
+        color: var(--bazu-text);
     }
 
     .case-study-hero {
@@ -417,7 +475,7 @@ import Layout from "../../../layouts/Layout.astro";
     .hero-media img {
         display: block;
         width: 100%;
-        border: 1px solid rgba(78, 54, 32, 0.12);
+        border: 1px solid var(--bazu-line-soft);
         border-radius: 1rem;
         box-shadow: 0 24px 80px rgba(36, 31, 26, 0.12);
     }
@@ -426,15 +484,15 @@ import Layout from "../../../layouts/Layout.astro";
         margin-top: 0.8rem;
         font-size: 0.86rem;
         line-height: 1.6;
-        color: #675d52;
+        color: var(--bazu-caption);
     }
 
     .bazu-case-study h1 {
-        font-family: "Recia", serif;
+        font-family: var(--bazu-serif);
     }
 
     .bazu-case-study :lang(ja) {
-        font-family: "Noto Sans JP", sans-serif;
+        font-family: var(--bazu-jp);
         font-weight: 300;
     }
 
@@ -443,7 +501,7 @@ import Layout from "../../../layouts/Layout.astro";
         font-size: clamp(0.72rem, 1.1vw, 0.86rem);
         letter-spacing: 0.32em;
         text-transform: uppercase;
-        color: #4e3620;
+        color: var(--bazu-brown);
     }
 
     h1 {
@@ -461,14 +519,14 @@ import Layout from "../../../layouts/Layout.astro";
         font-size: clamp(0.98rem, 1.35vw, 1.16rem);
         line-height: 1.72;
         text-wrap: pretty;
-        color: #3d372f;
+        color: var(--bazu-lead);
     }
 
     .case-study-meta {
         margin-top: 3rem;
         display: grid;
         grid-template-columns: 1fr;
-        border-top: 1px solid rgba(78, 54, 32, 0.14);
+        border-top: 1px solid var(--bazu-line);
     }
 
     .meta-row {
@@ -477,7 +535,7 @@ import Layout from "../../../layouts/Layout.astro";
         gap: clamp(1.5rem, 5vw, 4rem);
         align-items: baseline;
         padding: 1.25rem 0;
-        border-bottom: 1px solid rgba(78, 54, 32, 0.14);
+        border-bottom: 1px solid var(--bazu-line);
     }
 
     dt {
@@ -486,7 +544,7 @@ import Layout from "../../../layouts/Layout.astro";
         font-weight: 700;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #4e3620;
+        color: var(--bazu-brown);
         flex-shrink: 0;
     }
 
@@ -494,17 +552,17 @@ import Layout from "../../../layouts/Layout.astro";
         margin: 0;
         font-size: clamp(1rem, 1.4vw, 1.28rem);
         line-height: 1.55;
-        color: #1d1a17;
+        color: var(--bazu-text);
     }
 
     .case-study-snapshot {
         display: grid;
         grid-template-columns: 1fr;
         gap: 0;
-        margin-top: 5rem;
+        margin-top: var(--bazu-section-gap);
         overflow: hidden;
-        border-top: 1px solid rgba(78, 54, 32, 0.16);
-        border-bottom: 1px solid rgba(78, 54, 32, 0.16);
+        border-top: 1px solid var(--bazu-line-strong);
+        border-bottom: 1px solid var(--bazu-line-strong);
     }
 
     .case-study-snapshot div {
@@ -512,7 +570,7 @@ import Layout from "../../../layouts/Layout.astro";
         grid-template-columns: minmax(7rem, 0.22fr) 1fr;
         gap: clamp(1.25rem, 4vw, 3rem);
         padding: 1.4rem 0;
-        border-bottom: 1px solid rgba(78, 54, 32, 0.12);
+        border-bottom: 1px solid var(--bazu-line-soft);
     }
 
     .case-study-snapshot div:last-child {
@@ -526,65 +584,59 @@ import Layout from "../../../layouts/Layout.astro";
         font-weight: 700;
         letter-spacing: 0.16em;
         text-transform: uppercase;
-        color: #4e3620;
+        color: var(--bazu-brown);
     }
 
     .case-study-snapshot p {
         margin: 0;
         line-height: 1.75;
-        color: #3b352f;
+        color: var(--bazu-copy);
     }
 
     .case-study-overview,
     .case-study-challenge,
-    .case-study-user {
-        margin-top: 5rem;
+    .case-study-user,
+    .case-study-feature,
+    .case-study-learned,
+    .case-study-outcome {
+        margin-top: var(--bazu-section-gap);
     }
 
-    .case-study-overview h2,
-    .case-study-challenge h2,
-    .case-study-user h2,
-    .case-study-outcome h2 {
+    .bazu-case-study h2 {
         margin: 0 0 2rem;
-        font-family: "Space Grotesk", system-ui, sans-serif;
-        font-size: 0.78rem;
-        font-weight: 700;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: #4e3620;
+        font-family: var(--bazu-serif);
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        font-weight: 500;
+        line-height: 1;
+        color: var(--bazu-heading);
+    }
+
+    .case-study-challenge p,
+    .case-study-user p,
+    .case-study-outcome p,
+    .case-study-learned p {
+        max-width: var(--bazu-measure);
+        color: var(--bazu-copy);
     }
 
     .case-study-challenge p,
     .case-study-user p {
-        max-width: 68ch;
         margin-bottom: 1.5rem;
-        color: #3b352f;
         font-size: 1rem;
         line-height: 1.82;
     }
 
-    .case-study-user ul {
-        margin: 0 0 1.5rem;
-        padding-left: 1.4rem;
-        color: #3b352f;
-        line-height: 1.8;
+    .user-groups {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
 
-    .case-study-user li {
-        margin-bottom: 0.9rem;
+    .case-study-user .overview-item:last-child {
+        margin-bottom: 0;
     }
 
-    .case-study-feature {
-        margin-top: 5rem;
-    }
-
-    .case-study-feature h2 {
-        margin: 0 0 2rem;
-        font-family: "Recia", serif;
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        font-weight: 500;
-        line-height: 1;
-        color: #241f1a;
+    .case-study-user .user-question {
+        margin-top: 2.5rem;
     }
 
     .feature-grid {
@@ -598,13 +650,40 @@ import Layout from "../../../layouts/Layout.astro";
         grid-template-columns: 1fr 1.2fr;
     }
 
+    .quiz-questions {
+        margin: 0 0 1.5rem;
+        padding: 0;
+        list-style: none;
+        counter-reset: quiz;
+    }
+
+    .quiz-questions li {
+        counter-increment: quiz;
+        display: grid;
+        grid-template-columns: 1.6rem 1fr;
+        gap: 0.5rem;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--bazu-line-soft);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        color: var(--bazu-copy);
+    }
+
+    .quiz-questions li::before {
+        content: counter(quiz);
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--bazu-brown);
+        padding-top: 0.18rem;
+    }
+
     .feature-eyebrow {
         margin: 0 0 1rem;
-        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-family: var(--bazu-sans);
         font-size: 0.78rem;
         letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: #4e3620;
+        color: var(--bazu-brown);
         font-weight: 700;
     }
 
@@ -615,7 +694,7 @@ import Layout from "../../../layouts/Layout.astro";
         padding: 2rem;
         border: 1px solid rgba(78, 54, 32, 0.18);
         border-radius: 1.5rem;
-        color: #4e3620;
+        color: var(--bazu-brown);
         background: rgba(248, 244, 225, 0.46);
         font-style: italic;
         text-align: center;
@@ -654,15 +733,6 @@ import Layout from "../../../layouts/Layout.astro";
         margin-top: 6rem;
     }
 
-    .case-study-visual h2 {
-        margin: 0 0 2.4rem;
-        font-family: "Recia", serif;
-        font-size: clamp(2.2rem, 5vw, 4.4rem);
-        font-weight: 500;
-        line-height: 0.98;
-        color: #241f1a;
-    }
-
     .visual-grid {
         display: grid;
         gap: clamp(3rem, 7vw, 5.5rem);
@@ -679,7 +749,7 @@ import Layout from "../../../layouts/Layout.astro";
 
     .visual-kicker {
         margin: 0 0 1.15rem;
-        color: #4e3620;
+        color: var(--bazu-brown);
         font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.22em;
@@ -690,17 +760,10 @@ import Layout from "../../../layouts/Layout.astro";
     .visual-lead {
         margin: 0;
         max-width: 52rem;
-        color: #2e2923;
-        font-family: "Recia", serif;
+        color: var(--bazu-visual-text);
+        font-family: var(--bazu-serif);
         font-size: clamp(1.35rem, 2.2vw, 2rem);
         line-height: 1.32;
-    }
-
-    .visual-reference {
-        margin: 1.5rem 0 0;
-        color: #70675d;
-        font-size: 0.92rem;
-        line-height: 1.7;
     }
 
     .palette-grid {
@@ -720,7 +783,7 @@ import Layout from "../../../layouts/Layout.astro";
         width: 100%;
         height: clamp(3rem, 7vw, 4.5rem);
         margin-bottom: 0.75rem;
-        border: 1px solid rgba(78, 54, 32, 0.12);
+        border: 1px solid var(--bazu-line-soft);
         border-radius: 999px 999px 0 0;
     }
 
@@ -731,7 +794,7 @@ import Layout from "../../../layouts/Layout.astro";
     }
 
     .palette-item strong {
-        color: #241f1a;
+        color: var(--bazu-heading);
         font-size: 0.82rem;
         font-weight: 600;
         line-height: 1.25;
@@ -739,7 +802,7 @@ import Layout from "../../../layouts/Layout.astro";
 
     .palette-item span:last-child {
         margin-top: 0.25rem;
-        color: #82776a;
+        color: var(--bazu-palette-meta);
         font-size: 0.72rem;
         letter-spacing: 0.04em;
     }
@@ -751,7 +814,7 @@ import Layout from "../../../layouts/Layout.astro";
     .type-specimen-list {
         display: grid;
         gap: 0;
-        border-top: 1px solid rgba(78, 54, 32, 0.14);
+        border-top: 1px solid var(--bazu-line);
     }
 
     .type-spec {
@@ -760,11 +823,11 @@ import Layout from "../../../layouts/Layout.astro";
         gap: clamp(1.2rem, 3vw, 2.8rem);
         align-items: baseline;
         padding: 1.45rem 0;
-        border-bottom: 1px solid rgba(78, 54, 32, 0.14);
+        border-bottom: 1px solid var(--bazu-line);
     }
 
     .type-role {
-        color: #4e3620;
+        color: var(--bazu-brown);
         font-size: 0.72rem;
         font-weight: 700;
         letter-spacing: 0.18em;
@@ -778,45 +841,37 @@ import Layout from "../../../layouts/Layout.astro";
     }
 
     .type-name {
-        color: #1d1a17;
+        color: var(--bazu-text);
         font-size: clamp(1.05rem, 1.45vw, 1.24rem);
         line-height: 1.2;
     }
 
     .type-sample {
-        color: #6d6258;
+        color: var(--bazu-muted);
         font-size: 0.92rem;
         line-height: 1.65;
     }
 
     .type-spec--display .type-name,
     .type-spec--display .type-sample {
-        font-family: "Recia", serif;
+        font-family: var(--bazu-serif);
     }
 
     .type-spec--display .type-sample {
-        color: #241f1a;
+        color: var(--bazu-heading);
         font-size: clamp(1.45rem, 2.4vw, 2.25rem);
         line-height: 1.12;
     }
 
     .type-spec--functional .type-name,
     .type-spec--functional .type-sample {
-        font-family: "Space Grotesk", system-ui, sans-serif;
+        font-family: var(--bazu-sans);
     }
 
     .type-spec--japanese .type-name,
     .type-spec--japanese .type-sample {
-        font-family: "Noto Sans JP", sans-serif;
+        font-family: var(--bazu-jp);
         font-weight: 300;
-    }
-
-    .case-study-learned {
-        margin-top: 5rem;
-    }
-
-    .case-study-outcome {
-        margin-top: 5rem;
     }
 
     .outcome-gallery {
@@ -833,9 +888,9 @@ import Layout from "../../../layouts/Layout.astro";
         min-height: 260px;
         object-fit: cover;
         object-position: top;
-        border: 1px solid rgba(78, 54, 32, 0.12);
+        border: 1px solid var(--bazu-line-soft);
         border-radius: 1rem;
-        background: #f8f4e1;
+        background: var(--bazu-cream);
     }
 
     .outcome-gallery img:first-child {
@@ -844,8 +899,6 @@ import Layout from "../../../layouts/Layout.astro";
 
     .case-study-outcome p,
     .case-study-learned p {
-        max-width: 68ch;
-        color: #3b352f;
         line-height: 1.8;
     }
 
@@ -868,7 +921,7 @@ import Layout from "../../../layouts/Layout.astro";
         align-items: center;
         justify-content: center;
         border-radius: 999px;
-        background: #4e3620;
+        background: var(--bazu-brown);
         color: white;
         font-weight: 700;
         font-size: 1.05rem;
@@ -876,16 +929,16 @@ import Layout from "../../../layouts/Layout.astro";
 
     .overview-title {
         margin: 0 0 0.6rem;
-        font-family: "Recia", serif;
+        font-family: var(--bazu-serif);
         font-size: clamp(1.25rem, 2vw, 1.6rem);
         font-weight: 500;
         line-height: 1.15;
-        color: #241f1a;
+        color: var(--bazu-heading);
     }
 
     .overview-item p {
         margin: 0;
-        color: #3b352f;
+        color: var(--bazu-copy);
         font-size: 1rem;
         line-height: 1.75;
     }
@@ -933,5 +986,22 @@ import Layout from "../../../layouts/Layout.astro";
             width: 2.6rem;
             height: 2.6rem;
         }
+    }
+
+    :global(body.dark) .machine-visual {
+        background: linear-gradient(
+            145deg,
+            rgba(36, 30, 24, 0.9),
+            rgba(28, 22, 18, 0.8)
+        );
+        border-color: rgba(237, 232, 222, 0.08);
+    }
+
+    :global(body.dark) .hero-media img {
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+    }
+
+    :global(body.dark) .palette-chip {
+        border-color: rgba(237, 232, 222, 0.12);
     }
 </style>

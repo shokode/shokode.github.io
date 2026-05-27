@@ -181,7 +181,7 @@ export const works = [
     subtitle: "One-page website concept / UX case study",
     date: "2026-05-26",
     tags: ["Web", "UI/UX"],
-    used: ["Figma Make", "Midjourney", "Astro", "Claude (AI assistant)"],
+    used: ["Figma Make", "Astro", "Claude (AI assistant)"],
     href: "/works/bazu-frisor/",
     thumb: "/img/case-studies/hero2.png"
   },
