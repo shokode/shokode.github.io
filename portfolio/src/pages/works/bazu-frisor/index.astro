@@ -53,7 +53,8 @@ import Layout from "../../../layouts/Layout.astro";
                 <div class="meta-row">
                     <dt>Tools</dt>
                     <dd>
-                        Figma Make, Midjourney, Astro, Claude (AI assistant)
+                        Figma Make, Astro, HTML, CSS, SCSS, Claude (AI
+                        assistant)
                     </dd>
                 </div>
                 <div class="meta-row">
@@ -147,6 +148,13 @@ import Layout from "../../../layouts/Layout.astro";
                 hair this short, but the existing market doesn't acknowledge
                 them.
             </p>
+            <p>
+                The design responds by keeping the copy neutral throughout. No
+                question assumes who is reading, no headline narrows the
+                audience. The name itself — båzu — carries no gender, no age.
+                The goal was a space that feels equally welcoming to anyone —
+                child or adult, any gender — who wants to go short.
+            </p>
         </section>
 
         <section class="case-study-user">
@@ -178,9 +186,7 @@ import Layout from "../../../layouts/Layout.astro";
                     <span class="overview-number">3</span>
                     <div>
                         <p class="overview-title">Fashion driven choosers</p>
-                        <p>
-                            Searching for the shape that suits their head
-                        </p>
+                        <p>Searching for the shape that suits their head</p>
                     </div>
                 </div>
             </div>
@@ -195,7 +201,7 @@ import Layout from "../../../layouts/Layout.astro";
 
         <section class="case-study-feature">
             <h2>The Slider</h2>
-            <div class="feature-grid">
+            <div class="feature-grid feature-grid--slider">
                 <div>
                     <p class="feature-eyebrow">
                         See every millimeter, with your eyes.
@@ -211,10 +217,53 @@ import Layout from "../../../layouts/Layout.astro";
                         choices, easier decision.
                     </p>
                 </div>
+                <div class="feature-stack feature-stack--slider">
+                    <div
+                        class="hair-length-sequence"
+                        role="img"
+                        aria-label="Seven buzz cut length previews shown in sequence"
+                    >
+                        <img
+                            src="/img/case-studies/bozu1.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu2.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu3.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu4.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu5.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu6.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                        <img
+                            src="/img/case-studies/bozu7.png"
+                            alt=""
+                            aria-hidden="true"
+                        />
+                    </div>
+                </div>
                 <img
-                    src="/img/case-studies/bazu-slider.png"
-                    alt="Slider interface showing hair length preview from 1mm to 20mm"
-                    class="feature-image"
+                    src="/img/case-studies/slider.png"
+                    alt="Slider interface for choosing a buzz cut length from 1mm to 20mm"
+                    class="feature-image feature-image--ui feature-image--slider-ui"
                 />
             </div>
         </section>
@@ -222,11 +271,18 @@ import Layout from "../../../layouts/Layout.astro";
         <section class="case-study-feature">
             <h2>The Quiz</h2>
             <div class="feature-grid feature-grid--reverse">
-                <img
-                    src="/img/case-studies/bazu-quiz.png"
-                    alt="Quiz interface: five questions for finding your ideal buzz cut length"
-                    class="feature-image"
-                />
+                <div class="feature-stack">
+                    <img
+                        src="/img/case-studies/answering.png"
+                        alt="Quiz question interface for finding a buzz cut length"
+                        class="feature-image feature-image--ui"
+                    />
+                    <img
+                        src="/img/case-studies/answer.png"
+                        alt="Quiz result interface showing a recommended 3mm length"
+                        class="feature-image feature-image--ui"
+                    />
+                </div>
                 <div>
                     <p class="feature-eyebrow">
                         Five questions for the undecided.
@@ -243,6 +299,14 @@ import Layout from "../../../layouts/Layout.astro";
                         in favor of grounded ones like "how often do you need to
                         look formal?" The result should connect to the user's
                         actual life, not a vague aesthetic.
+                    </p>
+                    <p>
+                        Each question scores 1 to 4. Motivation and prior
+                        experience are weighted more than styling habits —
+                        someone who has never had a buzz cut will always land at
+                        a shorter recommendation, regardless of how formal they
+                        need to look. The five scores combine into a total that
+                        maps to a recommended length range.
                     </p>
                 </div>
             </div>
@@ -356,43 +420,23 @@ import Layout from "../../../layouts/Layout.astro";
             </div>
         </section>
 
-        <section class="case-study-outcome">
-            <h2>Current Direction</h2>
-            <div class="outcome-gallery">
-                <img
-                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.20.png"
-                    alt="Full webpage screen for båzu frisør"
-                />
-                <img
-                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.32.png"
-                    alt="båzu frisør website section showing the Milli 0.1 machine"
-                />
-                <img
-                    src="/img/case-studies/Screenshot 2026-05-24 at 22.59.43.png"
-                    alt="båzu frisør website booking section"
-                />
-            </div>
-            <p>
-                The concept treats the website as a decision tool, not just a
-                salon brochure. Each section answers one moment of doubt: what
-                the length looks like, which option fits the user, why the
-                service is precise, and how to book.
-            </p>
-        </section>
-
         <section class="case-study-learned">
             <h2>What I Learned</h2>
             <p>
-                The thing I underestimated was how many decisions design is
-                actually made of. Color, type, the number of questions, the
-                exact word in a piece of copy. Each one tests both your instinct
-                for users and your own taste.
+                What I noticed most in this project was how much small details
+                can change the feeling of a design. A buzz cut can change with
+                one millimeter, and a UI can change with one word. I kept
+                thinking about how to reduce the user's anxiety before they
+                choose. The way a question is asked can feel helpful, or it can
+                feel like pressure.
             </p>
             <p>
-                I aimed for something that feels good for both sides, the person
-                using it, and the person making it. Next time, I'd factor in
-                technical constraints earlier, especially the difficulty of
-                keeping a single portrait consistent across seven hair lengths.
+                Color, spacing, and copy all change the temperature of the
+                screen. If I pushed too far toward what I personally thought
+                looked cool, the site started to feel a little cold for someone
+                trying a buzz cut for the first time. But if I explained too
+                much, the quietness of the brand disappeared. Finding the space
+                between those two points was the hardest part.
             </p>
         </section>
     </article>
@@ -409,7 +453,6 @@ import Layout from "../../../layouts/Layout.astro";
         --bazu-visual-text: #2e2923;
         --bazu-muted: #6d6258;
         --bazu-caption: #675d52;
-        --bazu-reference: #70675d;
         --bazu-palette-meta: #82776a;
         --bazu-brown: #4e3620;
         --bazu-line: rgba(78, 54, 32, 0.14);
@@ -432,7 +475,6 @@ import Layout from "../../../layouts/Layout.astro";
         --bazu-visual-text: #ddd8ce;
         --bazu-muted: #9a948a;
         --bazu-caption: #9a948a;
-        --bazu-reference: #9a948a;
         --bazu-palette-meta: #9a948a;
         --bazu-brown: #c8a87c;
         --bazu-line: rgba(237, 232, 222, 0.1);
@@ -597,8 +639,7 @@ import Layout from "../../../layouts/Layout.astro";
     .case-study-challenge,
     .case-study-user,
     .case-study-feature,
-    .case-study-learned,
-    .case-study-outcome {
+    .case-study-learned {
         margin-top: var(--bazu-section-gap);
     }
 
@@ -613,7 +654,6 @@ import Layout from "../../../layouts/Layout.astro";
 
     .case-study-challenge p,
     .case-study-user p,
-    .case-study-outcome p,
     .case-study-learned p {
         max-width: var(--bazu-measure);
         color: var(--bazu-copy);
@@ -648,6 +688,91 @@ import Layout from "../../../layouts/Layout.astro";
 
     .feature-grid--reverse {
         grid-template-columns: 1fr 1.2fr;
+    }
+
+    .feature-grid--slider {
+        grid-template-columns: minmax(0, 7fr) minmax(12rem, 3fr);
+        align-items: start;
+    }
+
+    .feature-stack {
+        display: grid;
+        gap: 1rem;
+    }
+
+    .feature-stack--slider {
+        align-items: start;
+        gap: 1.35rem;
+    }
+
+    .hair-length-sequence {
+        position: relative;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        overflow: hidden;
+        border: 1px solid var(--bazu-line-soft);
+        border-radius: 0.75rem;
+        background: var(--bazu-cream);
+    }
+
+    .hair-length-sequence img {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        z-index: 1;
+        animation: hair-length-fade 14s infinite;
+    }
+
+    .hair-length-sequence img:first-child {
+        position: relative;
+        opacity: 1;
+        z-index: 0;
+        animation: none;
+    }
+
+    .hair-length-sequence img:nth-child(2) {
+        animation-delay: 2s;
+    }
+
+    .hair-length-sequence img:nth-child(3) {
+        animation-delay: 4s;
+    }
+
+    .hair-length-sequence img:nth-child(4) {
+        animation-delay: 6s;
+    }
+
+    .hair-length-sequence img:nth-child(5) {
+        animation-delay: 8s;
+    }
+
+    .hair-length-sequence img:nth-child(6) {
+        animation-delay: 10s;
+    }
+
+    .hair-length-sequence img:nth-child(7) {
+        animation-delay: 12s;
+    }
+
+    @keyframes hair-length-fade {
+        0% {
+            opacity: 0;
+        }
+
+        5%,
+        20% {
+            opacity: 1;
+        }
+
+        30%,
+        100% {
+            opacity: 0;
+        }
     }
 
     .quiz-questions {
@@ -687,25 +812,23 @@ import Layout from "../../../layouts/Layout.astro";
         font-weight: 700;
     }
 
-    .feature-placeholder {
-        min-height: 220px;
-        display: grid;
-        place-items: center;
-        padding: 2rem;
-        border: 1px solid rgba(78, 54, 32, 0.18);
-        border-radius: 1.5rem;
-        color: var(--bazu-brown);
-        background: rgba(248, 244, 225, 0.46);
-        font-style: italic;
-        text-align: center;
-    }
-
     .feature-image {
         display: block;
         width: 100%;
         height: auto;
         border-radius: 0.75rem;
         object-fit: cover;
+    }
+
+    .feature-image--ui {
+        border: 1px solid var(--bazu-line-soft);
+        background: var(--bazu-cream);
+    }
+
+    .feature-image--slider-ui {
+        grid-column: 1 / -1;
+        width: min(100%, 920px);
+        margin-top: -1rem;
     }
 
     .machine-visual {
@@ -874,30 +997,6 @@ import Layout from "../../../layouts/Layout.astro";
         font-weight: 300;
     }
 
-    .outcome-gallery {
-        display: grid;
-        grid-template-columns: 1.4fr 1fr 1fr;
-        gap: 1rem;
-        margin-bottom: 1.5rem;
-    }
-
-    .outcome-gallery img {
-        display: block;
-        width: 100%;
-        height: 100%;
-        min-height: 260px;
-        object-fit: cover;
-        object-position: top;
-        border: 1px solid var(--bazu-line-soft);
-        border-radius: 1rem;
-        background: var(--bazu-cream);
-    }
-
-    .outcome-gallery img:first-child {
-        grid-row: span 2;
-    }
-
-    .case-study-outcome p,
     .case-study-learned p {
         line-height: 1.8;
     }
@@ -958,13 +1057,8 @@ import Layout from "../../../layouts/Layout.astro";
             gap: 0.6rem;
         }
 
-        .case-study-snapshot,
-        .outcome-gallery {
+        .case-study-snapshot {
             grid-template-columns: 1fr;
-        }
-
-        .outcome-gallery img:first-child {
-            grid-row: auto;
         }
 
         .overview-item,
@@ -995,10 +1089,6 @@ import Layout from "../../../layouts/Layout.astro";
             rgba(28, 22, 18, 0.8)
         );
         border-color: rgba(237, 232, 222, 0.08);
-    }
-
-    :global(body.dark) .hero-media img {
-        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
     }
 
     :global(body.dark) .palette-chip {
