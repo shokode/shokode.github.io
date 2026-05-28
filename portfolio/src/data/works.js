@@ -180,7 +180,7 @@ export const works = [
     title: "båzu frisør",
     subtitle: "One-page website concept / UX case study",
     date: "2026-05-26",
-    tags: ["Web", "UI/UX"],
+    tags: ["UI/UX"],
     used: ["Figma Make", "Astro", "Claude (AI assistant)"],
     href: "/works/bazu-frisor/",
     thumb: "/img/case-studies/hero2.png"
