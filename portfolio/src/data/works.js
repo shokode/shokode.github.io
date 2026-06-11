@@ -186,6 +186,17 @@ export const works = [
     thumb: "/img/case-studies/hero2.png"
   },
   {
+    id: "web6",
+    type: "web",
+    title: "PolygloTyping",
+    subtitle: "Concept / Design / Language Learning",
+    date: "2026-06-11",
+    tags: ["Web", "UI/UX"],
+    used: ["Claude Code"],
+    href: "https://shokode.github.io/polyglot-perapera/",
+    thumb: "/img/pdf/polyglotyping.png"
+  },
+  {
     id: "slides1",
     type: "slides",
     title: "Hvem er universell utforming nyttig for?",
