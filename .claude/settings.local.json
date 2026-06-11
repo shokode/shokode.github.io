@@ -13,7 +13,16 @@
       "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" add portfolio/src/pages/blog/index.astro)",
       "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" commit -m \"fix\\(blog\\): detect lang from filename instead of frontmatter\")",
       "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" push)",
-      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" commit -m \"style\\(blog\\): move lang toggle below Blog heading\")"
+      "Bash(git -C \"c:\\\\Users\\\\shoko\\\\OneDrive\\\\Documents\\\\Code\\\\HTML-JS-CSS\\\\shokode.github.io\" commit -m \"style\\(blog\\): move lang toggle below Blog heading\")",
+      "Bash(npx playwright *)",
+      "Bash(node -e ' *)",
+      "Bash(ls ~/.cache/ms-playwright/chromium-*/chrome-mac/ 2>/dev/null | head -5 || ls ~/Library/Caches/ms-playwright/ 2>/dev/null | head -5)",
+      "Read(//Users/shoko/.cache/**)",
+      "Read(//Users/shoko/Library/Caches/ms-playwright/**)",
+      "Bash(cat)",
+      "Bash(node /tmp/screenshot.cjs)",
+      "Bash(sips -g pixelWidth -g pixelHeight /tmp/portfolio-full2.png)",
+      "Bash(python3)"
     ]
   }
 }
