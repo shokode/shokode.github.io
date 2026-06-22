@@ -197,6 +197,18 @@ export const works = [
     thumb: "/img/pdf/polyglotyping.png"
   },
   {
+    id: "slides3",
+    type: "slides",
+    title: "How I built it – PolygloTyping",
+    subtitle: "Exam project · Feature development process",
+    date: "2026-06-17",
+    year: 2026,
+    tags: ["Web", "UI/UX"],
+    used: ["HTML", "CSS"],
+    href: "https://shokode.github.io/polyglot-perapera/TimerMode.html",
+    thumb: "/img/pdf/typingslidehtml.png"
+  },
+  {
     id: "slides1",
     type: "slides",
     title: "Hvem er universell utforming nyttig for?",
