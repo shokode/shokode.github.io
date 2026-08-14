@@ -25,6 +25,14 @@ import Layout from "../../../layouts/Layout.astro";
                     head or buzz cut. This is a one page website concept for a
                     fictional short hair specialty salon in Oslo.
                 </p>
+                <a
+                    class="hero-live-link"
+                    href="https://shokode.github.io/bazu-frisor/"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    View live site ↗
+                </a>
             </div>
 
             <figure class="hero-media">
@@ -63,7 +71,7 @@ import Layout from "../../../layouts/Layout.astro";
                 </div>
                 <div class="meta-row">
                     <dt>Status</dt>
-                    <dd>Concept project</dd>
+                    <dd>Live demo</dd>
                 </div>
             </dl>
         </section>
@@ -562,6 +570,25 @@ import Layout from "../../../layouts/Layout.astro";
         line-height: 1.72;
         text-wrap: pretty;
         color: var(--bazu-lead);
+    }
+
+    .hero-live-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-top: 1.6rem;
+        padding: 0.75rem 1.4rem;
+        border-radius: 999px;
+        background: var(--bazu-brown);
+        color: var(--bazu-cream);
+        font-size: 0.92rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: opacity 0.2s ease;
+    }
+
+    .hero-live-link:hover {
+        opacity: 0.85;
     }
 
     .case-study-meta {

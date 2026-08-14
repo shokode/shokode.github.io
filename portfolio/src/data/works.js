@@ -178,12 +178,34 @@ export const works = [
     id: "web5",
     type: "web",
     title: "båzu frisør",
-    subtitle: "One-page website concept / UX case study",
+    subtitle: "Fictional client · UX case study write-up",
     date: "2026-05-26",
     tags: ["UI/UX"],
     used: ["Figma Make", "Astro", "Claude (AI assistant)"],
     href: "/works/bazu-frisor/",
     thumb: "/img/case-studies/hero2.png"
+  },
+  {
+    id: "web9",
+    type: "web",
+    title: "båzu frisør — live site",
+    subtitle: "Fictional client · One-page site, EN/NO/JA",
+    date: "2026-08-14",
+    tags: ["Web", "UI/UX"],
+    used: ["Astro", "Claude Code"],
+    href: "https://shokode.github.io/bazu-frisor/",
+    thumb: "/img/case-studies/bazu-frisor-live.png"
+  },
+  {
+    id: "web10",
+    type: "web",
+    title: "Kolsås Akupunkturklinikk",
+    subtitle: "Real client project · Rebuilt from Wix, CMS-editable",
+    date: "2026-08-11",
+    tags: ["Web", "UI/UX"],
+    used: ["Astro", "Sveltia CMS", "Wix → Astro migration"],
+    href: "https://aku.pages.dev/",
+    thumb: "/img/case-studies/kolsas-akupunktur-hero.png"
   },
   {
     id: "web6",
@@ -207,6 +229,28 @@ export const works = [
     used: ["HTML", "CSS"],
     href: "https://shokode.github.io/polyglot-perapera/TimerMode.html",
     thumb: "/img/pdf/typingslidehtml.png"
+  },
+  {
+    id: "web7",
+    type: "web",
+    title: "Studio Negl",
+    subtitle: "Fictional client · Neglesalong, one-page site",
+    date: "2026-08-14",
+    tags: ["Web", "UI/UX"],
+    used: ["Astro", "Claude Code"],
+    href: "https://shokode.github.io/studio-negl/",
+    thumb: "/img/case-studies/studio-negl-hero.png"
+  },
+  {
+    id: "web8",
+    type: "web",
+    title: "Snuten Valpeskole",
+    subtitle: "Fictional client · Valpeskole, multi-page site",
+    date: "2026-08-14",
+    tags: ["Web", "UI/UX"],
+    used: ["Astro", "Claude Code"],
+    href: "https://shokode.github.io/snuten-valpeskole/",
+    thumb: "/img/case-studies/snuten-valpeskole-hero.png"
   },
   {
     id: "slides1",
